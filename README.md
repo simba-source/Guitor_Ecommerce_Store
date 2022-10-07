@@ -5,6 +5,6 @@ Authors: Christian, Max, Aidan, Nikhil
 This is a Marketplace Building Project.
 
 ## Getting started 
-clone the gitlab repository to your local machine
+clone the gitlab repository to your local machine nikhil
 
 
