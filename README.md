@@ -17,3 +17,4 @@ clone the gitlab repository to your local machine nikhil
 6. Look into Flask specifics - none of us are super familiar with it (important)
 7. Set up Trello (nice to have)
 
+hi//
