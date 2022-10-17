@@ -4,7 +4,7 @@ Some flask starter code, will need to do more research...
 
 from flask import Flask, render_template, request, url_for, flash, redirect
 from db import Db
-
+from flask_mysqldb import MySQL
 #app creation
 app = Flask(__name__)
 
@@ -12,12 +12,16 @@ app = Flask(__name__, static_folder='instance/static')
 
 app.config.from_object('config')
 #route tells us how to use the url
+app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_USER'] = 'root'
+app.config['MYSQL_PASSWORD'] = 'password'
+app.config['MYSQL_DB'] = 'marketprofile'
+mysql = MySQL(app)
+
 @app.route('/')
 # ‘/’ URL is bound with hello_world() function.
 def hello_world():
     return 'Hello World'
-
-
 
 
 @app.route("/", methods=['GET', 'POST'])
@@ -29,8 +33,8 @@ def home():
     #                        show=display)
 
 
-@app.route("/welcome", methods = ['GET', 'POST'])
-def welcome():
+# @app.route("/welcome", methods = ['GET', 'POST'])
+# def welcome():
     # """welcome page"""
     #  return render_template('welcome.html',
     #                            title="Customer Welcome",
@@ -57,7 +61,7 @@ def transactions():
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
-    """Login the user. TODO """
+    """Login the user. """
     #
     # with open(app.config['CREDENTIALS_FILE']) as fh:
     #     reader = csv.DictReader(fh)
@@ -76,9 +80,9 @@ def login():
     #     except KeyError:
     #         pass
     #     flash("Invalid username or password!", 'alert-danger')
-    return render_template('login.html',
-                           title="Secure Login",
-                           heading="Secure Login")
+    # return render_template('login.html',
+    #                        title="Secure Login",
+    #                        heading="Secure Login")
 
 
 @app.route("/login_success/<int:id_>", methods=['GET', ])
