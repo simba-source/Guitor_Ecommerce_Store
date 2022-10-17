@@ -29,9 +29,15 @@ def home():
     #                        show=display)
 
 
+@app.route("/welcome", methods = ['GET', 'POST'])
+def welcome():
+    # """welcome page"""
+    #  return render_template('welcome.html',
+    #                            title="Customer Welcome",
+    #                            heading="Customer Welcome")
+
 @app.route("/transactions", methods=['GET', 'POST'])
 def transactions():
-     """Transaction injection attack """
     # search_term = ''
     # if request.method == 'POST':
     #     search_term = request.form.get('search_term')
