@@ -17,4 +17,9 @@ clone the gitlab repository to your local machine nikhil
 6. Look into Flask specifics - none of us are super familiar with it (important)
 7. Set up Trello (nice to have)
 
-hi//
+## Sprint 2 tasks
+
+1. Front-end HTML pages: welcome page, shop overview page, product page, and cart page (essential, hard)
+2. Connect to AWS database (essential, hard)
+3. Connect Flask with Front-end and database (essential, hard)
+4. Make sure SQL is fully functioning within the project - fully accessible and functionable (essential, medium to hard)
