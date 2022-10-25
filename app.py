@@ -3,9 +3,7 @@ Some flask starter code, will need to do more research...
 '''
 
 from flask import Flask, render_template, request, url_for, flash, redirect, session
-from db import Db
 from flask_mysqldb import MySQL
-import MySQLdb.cursors
 #app creation
 app = Flask(__name__)
 
