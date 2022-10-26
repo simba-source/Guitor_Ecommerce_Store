@@ -25,6 +25,9 @@ def form():
     data = cur.fetchall()
     return render_template('custom.html', random_quote = data)
 
+@app.route('/home')
+def home():
+    return render_template('test.html')
 # @app.route('/login')
 # def login():
 #     cur = mysql.conection.cursor()
