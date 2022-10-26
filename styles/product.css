@@ -10,7 +10,7 @@
 }
 
 .container {
-    max-width: 900px;
+    max-width: 768px;
     margin: 0 auto;
     padding: 0 1.5em;
 }
@@ -118,4 +118,31 @@
 
 .button-68:hover {
   box-shadow: rgba(39, 174, 96, .2) 0 6px 12px;
+}
+
+
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .product-image {
+        height: 100%;
+        width: 70%;
+        max-width: 80%;
+        max-height: 30rem;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+
+}
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
+}
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {
+    
 }
