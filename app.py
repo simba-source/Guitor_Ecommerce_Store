@@ -9,18 +9,22 @@ app.config['MYSQL_DB'] = 'mktdata'
 mysql = MySQL(app)
 mysql.init_app(app)
 
-@app.route('/')
+@app.route('/',methods = ['GET','POST'])
 # ‘/’ URL is bound with hello_world() function.
 def home():
     return render_template('index.html')
 
-@app.route('/query')
+@app.route('/product', methods = ['GET','POST'])
+def product():
+    return render_template('product.html')
+
+@app.route('/query', methods = ['GET', 'POST'])
 def query():
     cur = mysql.connect.cursor()
     cur.execute("DROP TABLE guitar")
     cur.execute("CREATE TABLE guitar(ID INT, Name VARCHAR(150), Price DECIMAL(7, 2))")
     cur.execute("INSERT INTO guitar VALUES (123, 'Fender Strat', 499.99)")
-    cur.execute("SELECT * FROM guitar")
+    cur.execute("SELECT Name FROM guitar")
     data = cur.fetchall()
     return render_template('querytest.html', random_quote = data)
 

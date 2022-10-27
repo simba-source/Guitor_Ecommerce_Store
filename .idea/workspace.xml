@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b1a447a8-2c3f-410d-90c0-bff13c3804af" name="Changes" comment="simple change">
+    <list default="true" id="b1a447a8-2c3f-410d-90c0-bff13c3804af" name="Changes" comment="query works with flask">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +59,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="788714cd-07e2-4479-a3a8-509abb57f699" name="Changes" comment="" />
+      <changelist id="b1a447a8-2c3f-410d-90c0-bff13c3804af" name="Changes" comment="query works with flask" />
       <created>1665520691571</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -71,6 +72,7 @@
       <workItem from="1665962037234" duration="1348000" />
       <workItem from="1666227099735" duration="1509000" />
       <workItem from="1666828482850" duration="1180000" />
+      <workItem from="1666882442146" duration="1842000" />
     </task>
     <task id="LOCAL-00001" summary="just checking with some flask code">
       <created>1666752836653</created>
@@ -79,7 +81,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666752836653</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="query works with flask">
+      <created>1666830905513</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1666830905513</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -98,11 +107,12 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="just checking with some flask code" />
-    <option name="LAST_COMMIT_MESSAGE" value="just checking with some flask code" />
+    <MESSAGE value="query works with flask" />
+    <option name="LAST_COMMIT_MESSAGE" value="query works with flask" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/cs205_final_project_group_7_2$market.coverage" NAME="market Coverage Results" MODIFIED="1666748218377" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/cs205_final_project_group_7_2$app.coverage" NAME="app Coverage Results" MODIFIED="1666830877950" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/cs205_final_project_group_7_2$app.coverage" NAME="app Coverage Results" MODIFIED="1666884284343" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/cs205_final_project_group_7_2$max_db.coverage" NAME="max_db Coverage Results" MODIFIED="1666830011898" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
