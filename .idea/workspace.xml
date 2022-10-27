@@ -4,23 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="788714cd-07e2-4479-a3a8-509abb57f699" name="Changes" comment="just checking with some flask code">
-      <change afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/querytest.html" afterDir="false" />
+    <list default="true" id="b1a447a8-2c3f-410d-90c0-bff13c3804af" name="Changes" comment="simple change">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/contact.png" beforeDir="false" afterPath="$PROJECT_DIR$/styles/contact.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/electric guitar.png" beforeDir="false" afterPath="$PROJECT_DIR$/styles/electric guitar.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/gift.png" beforeDir="false" afterPath="$PROJECT_DIR$/styles/gift.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/styles/logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/return.png" beforeDir="false" afterPath="$PROJECT_DIR$/styles/return.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/search.png" beforeDir="false" afterPath="$PROJECT_DIR$/styles/search.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/shamisen.png" beforeDir="false" afterPath="$PROJECT_DIR$/styles/shamisen.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/shipping.png" beforeDir="false" afterPath="$PROJECT_DIR$/styles/shipping.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/sitar.png" beforeDir="false" afterPath="$PROJECT_DIR$/styles/sitar.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/vintage guitar.png" beforeDir="false" afterPath="$PROJECT_DIR$/styles/vintage guitar.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/violin.png" beforeDir="false" afterPath="$PROJECT_DIR$/styles/violin.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/shop.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/shop.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,18 +37,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\aidan\PycharmProjects\cs205-final-project-group-7-2\styles" />
@@ -116,7 +102,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/cs205_final_project_group_7_2$market.coverage" NAME="market Coverage Results" MODIFIED="1666748218377" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/cs205_final_project_group_7_2$app.coverage" NAME="app Coverage Results" MODIFIED="1666829574393" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/cs205_final_project_group_7_2$max_db.coverage" NAME="max_db Coverage Results" MODIFIED="1666749169751" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/cs205_final_project_group_7_2$app.coverage" NAME="app Coverage Results" MODIFIED="1666830877950" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/cs205_final_project_group_7_2$max_db.coverage" NAME="max_db Coverage Results" MODIFIED="1666830011898" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

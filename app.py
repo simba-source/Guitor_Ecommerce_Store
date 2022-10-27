@@ -9,12 +9,12 @@ app.config['MYSQL_DB'] = 'mktdata'
 mysql = MySQL(app)
 mysql.init_app(app)
 
-@app.route('/home')
+@app.route('/')
 # ‘/’ URL is bound with hello_world() function.
 def home():
     return render_template('index.html')
 
-@app.route('/')
+@app.route('/query')
 def query():
     cur = mysql.connect.cursor()
     cur.execute("DROP TABLE guitar")
