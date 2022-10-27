@@ -23,6 +23,7 @@ def form():
     cur.execute("INSERT INTO guitar VALUES (123, 'Fender Strat', 499.99)")
     cur.execute("SELECT * FROM guitar")
     data = cur.fetchall()
+    print(data)
     return render_template('custom.html', random_quote = data)
 
 @app.route('/home')
