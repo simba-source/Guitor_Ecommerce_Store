@@ -1,41 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../styles/product.css" rel="stylesheet">
-    <script defer src="../scripts/product.js"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova&family=Open+Sans&display=swap');
-    </style>
-    <title>Product</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Guitar Store</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+    <link rel="stylesheet" href="../styles/style.css" />
 </head>
+
 <body>
-    <div class="header"></div>
-    <section class="container">
-        <div class="large-flex">
-            <div class="large-flex-column">
-                <img src="../styles/electric guitar.png" alt="Product Name" class="product-image">
-            </div>
-            <div class="large-flex-column">
-                <div class="product-details">
-                    <h1>Product Name</h1>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Autem omnis itaque expedita, rerum maiores veritatis cum. Assumenda fugit eius id atque vel dolorum asperiores, laudantium laboriosam voluptatem officiis consectetur placeat!</p>
-                </div>
-                <div class="product-pricing grid large-flex-item">
-                    <div class="grid-item">
-                        <h3>$499.99</h3>
-                    </div>
-                    <div class="grid-item large-flex-item">
-                        <button class="add-to-cart button-68" role="button">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
+    <section id="header">
+        <a href="../templates/index.html"><img src="../images/logo.gif" alt="logo" class="logo" /></a>
+
+        <div>
+            <ul id="navbar">
+                <li><a class="active" href="../templates/index.html">Home</a></li>
+                <li><a href="../templates/shop.html">Shop</a></li>
+                <li><a href="../templates/blog.html">Blog</a></li>
+                <li><a href="../templates/about.html">About</a></li>
+                <li><a href="../templates/contact.html">Contact</a></li>
+                <li id="lg-bag">
+                    <a href="../templates/cart.html"><i class="fa-solid fa-bag-shopping"></i></a>
+                </li>
+                <a href="#" id="close"><i class="fa-solid fa-xmark"></i></a>
+            </ul>
         </div>
-        <div class="product-description">
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eos, error earum! Sequi, laboriosam nemo labore illum eaque quidem consectetur doloribus quis iusto. Ipsa modi debitis impedit cum tempore, fuga iste ipsam atque illo sunt exercitationem facere alias quae, illum voluptatibus ea non reiciendis similique sit cumque voluptatum. Dolore distinctio ipsum voluptatibus perferendis blanditiis eos tempora. Facere unde dignissimos quam exercitationem voluptatum perspiciatis rerum eius veniam! Enim ipsum, sunt a officiis amet labore fugit, cumque quaerat itaque ex, iusto molestias officia? Asperiores corporis voluptatum nesciunt harum blanditiis. Ad, quis fugiat praesentium sint amet repudiandae aliquam veritatis, quibusdam debitis ullam, doloremque beatae saepe iusto vel ea perspiciatis officia facere distinctio. Sunt molestias sapiente velit et cum voluptatibus! Officia, veniam quo incidunt numquam, voluptatem perferendis atque voluptas beatae quia fugit sequi harum. Cumque atque, aspernatur doloribus nam, temporibus aperiam et nobis impedit quos facere libero aliquid beatae, laudantium repellat fuga laboriosam? Eaque, modi officiis! Iusto eum repudiandae dolore, totam rerum minus consequuntur quam vitae ea animi officia dignissimos! Tenetur nulla nemo, molestiae laborum repudiandae facere pariatur placeat ipsum est vitae. Dicta, quo a est, qui ipsam dolorem minus praesentium voluptas, consectetur suscipit aut hic molestiae. Libero beatae ipsum, blanditiis repellat unde voluptas molestiae.</p>
+        <div id="mobile">
+            <a href="../templates/cart.html"><i class="fa-solid fa-bag-shopping"></i></a>
+            <i id="bar" class="fas fa-outdent"></i>
         </div>
     </section>
+
+    <section id="pro-details" class="section-p1">
+        <div class="single-pro-image">
+            <img src="../images/products/f1.png" width="100%" id="MainImage" alt="product" />
+
+            <div class="small-img-group">
+                <div class="small-img-col">
+                    <img onclick="click1()" src="../images/products/f1.png" alt="product" width="100%" class="small-img focus" />
+                </div>
+                <div class="small-img-col">
+                    <img onclick="click2()" src="../images/products/f2.png" alt="product" width="100%" class="small-img" />
+                </div>
+                <div class="small-img-col">
+                    <img onclick="click3()" src="../images/products/f3.png" alt="product" width="100%" class="small-img" />
+                </div>
+                <div class="small-img-col">
+                    <img onclick="click4()" src="../images/products/n1.png" alt="product" width="100%" class="small-img" />
+                </div>
+            </div>
+        </div>
+
+        <div class="single-pro-details">
+            <h6>Home / Product</h6>
+            <h4>Electric Guitar</h4>
+            <h2>$1570.00</h2>
+            <select>
+          <option>Select Color</option>
+          <option>White</option>
+          <option>Black</option>
+          <option>Blue</option>
+          <option>Orange</option>
+        </select>
+            <input type="number" value="1" />
+            <button class="normal">Add To Cart</button>
+            <h4>Product Details</h4>
+            <span>
+          Lorem ipsum dolor, sit amet consectetur adsicing elit. Laborum, magni.
+          Itaque, repella libero! Blanditiis corporis, modi aliquid eligendi
+          illo officiis, repudiandae nesciunt sunt temporibus similique
+          quibusdam. Odio, quo aut rerum architto deleniti itaque rendis ea
+          pariatur ipsa fugiat. Eveniet nostrum unde, saepe praesentium animi
+          quis quos aspernatur excepturi. Ipsum, laborum corporis blanditiis
+          rerum dolorum corrupti illum consectetur laudantium.
+        </span>
+        </div>
+    </section>
+
+    <section id="product1" class="section-p1">
+        <h2>Featured Products</h2>
+        <p>2022 Collections, New Modern Designs</p>
+        <div class="pro-container">
+            <div class="pro" onclick="window.location.href='product.html';">
+                <img src="https://images.unsplash.com/photo-1586188463084-733582b26240?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="product" />
+                <div class="des">
+                    <span>UVM</span>
+                    <h5>Guitar</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$840</h4>
+                </div>
+                <a href="#"><i class="fa-solid fa-cart-shopping cart"></i></a>
+            </div>
+            <div class="pro" onclick="window.location.href='product.html';">
+                <img src="https://images.unsplash.com/photo-1601956349578-c31521587860?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="product" />
+                <div class="des">
+                    <span>UVM</span>
+                    <h5>Guitar</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$840</h4>
+                </div>
+                <a href="#"><i class="fa-solid fa-cart-shopping cart"></i></a>
+            </div>
+            <div class="pro" onclick="window.location.href='product.html';">
+                <img src="https://images.unsplash.com/photo-1540281772389-9c107ba8c7c9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=677&q=80" alt="product" />
+                <div class="des">
+                    <span>UVM</span>
+                    <h5>Guitar</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$840</h4>
+                </div>
+                <a href="#"><i class="fa-solid fa-cart-shopping cart"></i></a>
+            </div>
+        </div>
+    </section>
+    <section id="newsletter" class="section-p1 section-m1">
+        <div class="newstext">
+            <h4>Sign Up For Newsletters</h4>
+            <p>
+                Get E-mail updates about our latest shop and
+                <span>special offers</span>
+            </p>
+        </div>
+        <div class="form">
+            <input type="text" placeholder="Your email adress" />
+            <button class="normal">Sign Up</button>
+        </div>
+    </section>
+
+    <footer class="section-p1">
+        <div class="col">
+            <img class="logo" src="../images/logo.gif" alt="logo" />
+            <h4>Contact</h4>
+            <p>
+                <strong>Address:</strong> CS205, UVM, Burlington, Vermont
+            </p>
+            <p><strong>Phone:</strong> +01 2222 345 / (+90) 01 2345 6789</p>
+            <p><strong>Hours:</strong> 10:00 - 21:00, Mon - Sat</p>
+            <div class="follow">
+                <h4>Follow us</h4>
+                <div class="icon">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-pinterest-p"></i>
+                    <i class="fab fa-youtube"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <h4>About</h4>
+            <a href="#">About us</a>
+            <a href="#">Delivery Information</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Term & Conditions</a>
+            <a href="#">Contact us</a>
+        </div>
+        <div class="col">
+            <h4>My Account</h4>
+            <a href="#">Sign In</a>
+            <a href="#">View Cart</a>
+            <a href="#">My Wishlist</a>
+            <a href="#">Tack My Order</a>
+            <a href="#">Help</a>
+        </div>
+        <div class="col install">
+            <h4>Install App</h4>
+            <p>From App Store or Google Play</p>
+            <div class="row">
+                <img src="../images/pay/app.jpg" alt="app store" />
+                <img src="../images/pay/play.jpg" alt="google play" />
+            </div>
+            <p>Secured Payment Gateways</p>
+            <img src="../images/pay/pay.png" alt="pay" />
+        </div>
+
+        <div class="copyright">
+            <p>© 2022, UVM CS205 Team-7</p>
+        </div>
+    </footer>
+
+    <script src="../scripts/script.js"></script>
 </body>
+
 </html>

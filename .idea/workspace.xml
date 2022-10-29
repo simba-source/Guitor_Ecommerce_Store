@@ -4,14 +4,57 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1305dc1-2481-467b-afe2-4fb9b55a80d2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/images/login/bg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/login/front.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/login/man.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/login.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/styles/login.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
+    <list default="true" id="c1305dc1-2481-467b-afe2-4fb9b55a80d2" name="Changes" comment="login page added">
+      <change afterPath="$PROJECT_DIR$/images/about/a6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/about/banner.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/banner/b1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/banner/b14.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/banner/b19.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/banner/b2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/banner/b20.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/button.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/contact-page.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/features/f1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/features/f2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/features/f3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/features/f4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/features/f5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/features/f6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/hero4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/logo.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/pay/app.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/pay/pay.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/pay/play.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/payment-page.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/people/Christian.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/people/Max.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/people/aiedon.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/products/f1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/products/f2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/products/f3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/styles/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/blog.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/contact.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/contact.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/electric guitar.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/products/n1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/gift.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/return.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/search.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/shamisen.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/products/n5.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/shipping.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/sitar.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/products/n3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/vintage guitar.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/products/n2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/violin.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/products/n4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/about.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cart.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/product.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/purchased.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/purchased.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/shop.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/shop.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,20 +88,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/nikhilsaireddychoppa/PycharmProjects/cs205-final-project-group-7-/images/products",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/images/products" />
+      <recent name="$PROJECT_DIR$/images" />
+      <recent name="$PROJECT_DIR$/images/people" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/images/login" />
       <recent name="C:\Users\aidan\PycharmProjects\cs205-final-project-group-7-2\styles" />
       <recent name="C:\Users\aidan\PycharmProjects\cs205-final-project-group-7-2\scripts" />
     </key>
@@ -66,7 +116,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="b1a447a8-2c3f-410d-90c0-bff13c3804af" name="Changes" comment="query works with flask" />
+      <changelist id="c1305dc1-2481-467b-afe2-4fb9b55a80d2" name="Changes" comment="login page added" />
       <created>1665520691571</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -95,7 +145,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666830905513</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="login page added">
+      <created>1666923431994</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1666923431994</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -115,6 +172,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="just checking with some flask code" />
     <MESSAGE value="query works with flask" />
-    <option name="LAST_COMMIT_MESSAGE" value="query works with flask" />
+    <MESSAGE value="login page added" />
+    <option name="LAST_COMMIT_MESSAGE" value="login page added" />
   </component>
 </project>
