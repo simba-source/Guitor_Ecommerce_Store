@@ -142,7 +142,7 @@ body {
 /*----------------------- Home Page -----------------------*/
 
 #hero {
-    background-image: url("../images/hero4.png");
+    background-image: url("images/hero4.png");
     height: 90vh;
     width: 100%;
     background-size: cover;
@@ -163,7 +163,7 @@ body {
 }
 
 #hero button {
-    background-image: url("../images/button.png");
+    background-image: url("images/button.png");
     background-color: transparent;
     color: #088178;
     border: 0;
@@ -309,7 +309,7 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-image: url("../images/banner/b2.jpg");
+    background-image: url("images/banner/b2.jpg");
     width: 100%;
     height: 40vh;
     background-size: cover;
@@ -430,7 +430,7 @@ body {
     justify-content: space-between;
     flex-wrap: wrap;
     align-items: center;
-    background-image: url("../images/banner/b14.png");
+    background-image: url("images/banner/b14.png");
     background-repeat: no-repeat;
     background-position: 20% 30%;
     background-color: #041e42;
@@ -556,7 +556,7 @@ footer .copyright {
 /*----------------------- Shop Page ----------------------- */
 
 #page-header {
-    background-image: url("../images/banner/b1.jpg");
+    background-image: url("images/banner/b1.jpg");
     width: 100%;
     height: 40vh;
     padding: 14px;
@@ -686,7 +686,7 @@ footer .copyright {
 /*--------------------- Blog Page ---------------------*/
 
 #page-header.blog-header {
-    background-image: url("../images/banner/b19.jpg");
+    background-image: url("images/banner/b19.jpg");
 }
 
 #blog {
@@ -765,7 +765,7 @@ footer .copyright {
 /*--------------------- About Page ---------------------*/
 
 #page-header.about-header {
-    background-image: url("../images/about/banner.png");
+    background-image: url("images/about/banner.png");
 }
 
 #about-head {
@@ -802,7 +802,7 @@ footer .copyright {
 /*--------------------- Contact Page ---------------------*/
 
 #page-header.contact-header {
-    background-image: url("../images/contact-page.jpg");
+    background-image: url("images/contact-page.jpg");
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -958,7 +958,7 @@ footer .copyright {
 }
 
 #page-header.cart-header {
-    background-image: url("../images/payment-page.jpg");
+    background-image: url("images/payment-page.jpg");
     background-size: cover;
     background-position: center;
 }

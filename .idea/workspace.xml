@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1305dc1-2481-467b-afe2-4fb9b55a80d2" name="Changes" comment="about, contact, product, shop, cart pages added">
-      <change afterPath="$PROJECT_DIR$/.gitlab-ci.yml" afterDir="false" />
+    <list default="true" id="6e25dd72-489c-4488-9f40-977e24612e0a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,19 +40,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/nikhilsaireddychoppa/PycharmProjects/cs205-final-project-group-7-/images/products",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/nikhilsaireddychoppa/PycharmProjects/cs205-final-project-group-7-/images/products&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/images/products" />
@@ -60,15 +60,15 @@
       <recent name="$PROJECT_DIR$/images/people" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/images/login" />
       <recent name="C:\Users\aidan\PycharmProjects\cs205-final-project-group-7-2\styles" />
+      <recent name="$PROJECT_DIR$/images/login" />
       <recent name="C:\Users\aidan\PycharmProjects\cs205-final-project-group-7-2\scripts" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="c1305dc1-2481-467b-afe2-4fb9b55a80d2" name="Changes" comment="login page added" />
+      <changelist id="b1a447a8-2c3f-410d-90c0-bff13c3804af" name="Changes" comment="flask working with product" />
       <created>1665520691571</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -82,6 +82,7 @@
       <workItem from="1666227099735" duration="1509000" />
       <workItem from="1666828482850" duration="1180000" />
       <workItem from="1666882442146" duration="1842000" />
+      <workItem from="1667093121748" duration="3150000" />
     </task>
     <task id="LOCAL-00001" summary="just checking with some flask code">
       <created>1666752836653</created>
@@ -104,14 +105,21 @@
       <option name="project" value="LOCAL" />
       <updated>1666923431994</updated>
     </task>
-    <task id="LOCAL-00004" summary="about, contact, product, shop, cart pages added">
-      <created>1667078741919</created>
+    <task id="LOCAL-00004" summary="updating flask with frontend changes">
+      <created>1667142799708</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1667078741919</updated>
+      <updated>1667142799708</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="updating flask with frontend changes">
+      <created>1667145028899</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1667145028899</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -132,7 +140,12 @@
     <MESSAGE value="just checking with some flask code" />
     <MESSAGE value="query works with flask" />
     <MESSAGE value="login page added" />
-    <MESSAGE value="about, contact, product, shop, cart pages added" />
-    <option name="LAST_COMMIT_MESSAGE" value="about, contact, product, shop, cart pages added" />
+    <MESSAGE value="updating flask with frontend changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="updating flask with frontend changes" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/cs205_final_project_group_7_2$market.coverage" NAME="market Coverage Results" MODIFIED="1666748218377" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/cs205_final_project_group_7_2$app.coverage" NAME="app Coverage Results" MODIFIED="1667146680610" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/cs205_final_project_group_7_2$max_db.coverage" NAME="max_db Coverage Results" MODIFIED="1666830011898" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
