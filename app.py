@@ -33,6 +33,10 @@ def cart():
 def about():
     return render_template('about.html')
 
+@app.route('/templates/product.html', methods = ['GET','POST'])
+def product():
+    return render_template('product.html')
+
 @app.route('/query', methods = ['GET', 'POST'])
 def query():
     cur = mysql.connect.cursor()
