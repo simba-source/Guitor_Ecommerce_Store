@@ -1,9 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
+
 html {
     scroll-behavior: smooth;
   }
   
   body {
-    font-family: "Lato", sans-serif;
+    font-family: 'Noto Sans JP', sans-serif;
     padding: 0;
     margin: 0;
   }
