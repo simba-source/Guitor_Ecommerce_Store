@@ -10,13 +10,28 @@ mysql = MySQL(app)
 mysql.init_app(app)
 
 @app.route('/',methods = ['GET','POST'])
-# ‘/’ URL is bound with hello_world() function.
+def origin():
+    return render_template('index.html')
+
+@app.route('/templates/index.html', methods = ['GET','POST'])
 def home():
     return render_template('index.html')
 
-@app.route('/product', methods = ['GET','POST'])
-def product():
-    return render_template('product.html')
+@app.route('/templates/shop.html', methods = ['GET','POST'])
+def shop():
+    return render_template('shop.html')
+
+@app.route('/templates/contact.html', methods = ['GET','POST'])
+def contact():
+    return render_template('contact.html')
+
+@app.route('/templates/cart.html', methods = ['GET','POST'])
+def cart():
+    return render_template('cart.html')
+
+@app.route('/templates/about.html', methods = ['GET','POST'])
+def about():
+    return render_template('about.html')
 
 @app.route('/query', methods = ['GET', 'POST'])
 def query():
