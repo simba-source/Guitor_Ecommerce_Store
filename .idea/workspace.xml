@@ -4,54 +4,50 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1305dc1-2481-467b-afe2-4fb9b55a80d2" name="Changes" comment="login page added">
-      <change afterPath="$PROJECT_DIR$/images/about/a6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/about/banner.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/banner/b1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/banner/b14.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/banner/b19.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/banner/b2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/banner/b20.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/button.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/contact-page.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/features/f1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/features/f2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/features/f3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/features/f4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/features/f5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/features/f6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/hero4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/logo.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/pay/app.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/pay/pay.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/pay/play.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/payment-page.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/people/Christian.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/people/Max.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/people/aiedon.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/products/f1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/products/f2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/products/f3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/script.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/styles/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/blog.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/contact.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="b1a447a8-2c3f-410d-90c0-bff13c3804af" name="Changes" comment="flask working with product">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/contact.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/electric guitar.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/products/n1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/gift.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/return.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/search.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/shamisen.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/products/n5.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/shipping.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/sitar.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/products/n3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/vintage guitar.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/products/n2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/violin.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/products/n4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/about/a6.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/styles/images/about/a6.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/about/banner.png" beforeDir="false" afterPath="$PROJECT_DIR$/styles/images/about/banner.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/banner/b1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/styles/images/banner/b1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/banner/b14.png" beforeDir="false" afterPath="$PROJECT_DIR$/styles/images/banner/b14.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/banner/b19.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/styles/images/banner/b19.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/banner/b2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/styles/images/banner/b2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/banner/b20.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/styles/images/banner/b20.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/button.png" beforeDir="false" afterPath="$PROJECT_DIR$/styles/images/button.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/contact-page.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/styles/images/contact-page.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/features/f1.png" beforeDir="false" afterPath="$PROJECT_DIR$/styles/images/features/f1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/features/f2.png" beforeDir="false" afterPath="$PROJECT_DIR$/styles/images/features/f2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/features/f3.png" beforeDir="false" afterPath="$PROJECT_DIR$/styles/images/features/f3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/features/f4.png" beforeDir="false" afterPath="$PROJECT_DIR$/styles/images/features/f4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/features/f5.png" beforeDir="false" afterPath="$PROJECT_DIR$/styles/images/features/f5.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/features/f6.png" beforeDir="false" afterPath="$PROJECT_DIR$/styles/images/features/f6.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/hero4.png" beforeDir="false" afterPath="$PROJECT_DIR$/styles/images/hero4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/login/bg.png" beforeDir="false" afterPath="$PROJECT_DIR$/styles/images/login/bg.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/login/front.svg" beforeDir="false" afterPath="$PROJECT_DIR$/styles/images/login/front.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/login/man.svg" beforeDir="false" afterPath="$PROJECT_DIR$/styles/images/login/man.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/logo.gif" beforeDir="false" afterPath="$PROJECT_DIR$/styles/images/logo.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/pay/app.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/styles/images/pay/app.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/pay/pay.png" beforeDir="false" afterPath="$PROJECT_DIR$/styles/images/pay/pay.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/pay/play.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/styles/images/pay/play.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/payment-page.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/styles/images/payment-page.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/people/Christian.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/styles/images/people/Christian.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/people/Max.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/styles/images/people/Max.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/people/aiedon.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/styles/images/people/aiedon.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/products/f1.png" beforeDir="false" afterPath="$PROJECT_DIR$/styles/images/products/f1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/products/f2.png" beforeDir="false" afterPath="$PROJECT_DIR$/styles/images/products/f2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/products/f3.png" beforeDir="false" afterPath="$PROJECT_DIR$/styles/images/products/f3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/products/n1.png" beforeDir="false" afterPath="$PROJECT_DIR$/styles/images/products/n1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/products/n2.png" beforeDir="false" afterPath="$PROJECT_DIR$/styles/images/products/n2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/products/n3.png" beforeDir="false" afterPath="$PROJECT_DIR$/styles/images/products/n3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/products/n4.png" beforeDir="false" afterPath="$PROJECT_DIR$/styles/images/products/n4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/products/n5.png" beforeDir="false" afterPath="$PROJECT_DIR$/styles/images/products/n5.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/about.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/blog.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cart.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contact.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/product.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/purchased.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/purchased.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/shop.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/shop.html" afterDir="false" />
@@ -88,19 +84,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/nikhilsaireddychoppa/PycharmProjects/cs205-final-project-group-7-/images/products",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/nikhilsaireddychoppa/PycharmProjects/cs205-final-project-group-7-/images/products&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/images/products" />
@@ -108,15 +104,15 @@
       <recent name="$PROJECT_DIR$/images/people" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/images/login" />
       <recent name="C:\Users\aidan\PycharmProjects\cs205-final-project-group-7-2\styles" />
+      <recent name="$PROJECT_DIR$/images/login" />
       <recent name="C:\Users\aidan\PycharmProjects\cs205-final-project-group-7-2\scripts" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="c1305dc1-2481-467b-afe2-4fb9b55a80d2" name="Changes" comment="login page added" />
+      <changelist id="b1a447a8-2c3f-410d-90c0-bff13c3804af" name="Changes" comment="flask working with product" />
       <created>1665520691571</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -130,6 +126,7 @@
       <workItem from="1666227099735" duration="1509000" />
       <workItem from="1666828482850" duration="1180000" />
       <workItem from="1666882442146" duration="1842000" />
+      <workItem from="1667093121748" duration="233000" />
     </task>
     <task id="LOCAL-00001" summary="just checking with some flask code">
       <created>1666752836653</created>
@@ -174,5 +171,10 @@
     <MESSAGE value="query works with flask" />
     <MESSAGE value="login page added" />
     <option name="LAST_COMMIT_MESSAGE" value="login page added" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/cs205_final_project_group_7_2$market.coverage" NAME="market Coverage Results" MODIFIED="1666748218377" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/cs205_final_project_group_7_2$app.coverage" NAME="app Coverage Results" MODIFIED="1667082077096" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/cs205_final_project_group_7_2$max_db.coverage" NAME="max_db Coverage Results" MODIFIED="1666830011898" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
