@@ -1,0 +1,5 @@
+heroku_deploy:
+  stage: production
+  script:
+    - gem install dpl
+    - dpl --provider=heroku --app=retro-guitars --api-key=a55f9895-3e86-4095-8c1e-63a963b2289d
