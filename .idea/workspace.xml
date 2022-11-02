@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6e25dd72-489c-4488-9f40-977e24612e0a" name="Changes" comment="added product">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +82,8 @@
       <workItem from="1666828482850" duration="1180000" />
       <workItem from="1666882442146" duration="1842000" />
       <workItem from="1667093121748" duration="3150000" />
-      <workItem from="1667256977438" duration="8000" />
+      <workItem from="1667256977438" duration="724000" />
+      <workItem from="1667274754711" duration="15000" />
     </task>
     <task id="LOCAL-00001" summary="just checking with some flask code">
       <created>1666752836653</created>
@@ -120,7 +120,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667145028899</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="added product">
+      <created>1667256991842</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1667256991842</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -142,7 +149,8 @@
     <MESSAGE value="query works with flask" />
     <MESSAGE value="login page added" />
     <MESSAGE value="updating flask with frontend changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="updating flask with frontend changes" />
+    <MESSAGE value="added product" />
+    <option name="LAST_COMMIT_MESSAGE" value="added product" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/cs205_final_project_group_7_2$market.coverage" NAME="market Coverage Results" MODIFIED="1666748218377" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
