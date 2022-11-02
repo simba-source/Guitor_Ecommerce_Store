@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guitar Store</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+    <link rel="stylesheet" href="../styles/style.css" />
+</head>
+
+<body>
+    <section id="header">
+        <a href="../templates/index.html"><img src="../styles/images/logo.gif" alt="logo" class="logo" /></a>
+
+        <div>
+            <ul id="navbar">
+                <li><a href="../templates/index.html">Home</a></li>
+                <li><a href="../templates/shop.html">Shop</a></li>
+                <li><a href="../templates/about.html">About</a></li>
+                <li><a href="../templates/contact.html">Contact</a></li>
+                <li id="lg-bag">
+                    <a href="../templates/cart.html"><i class="fa-solid fa-bag-shopping"></i></a>
+                </li>
+                <a href="#" id="close"><i class="fa-solid fa-xmark"></i></a>
+            </ul>
+        </div>
+        <div id="mobile">
+            <a href="../templates/cart.html"><i class="fa-solid fa-bag-shopping"></i></a>
+            <i id="bar" class="fas fa-outdent"></i>
+        </div>
+    </section>
+
+    <section id="page-header" class="cart-header">
+        <h2>#cart</h2>
+        <p>Add your coupon code & SAVE upto 50%!</p>
+    </section>
+
+    <section id="cart" class="section-p1">
+        <table width="100%">
+            <thead>
+                <tr>
+                    <td>REMOVE</td>
+                    <td>IMAGE</td>
+                    <td>PRODUCT</td>
+                    <td>PRICE</td>
+                    <td>QUANTITY</td>
+                    <td>SUBTOTAL</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <a href="#"><i class="far fa-times-circle"></i></a>
+                    </td>
+                    <td>
+                        <img src="../styles/images/products/n1.png" alt="product" />
+                    </td>
+                    <td>Guitar 1</td>
+                    <td>$1198.00</td>
+                    <td><input type="number" value="1" /></td>
+                    <td>$1198.00</td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="#"><i class="far fa-times-circle"></i></a>
+                    </td>
+                    <td>
+                        <img src="../styles/images/products/n2.png" alt="product" />
+                    </td>
+                    <td>Guitar 2</td>
+                    <td>$1198.00</td>
+                    <td><input type="number" value="1" /></td>
+                    <td>$1198.00</td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="#"><i class="far fa-times-circle"></i></a>
+                    </td>
+                    <td>
+                        <img src="../styles/images/products/n3.png" alt="product" />
+                    </td>
+                    <td>Guitar 3</td>
+                    <td>$1198.00</td>
+                    <td><input type="number" value="1" /></td>
+                    <td>$1198.00</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section id="cart-add" class="section-p1">
+        <div id="subtotal">
+            <h3>Cart Total</h3>
+            <table>
+                <tr>
+                    <td>Cart Subtotal</td>
+                    <td>$ 3594</td>
+                </tr>
+                <tr>
+                    <td>Shipping</td>
+                    <td>Free</td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Total</strong>
+                    </td>
+                    <td>
+                        <strong>$ 3594</strong>
+                    </td>
+                </tr>
+            </table>
+            <button class="normal" onclick="window.location.href='../templates/purchased.html';">Proceed to checkout</button>
+        </div>
+    </section>
+
+    <footer class="section-p1">
+        <div class="copyright">
+            <p>© 2022, UVM CS205 Team-7</p>
+        </div>
+    </footer>
+
+    <script src="../scripts/cart.js"></script>
+</body>
+
+</html>
