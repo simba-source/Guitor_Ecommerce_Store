@@ -1,0 +1,5 @@
+-- drop tables in correct order
+DROP TABLE PURCHASE;
+DROP TABLE GUITAR;
+DROP TABLE COMPANY;
+DROP TABLE USER;
