@@ -22,14 +22,13 @@ def form():
     # cur.execute("DROP TABLE guitar")
     # cur.execute("CREATE TABLE guitar(ID INT, Name VARCHAR(150), Price DECIMAL(7, 2), companyID INT)")
     # cur.execute("INSERT INTO guitar VALUES (123, 'Fender Strat', 499.99)")
-    cur.execute("SELECT * FROM guitar")
-    mysql.connection.commit()
-    cur.close()
-
-    # cur.execute("CREATE TABLE company (ID INT, Name VARCHAR(150))")
-
-    # cur.execute("SELECT * FROM guitar")
-    # Open and read the file as a single buffer
+    cur.execute("DROP TABLE GUITAR")
+    # cur.execute("DROP TABLE COMPANY")
+    cur.execute("CREATE TABLE GUITAR(ID INT, Name VARCHAR(150), Price DECIMAL(7, 2))")
+    cur.execute("INSERT INTO GUITAR VALUES (123, 'Fender Strat', 499.99)")
+    # # cur.execute("SELECT Name FROM guitar")
+    # cur.execute("CREATE TABLE COMPANY (ID INT, Name VARCHAR(150))")
+    #
     # fd = open('SQL/start_data.sql', 'r')
     # sqlFile = fd.read()
     # fd.close()
@@ -41,7 +40,7 @@ def form():
     # for i in sqlCommands:
     #     i = i.strip('\n')
     #     cur.execute(i)
-    # cur.execute("SELECT * FROM guitar")
+    cur.execute("SELECT * FROM GUITAR")
     data = cur.fetchall()
     return render_template('custom.html', random_quote = data)
 
