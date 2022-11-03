@@ -43,7 +43,7 @@ def form():
             print(i)
         except:
             print('error')
-    cur.execute("SELECT * FROM guitar")
+    cur.execute("SELECT Name FROM guitar")
     data = cur.fetchall()
     return render_template('custom.html', random_quote = data)
 
