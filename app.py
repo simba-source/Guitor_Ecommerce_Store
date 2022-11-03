@@ -17,7 +17,6 @@ mysql.init_app(app)
 # ‘/’ URL is bound with hello_world() function.
 def form():
     # # return render_template('form.html')
-
     cur = mysql.connect.cursor()
     cur.execute("DROP TABLE guitar")
     cur.execute("DROP TABLE company")
@@ -35,8 +34,8 @@ def form():
             print(i)
         except:
             print('error')
-    cur.execute("SELECT Name FROM guitar")
-    data = cur.fetchall()
+    cur.execute("SELECT Name FROM company WHERE ID = 47350")
+    data = cur.fetchone()[0]
     return render_template('custom.html', random_quote = data)
 
 @app.route('/home')
