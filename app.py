@@ -24,18 +24,10 @@ def form():
     cur.execute("CREATE TABLE guitar(ID INT, Name VARCHAR(150), Price DECIMAL(7, 2), companyID INT)")
     cur.execute("CREATE TABLE company(ID INT, Name VARCHAR(150))")
 
-    # cur.execute("INSERT INTO guitar VALUES (123, 'Fender Strat', 499.99)")
-
-    # # cur.execute("SELECT Name FROM guitar")
-    # cur.execute("CREATE TABLE COMPANY (ID INT, Name VARCHAR(150))")
-
     fd = open('SQL/start_data.sql', 'r')
     sqlFile = fd.read()
     fd.close()
-
-    # all SQL commands (split on ';')
     sqlCommands = sqlFile.split(';')
-
     for i in sqlCommands:
         i = i.strip('\n')
         try:
