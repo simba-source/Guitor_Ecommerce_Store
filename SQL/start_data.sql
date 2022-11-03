@@ -1,12 +1,9 @@
--- create companies (5-digit id)
 INSERT INTO COMPANY VALUES (47350, 'Gibson');
 INSERT INTO COMPANY VALUES (36613, 'Fender');
 INSERT INTO COMPANY VALUES (90346, 'Taylor');
 INSERT INTO COMPANY VALUES (80816, 'Martin');
 INSERT INTO COMPANY VALUES (81080, 'Paul Reed Smith');
 INSERT INTO COMPANY VALUES (96852, 'Mitchell');
-
--- create guitars (7-digit id)
 INSERT INTO GUITAR VALUES (2099551, 'Gibson SG Standard Electric Guitar', 1799.99, 47350);
 INSERT INTO GUITAR VALUES (5495151, 'Gibson Les Paul Standard \'60s Electric Guitar', 2799.99, 47350);
 INSERT INTO GUITAR VALUES (9498421, 'Gibson ES-335 Semi-Hollow Electric Guitar', 3499.99, 47350);

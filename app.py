@@ -17,13 +17,32 @@ mysql.init_app(app)
 # ‘/’ URL is bound with hello_world() function.
 def form():
     # # return render_template('form.html')
+
     cur = mysql.connect.cursor()
-    cur.execute("DROP TABLE guitar")
-    cur.execute("CREATE TABLE guitar(ID INT, Name VARCHAR(150), Price DECIMAL(7, 2))")
-    cur.execute("INSERT INTO guitar VALUES (123, 'Fender Strat', 499.99)")
+    # cur.execute("DROP TABLE guitar")
+    # cur.execute("CREATE TABLE guitar(ID INT, Name VARCHAR(150), Price DECIMAL(7, 2), companyID INT)")
+    # cur.execute("INSERT INTO guitar VALUES (123, 'Fender Strat', 499.99)")
     cur.execute("SELECT * FROM guitar")
+    mysql.connection.commit()
+    cur.close()
+
+    # cur.execute("CREATE TABLE company (ID INT, Name VARCHAR(150))")
+
+    # cur.execute("SELECT * FROM guitar")
+    # Open and read the file as a single buffer
+    # fd = open('SQL/start_data.sql', 'r')
+    # sqlFile = fd.read()
+    # fd.close()
+    #
+    # # all SQL commands (split on ';')
+    # sqlCommands = sqlFile.split(';')
+    #
+    # print(sqlCommands)
+    # for i in sqlCommands:
+    #     i = i.strip('\n')
+    #     cur.execute(i)
+    # cur.execute("SELECT * FROM guitar")
     data = cur.fetchall()
-    print(data)
     return render_template('custom.html', random_quote = data)
 
 @app.route('/home')
@@ -34,7 +53,6 @@ def home():
 #     cur = mysql.conection.cursor()
 #     # cur.execute("DROP TABLE guitar")
 #     # cur.execute("CREATE TABLE guitar(ID INT, Name VARCHAR(150), Price DECIMAL(7, 2))")
-#     cur.execute("INSERT INTO guitar VALUES (123, 'Fender Strat', 499.99)")
 #     # cur.execute("SELECT * FROM guitar")
 #     mysql.connection.commit()
 #     cur.close()
