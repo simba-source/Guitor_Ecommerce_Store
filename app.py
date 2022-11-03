@@ -19,28 +19,31 @@ def form():
     # # return render_template('form.html')
 
     cur = mysql.connect.cursor()
-    # cur.execute("DROP TABLE guitar")
-    # cur.execute("CREATE TABLE guitar(ID INT, Name VARCHAR(150), Price DECIMAL(7, 2), companyID INT)")
+    cur.execute("DROP TABLE guitar")
+    cur.execute("DROP TABLE company")
+    cur.execute("CREATE TABLE guitar(ID INT, Name VARCHAR(150), Price DECIMAL(7, 2), companyID INT)")
+    cur.execute("CREATE TABLE company(ID INT, Name VARCHAR(150))")
+
     # cur.execute("INSERT INTO guitar VALUES (123, 'Fender Strat', 499.99)")
-    cur.execute("DROP TABLE GUITAR")
-    # cur.execute("DROP TABLE COMPANY")
-    cur.execute("CREATE TABLE GUITAR(ID INT, Name VARCHAR(150), Price DECIMAL(7, 2))")
-    cur.execute("INSERT INTO GUITAR VALUES (123, 'Fender Strat', 499.99)")
+
     # # cur.execute("SELECT Name FROM guitar")
     # cur.execute("CREATE TABLE COMPANY (ID INT, Name VARCHAR(150))")
-    #
-    # fd = open('SQL/start_data.sql', 'r')
-    # sqlFile = fd.read()
-    # fd.close()
-    #
-    # # all SQL commands (split on ';')
-    # sqlCommands = sqlFile.split(';')
-    #
-    # print(sqlCommands)
-    # for i in sqlCommands:
-    #     i = i.strip('\n')
-    #     cur.execute(i)
-    cur.execute("SELECT * FROM GUITAR")
+
+    fd = open('SQL/start_data.sql', 'r')
+    sqlFile = fd.read()
+    fd.close()
+
+    # all SQL commands (split on ';')
+    sqlCommands = sqlFile.split(';')
+
+    for i in sqlCommands:
+        i = i.strip('\n')
+        try:
+            cur.execute(i)
+            print(i)
+        except:
+            print('error')
+    cur.execute("SELECT * FROM guitar")
     data = cur.fetchall()
     return render_template('custom.html', random_quote = data)
 
