@@ -18,10 +18,10 @@ mysql.init_app(app)
 def form():
     # # return render_template('form.html')
     cur = mysql.connect.cursor()
-    cur.execute("DROP TABLE guitar")
-    cur.execute("DROP TABLE company")
-    cur.execute("CREATE TABLE guitar(ID INT, Name VARCHAR(150), Price DECIMAL(7, 2), companyID INT)")
-    cur.execute("CREATE TABLE company(ID INT, Name VARCHAR(150))")
+    # cur.execute("DROP TABLE guitar")
+    # cur.execute("DROP TABLE company")
+    # cur.execute("CREATE TABLE guitar(ID INT, Name VARCHAR(150), Price DECIMAL(7, 2), companyID INT)")
+    # cur.execute("CREATE TABLE company(ID INT, Name VARCHAR(150))")
 
     fd = open('SQL/start_data.sql', 'r')
     sqlFile = fd.read()
@@ -31,7 +31,7 @@ def form():
         i = i.strip('\n')
         try:
             cur.execute(i)
-            print(i)
+            # print(i)
         except:
             print('error')
     cur.execute("SELECT Name FROM company WHERE ID = 47350")
