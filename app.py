@@ -11,7 +11,7 @@ mysql = MySQL(app)
 mysql.init_app(app)
 
 def data():
-    cur = mysql.connect.cursor()
+    cur = mysql.connection.cursor()
     cur.execute("DROP TABLE GUITAR")
     cur.execute("DROP TABLE COMPANY")
     cur.execute("DROP TABLE USER")
@@ -34,8 +34,9 @@ def data():
             # print(i)
         except:
             print("")
-    mysql.connect.commit()
+    mysql.connection.commit()
     cur.close()
+
 
 @app.route('/', methods=['GET', 'POST'])
 def origin():
@@ -87,7 +88,8 @@ def purchase():
 @app.route('/query', methods=['GET', 'POST'])
 def query():
     cur = mysql.connect.cursor()
-    cur.execute("SELECT * FROM GUITAR")
+    cur.execute("INSERT INTO USER VALUES (123, 'test', 'User', 'Sample-User-205', 'software', 120.00)")
+    cur.execute("SELECT * FROM USER")
     dat = cur.fetchall()
     return render_template('querytest.html', random_quote=dat)
 
