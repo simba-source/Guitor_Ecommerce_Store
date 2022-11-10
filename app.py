@@ -23,7 +23,10 @@ def home():
 
 @app.route('/templates/shop.html', methods=['GET', 'POST'])
 def shop():
-    return render_template('shop.html')
+    cur = mysql.connect.cursor()
+    cur.execute("SELECT * FROM GUITARS")
+    data = cur.fetchall()
+    return render_template('shop.html', variable = data)
 
 
 @app.route('/templates/contact.html', methods=['GET', 'POST'])
