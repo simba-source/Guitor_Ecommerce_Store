@@ -1,17 +1,17 @@
 from flask import Flask, render_template, request
-from flask_mysqldb import MySQL
+from flaskext.mysql import MySQL
 
 app = Flask(__name__, static_folder='styles')
 
-app.config['MYSQL_HOST'] = 'final-db-205.cwokmtfympzg.us-east-1.rds.amazonaws.com'
-app.config['MYSQL_USER'] = 'admin205'
-app.config['MYSQL_PASSWORD'] = 'software'
-app.config['MYSQL_DB'] = 'mktdata'
+app.config['MYSQL_DATABASE_HOST'] = 'final-db-205.cwokmtfympzg.us-east-1.rds.amazonaws.com'
+app.config['MYSQL_DATABASE_USER'] = 'admin205'
+app.config['MYSQL_DATABASE_PASSWORD'] = 'software'
+app.config['MYSQL_DATABASE_DB'] = 'mktdata'
 mysql = MySQL(app)
 mysql.init_app(app)
 
 def data():
-    cur = mysql.connection.cursor()
+    cur = mysql.get_db().cursor()
     cur.execute("DROP TABLE GUITAR")
     cur.execute("DROP TABLE COMPANY")
     cur.execute("DROP TABLE USER")
@@ -34,13 +34,13 @@ def data():
             # print(i)
         except:
             print("")
-    mysql.connection.commit()
+    mysql.get_db().commit()
     cur.close()
 
 
 @app.route('/', methods=['GET', 'POST'])
 def origin():
-    # data()
+    data()
     return render_template('index.html')
 
 
@@ -52,9 +52,11 @@ def home():
 @app.route('/templates/shop.html', methods=['GET', 'POST'])
 def shop():
     # cur = mysql.connect.cursor()
-    # cur.execute("SELECT * FROM GUITARS")
-    # data = cur.fetchall()
-    return render_template('shop.html') #variable = data
+    # cur.execute("SELECT Name FROM GUITAR")
+    # name = cur.fetchall()
+    # cur.execute("SELECT Price FROM GUITAR")
+    # price = cur.fetchall()
+    return render_template('shop.html')#, name = name, price = price) #variable = data
 
 
 @app.route('/templates/contact.html', methods=['GET', 'POST'])
@@ -87,10 +89,14 @@ def purchase():
 
 @app.route('/query', methods=['GET', 'POST'])
 def query():
-    cur = mysql.connect.cursor()
-    cur.execute("SELECT * FROM USER")
-    dat = cur.fetchall()
-    return render_template('querytest.html', random_quote=dat)
+    cur = mysql.get_db().cursor()
+    cur.execute("SELECT Name FROM GUITAR")
+    Name = cur.fetchall()
+    cur.execute("SELECT Price FROM GUITAR")
+    Price = cur.fetchone()
+    for i in Price:
+        print(i)
+    return render_template('querytest.html', random_quote=Name)
 
 
 if __name__ == '__main__':
