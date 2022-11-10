@@ -40,7 +40,7 @@ def data():
 
 @app.route('/', methods=['GET', 'POST'])
 def origin():
-    data()
+    # data()
     return render_template('index.html')
 
 
