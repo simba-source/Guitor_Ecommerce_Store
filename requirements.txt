@@ -14,3 +14,4 @@ mysqlclient	2.1.1	2.1.1
 pip	22.2.2	22.3.1
 setuptools	63.2.0	65.5.1
 wheel	0.37.1	0.38.4
+Flask~=2.2.2
