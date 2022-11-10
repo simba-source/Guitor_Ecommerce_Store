@@ -10,9 +10,36 @@ app.config['MYSQL_DB'] = 'mktdata'
 mysql = MySQL(app)
 mysql.init_app(app)
 
+def data():
+    cur = mysql.connect.cursor()
+    cur.execute("DROP TABLE GUITAR")
+    cur.execute("DROP TABLE COMPANY")
+    cur.execute("DROP TABLE USER")
+    cur.execute("DROP TABLE PURCHASE")
+    cur.execute("CREATE TABLE COMPANY(ID INT, Name VARCHAR(150), PRIMARY KEY (ID))")
+    cur.execute(
+        "CREATE TABLE GUITAR(ID INT, Name VARCHAR(150), Price DECIMAL(7, 2), companyID INT, PRIMARY KEY (ID),FOREIGN KEY (companyID) REFERENCES COMPANY(ID))")
+    cur.execute("CREATE TABLE USER(ID INT, FName VARCHAR(150), LName VARCHAR(150), Username VARCHAR(150), Password VARCHAR(150), Balance DECIMAL(7,2), PRIMARY KEY (ID))")
+    cur.execute("CREATE TABLE PURCHASE(ID INT, User_ID INT, User_balance DECIMAL(7,2), Item_ID INT, PRIMARY KEY (ID))")
+
+    fd = open('SQL/start_data.sql', 'r')
+    sqlFile = fd.read()
+    fd.close()
+    sqlCommands = sqlFile.split(';')
+    for i in sqlCommands:
+        i = i.strip('\n')
+        try:
+            cur.execute(i)
+            print(i)
+            # print(i)
+        except:
+            print("")
+    mysql.connect.commit()
+    cur.close()
 
 @app.route('/', methods=['GET', 'POST'])
 def origin():
+    # data()
     return render_template('index.html')
 
 
@@ -23,10 +50,10 @@ def home():
 
 @app.route('/templates/shop.html', methods=['GET', 'POST'])
 def shop():
-    cur = mysql.connect.cursor()
-    cur.execute("SELECT * FROM GUITARS")
-    data = cur.fetchall()
-    return render_template('shop.html', variable = data)
+    # cur = mysql.connect.cursor()
+    # cur.execute("SELECT * FROM GUITARS")
+    # data = cur.fetchall()
+    return render_template('shop.html') #variable = data
 
 
 @app.route('/templates/contact.html', methods=['GET', 'POST'])
@@ -36,7 +63,10 @@ def contact():
 
 @app.route('/templates/cart.html', methods=['GET', 'POST'])
 def cart():
-    return render_template('cart.html')
+    # cur = mysql.connect.cursor()
+    # cur.execute("SELECT * FROM PURCHASE")
+    # data = cur.fetchall()
+    return render_template('cart.html') #, variable = data
 
 
 @app.route('/templates/about.html', methods=['GET', 'POST'])
@@ -57,32 +87,9 @@ def purchase():
 @app.route('/query', methods=['GET', 'POST'])
 def query():
     cur = mysql.connect.cursor()
-    cur.execute("DROP TABLE GUITAR")
-    cur.execute("DROP TABLE COMPANY")
-    cur.execute("DROP TABLE USER")
-    cur.execute("DROP TABLE PURCHASE")
-    cur.execute("CREATE TABLE COMPANY(ID INT, Name VARCHAR(150), PRIMARY KEY (ID))")
-    cur.execute(
-        "CREATE TABLE GUITAR(ID INT, Name VARCHAR(150), Price DECIMAL(7, 2), companyID INT, PRIMARY KEY (ID),FOREIGN KEY (companyID) REFERENCES COMPANY(ID))")
-    cur.execute(
-        "CREATE TABLE USER(ID INT, FName VARCHAR(150), LName VARCHAR(150), Username VARCHAR(150), Password VARCHAR(150), Balance DECIMAL(7,2), PRIMARY KEY (ID))")
-    cur.execute("CREATE TABLE PURCHASE(ID INT, User_ID INT, User_balance DECIMAL(7,2), Item_ID INT, PRIMARY KEY (ID))")
-
-    fd = open('SQL/start_data.sql', 'r')
-    sqlFile = fd.read()
-    fd.close()
-    sqlCommands = sqlFile.split(';')
-    for i in sqlCommands:
-        i = i.strip('\n')
-        try:
-            cur.execute(i)
-            print(i)
-            # print(i)
-        except:
-            print("")
-    cur.execute("SELECT * FROM USER WHERE Balance = 100.00")
-    data = cur.fetchall()
-    return render_template('querytest.html', random_quote=data)
+    cur.execute("SELECT * FROM GUITAR")
+    dat = cur.fetchall()
+    return render_template('querytest.html', random_quote=dat)
 
 
 if __name__ == '__main__':
