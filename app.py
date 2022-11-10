@@ -86,6 +86,9 @@ def product():
 def purchase():
     return render_template('purchased.html')
 
+@app.route('/product.html', methods=['GET', 'POST'])
+def product2():
+    return render_template('purchased.html')
 
 @app.route('/query', methods=['GET', 'POST'])
 def query():
