@@ -88,7 +88,6 @@ def purchase():
 @app.route('/query', methods=['GET', 'POST'])
 def query():
     cur = mysql.connect.cursor()
-    cur.execute("INSERT INTO USER VALUES (123, 'test', 'User', 'Sample-User-205', 'software', 120.00)")
     cur.execute("SELECT * FROM USER")
     dat = cur.fetchall()
     return render_template('querytest.html', random_quote=dat)
