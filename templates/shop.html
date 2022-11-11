@@ -47,7 +47,7 @@
 <!--            <h2>{{ products[1]['image'] }}</h2>-->
             {% for i in products %}
 <!--                <div class="pro" onclick="window.location.href='../templates/product.html';">-->
-                <div class="pro" onclick="window.location.href='/loadproduct';">
+                <div class="pro" onclick="window.location.href='/loadproduct?id={{ products[i]['id'] }}';">
                     <img src="{{ products[i]['image'] }}" alt="product" />
                     <div class="des">
                         <span>UVM</span>

@@ -33,7 +33,7 @@
 
     <section id="pro-details" class="section-p1">
         <div class="single-pro-image">
-            <img src="../styles/images/products/f1.png" width="100%" id="MainImage" alt="product" />
+            <img src="{{ product['image'] }}" width="100%" id="MainImage" alt="product" />
 
             <div class="small-img-group">
                 <div class="small-img-col">
@@ -53,8 +53,8 @@
 
         <div class="single-pro-details">
             <h6>Home / Product</h6>
-            <h4>Electric Guitar</h4>
-            <h2>$1570.00</h2>
+            <h4>{{ product['title'] }}</h4>
+            <h2>{{ product['price'] }}</h2>
         <!-- <select>
           <option>Select Color</option>
           <option>White</option>
@@ -66,14 +66,8 @@
             <button id="add-to-cart" class="normal">Add To Cart</button>
             <h4>Product Details</h4>
             <span>
-          Lorem ipsum dolor, sit amet consectetur adsicing elit. Laborum, magni.
-          Itaque, repella libero! Blanditiis corporis, modi aliquid eligendi
-          illo officiis, repudiandae nesciunt sunt temporibus similique
-          quibusdam. Odio, quo aut rerum architto deleniti itaque rendis ea
-          pariatur ipsa fugiat. Eveniet nostrum unde, saepe praesentium animi
-          quis quos aspernatur excepturi. Ipsum, laborum corporis blanditiis
-          rerum dolorum corrupti illum consectetur laudantium.
-        </span>
+                {{ product['desc'] }}
+            </span>
         </div>
     </section>
 

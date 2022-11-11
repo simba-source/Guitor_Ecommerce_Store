@@ -58,7 +58,7 @@ def origin():
 def shop():
     cur = mysql.get_db().cursor()
 
-    cur.execute("SELECT Name, Price, Picture FROM GUITAR")
+    cur.execute("SELECT ID, Name, Price, Picture FROM GUITAR")
     products = cur.fetchall()
 
     #nested dictionary. Outer for each product, inner for products' keys and values
@@ -67,7 +67,7 @@ def shop():
     i = 0
     for elem in products:
        products_dictionary.update({
-           item_index: {'title': products[i][0], 'price': products[i][1], 'image': products[i][2]}
+           item_index: {'id': products[i][0], 'title': products[i][1], 'price': products[i][2], 'image': products[i][3]}
         })
        item_index += 1
        i += 1
@@ -77,9 +77,20 @@ def shop():
 
 @app.route('/loadproduct', methods=['GET', 'POST'])
 def load_product_page():
-    print('loadproduct ran')
-    return redirect('product.html')
+    product_id = request.args.get('id')
 
+    cur = mysql.get_db().cursor()
+    cur.execute('SELECT ID, Name, Price, Picture, Description FROM GUITAR WHERE ID = "{}"'.format(product_id))
+    product = cur.fetchall()
+
+    #i'm a bit confused with the indexing here. will look into later
+    #i would think 'product[0]' would return id, but it holds the whole dict
+    product_dictionary = {'id': product[0][0], 'title': product[0][1], 'price': product[0][2],
+                         'image': product[0][3], 'desc': product[0][4]}
+
+    return render_template('product.html', product = product_dictionary)
+
+@app.route('/product', methods=['GET', 'POST'])
 @app.route('/templates/product.html', methods=['GET', 'POST'])
 def product():
     return render_template('product.html')
