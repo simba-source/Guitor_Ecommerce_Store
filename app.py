@@ -40,10 +40,24 @@ def data():
 def login():
     return render_template('login.html')
 
+@app.route('/checklogin', methods=['GET', 'POST'])
+def check_login():
+    username, password = request.args.get('username', 'password')
+    #query for username and password from USERS
+    #if credentials pass, render index
+    #else if username doesn't exist,
+
 @app.route('/register', methods=['GET', 'POST'])
 @app.route('/templates/register.html', methods=['GET', 'POST'])
 def register():
     return render_template('register.html')
+
+@app.route('/registeruser', methods=['GET', 'POST'])
+def register_user():
+    username, password = request.args.get('username', 'password')
+    #query to make sure username doesn't already exist
+    #if username does not already exist, place new username and pass into database, redirect to index
+    #if it does exist, 
 
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/templates/index.html', methods=['GET', 'POST'])
