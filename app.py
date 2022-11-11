@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 from flaskext.mysql import MySQL
 
 app = Flask(__name__, static_folder='styles')
@@ -35,30 +35,28 @@ def data():
     mysql.get_db().commit()
     cur.close()
 
+@app.route('/login', methods=['GET', 'POST'])
+@app.route('/templates/login.html', methods=['GET', 'POST'])
+def login():
+    return render_template('login.html')
+
+@app.route('/register', methods=['GET', 'POST'])
+@app.route('/templates/register.html', methods=['GET', 'POST'])
+def register():
+    return render_template('register.html')
 
 @app.route('/', methods=['GET', 'POST'])
+@app.route('/templates/index.html', methods=['GET', 'POST'])
 def origin():
     # data()
-    return render_template('index.html')
-
-
-@app.route('/templates/index.html', methods=['GET', 'POST'])
-def home():
+    #check if user is logged in. if so, direct to index, if not, redirect to login
     return render_template('index.html')
 
 #we should move this code to a new function getProduct()
+@app.route('/shop', methods=['GET', 'POST'])
 @app.route('/templates/shop.html', methods=['GET', 'POST'])
 def shop():
     cur = mysql.get_db().cursor()
-
-    cur.execute("SELECT Name FROM GUITAR")
-    Names = cur.fetchall()
-
-    cur.execute("SELECT Price FROM GUITAR")
-    Prices = cur.fetchall()
-
-    cur.execute("SELECT Description FROM GUITAR")
-    Desc = cur.fetchall()
 
     cur.execute("SELECT Name, Price, Picture FROM GUITAR")
     products = cur.fetchall()
@@ -75,9 +73,16 @@ def shop():
        i += 1
 
     #print(products_dictionary)
+    return render_template('shop.html', products = products_dictionary)
 
-    return render_template('shop.html', products = products_dictionary)#names = Names, prices = Prices) #variable = data
+@app.route('/loadproduct', methods=['GET', 'POST'])
+def load_product_page():
+    print('loadproduct ran')
+    return redirect('product.html')
 
+@app.route('/templates/product.html', methods=['GET', 'POST'])
+def product():
+    return render_template('product.html')
 
 @app.route('/templates/contact.html', methods=['GET', 'POST'])
 def contact():
@@ -97,13 +102,9 @@ def about():
     return render_template('about.html')
 
 
-@app.route('/templates/product.html', methods=['GET', 'POST'])
-def product():
-    return render_template('product.html')
-
-
 @app.route('/templates/purchased.html', methods=['GET', 'POST'])
 def purchase():
+    #query to check if any items are in user's cart before rendering purchased page
     return render_template('purchased.html')
 
 @app.route('/product.html', methods=['GET', 'POST'])
