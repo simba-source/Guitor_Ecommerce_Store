@@ -38,7 +38,7 @@ def data():
 
 @app.route('/', methods=['GET', 'POST'])
 def origin():
-    # data()
+    data()
     return render_template('index.html')
 
 
@@ -100,6 +100,10 @@ def about():
 @app.route('/templates/product.html', methods=['GET', 'POST'])
 def product():
     return render_template('product.html')
+
+@app.route('/templates/login.html', methods=['GET', 'POST'])
+def login():
+    return render_template('login.html')
 
 
 @app.route('/templates/purchased.html', methods=['GET', 'POST'])
