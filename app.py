@@ -46,15 +46,37 @@ def origin():
 def home():
     return render_template('index.html')
 
-
+#we should move this code to a new function getProduct()
 @app.route('/templates/shop.html', methods=['GET', 'POST'])
 def shop():
-    # cur = mysql.connect.cursor()
-    # cur.execute("SELECT Name FROM GUITAR")
-    # name = cur.fetchall()
-    # cur.execute("SELECT Price FROM GUITAR")
-    # price = cur.fetchall()
-    return render_template('shop.html')#, name = name, price = price) #variable = data
+    cur = mysql.get_db().cursor()
+
+    cur.execute("SELECT Name FROM GUITAR")
+    Names = cur.fetchall()
+
+    cur.execute("SELECT Price FROM GUITAR")
+    Prices = cur.fetchall()
+
+    cur.execute("SELECT Description FROM GUITAR")
+    Desc = cur.fetchall()
+
+    cur.execute("SELECT Name, Price, Picture FROM GUITAR")
+    products = cur.fetchall()
+
+    #nested dictionary. Outer for each product, inner for products' keys and values
+    products_dictionary = {}
+    item_index = 1
+    i = 0
+    for elem in products:
+       products_dictionary.update({
+           item_index: {'title': products[i][0], 'price': products[i][1], 'image': products[i][2]}
+        })
+       item_index += 1
+       i += 1
+
+    #print(products_dictionary)
+
+    return render_template('shop.html', products = products_dictionary)#names = Names, prices = Prices) #variable = data
 
 
 @app.route('/templates/contact.html', methods=['GET', 'POST'])
