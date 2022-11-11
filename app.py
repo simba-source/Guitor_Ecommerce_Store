@@ -12,15 +12,13 @@ mysql.init_app(app)
 
 def data():
     cur = mysql.get_db().cursor()
-    cur.execute("DROP TABLE GUITAR")
-    cur.execute("DROP TABLE COMPANY")
-    cur.execute("DROP TABLE USER")
-    cur.execute("DROP TABLE PURCHASE")
+    # cur.execute("DROP TABLE GUITAR")
+    # cur.execute("DROP TABLE COMPANY")
+    # cur.execute("DROP TABLE USER")
     cur.execute("CREATE TABLE COMPANY(ID INT, Name VARCHAR(150), PRIMARY KEY (ID))")
-    cur.execute(
-        "CREATE TABLE GUITAR(ID INT, Name VARCHAR(150), Price DECIMAL(7, 2), companyID INT, PRIMARY KEY (ID),FOREIGN KEY (companyID) REFERENCES COMPANY(ID))")
+    cur.execute("CREATE TABLE GUITAR(ID INT, Name VARCHAR(150), Picture VARCHAR(150), Description VARCHAR(150), Price DECIMAL(7, 2), companyID INT, PRIMARY KEY (ID),FOREIGN KEY (companyID) REFERENCES COMPANY(ID))")
     cur.execute("CREATE TABLE USER(ID INT, FName VARCHAR(150), LName VARCHAR(150), Username VARCHAR(150), Password VARCHAR(150), Balance DECIMAL(7,2), PRIMARY KEY (ID))")
-    cur.execute("CREATE TABLE PURCHASE(ID INT, User_ID INT, User_balance DECIMAL(7,2), Item_ID INT, PRIMARY KEY (ID))")
+    # cur.execute("CREATE TABLE PURCHASE(ID INT, User_ID INT, User_balance DECIMAL(7,2), Item_ID INT, PRIMARY KEY (ID))")
 
     fd = open('SQL/start_data.sql', 'r')
     sqlFile = fd.read()
@@ -97,9 +95,11 @@ def query():
     Name = cur.fetchall()
     cur.execute("SELECT Price FROM GUITAR")
     Price = cur.fetchone()
+    cur.execute("SELECT Description FROM GUITAR")
+    Desc = cur.fetchall()
     for i in Price:
         print(i)
-    return render_template('querytest.html', random_quote=Name)
+    return render_template('querytest.html', random_quote=Desc)
 
 
 if __name__ == '__main__':
