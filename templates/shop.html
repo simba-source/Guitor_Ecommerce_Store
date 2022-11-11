@@ -41,27 +41,30 @@
         <h2>Featured Products</h2>
         <p> Collection Design</p>
         <div class="pro-container">
-            <div class="pro" onclick="window.location.href='../templates/product.html';">
-                <img src="../styles/images/products/f1.png" alt="product" />
-                <div class="des">
-                    <span>UVM</span>
-                    <h5>Guitar</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>$840</h4>
-                </div>
-                <a href="#"><i class="fa-solid fa-cart-shopping cart"></i></a>
-            </div>
+
+            {% for item in names %}
+                <h2>{{ item[0] }}</h2>
+<!--            <div class="pro" onclick="window.location.href='../templates/product.html';">-->
+<!--                <img src="../styles/images/products/f1.png" alt="product" />-->
+<!--                <div class="des">-->
+<!--                    <span>UVM</span>-->
+<!--                    <h5>Guitar</h5>-->
+<!--                    <div class="star">-->
+<!--                        <i class="fas fa-star"></i>-->
+<!--                        <i class="fas fa-star"></i>-->
+<!--                        <i class="fas fa-star"></i>-->
+<!--                        <i class="fas fa-star"></i>-->
+<!--                        <i class="fas fa-star"></i>-->
+<!--                    </div>-->
+<!--                    <h4>$840</h4>-->
+<!--                </div>-->
+<!--                <a href="#"><i class="fa-solid fa-cart-shopping cart"></i></a>-->
+<!--            </div>-->
             <div class="pro" onclick="window.location.href='product.html';">
                 <img src="../styles/images/products/f2.png" alt="product" />
                 <div class="des">
                     <span>UVM</span>
-                    <h5>Guitar</h5>
+                    <h5>Guitar test</h5>
                     <div class="star">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
