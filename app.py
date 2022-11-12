@@ -66,11 +66,17 @@ def register_user():
     username = request.args.get('username')
     password = request.args.get("password")
     cur = mysql.get_db().cursor()
-    cur.execute("SELECT Username, Password FROM USER WHERE Username = '{username}' AND Password = '{password}'")
-    if not cur.fetchone():
-        print('failed')
-    else:
-        print('success')
+    try:
+        cur.execute("SELECT Username, Password FROM USER WHERE Username = %s AND Password = %s", (username,password))
+        print('exists')
+        return render_template('index.html')
+
+    except:
+        print('doesnt exist \n')
+        cur.execute("INSERT INTO USER Username VALUES (%s)", username)
+        cur.execute("INSERT INTO USER Password VALUES (%s)", password)
+        return render_template('index.html')
+
     #query to make sure username doesn't already exist
     #if username does not already exist, place new username and pass into database, redirect to index
     #if it does exist,
