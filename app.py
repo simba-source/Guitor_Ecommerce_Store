@@ -75,7 +75,6 @@ def register():
 def register_user():
     username = request.args.get('username')
     password = request.args.get("password")
-    print(username)
     cur = mysql.get_db().cursor()
     try:
         cur.execute("SELECT Username FROM USER WHERE Username = %s", username)
@@ -83,6 +82,8 @@ def register_user():
             print('not in db')
             cur.execute("INSERT INTO USER Username VALUES (%s)", username)
             cur.execute("INSERT INTO USER Password VALUES (%s)", password)
+            mysql.get_db().commit()
+
             return render_template('index.html')
         else:
             #not sure what to do with this
