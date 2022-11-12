@@ -53,18 +53,17 @@ def checklogin():
         cur = mysql.get_db().cursor()
         try:
             cur.execute("SELECT Username, Password FROM USER WHERE Username = %s AND Password = %s", (username, password))
-            print('exists')
 
-            # not sure what to do with this
-            return render_template('index.html')
+            if not cur.fetchone():
+                print('error')
+                return render_template('login.html')
+            else:
+                # not sure what to do with this
+                return render_template('index.html')
 
         except:
             print('doesnt exist \n')
             # return render_template('index.html')
-
-    print(username)
-    print(password)
-
     return render_template('/')
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -76,21 +75,22 @@ def register():
 def register_user():
     username = request.args.get('username')
     password = request.args.get("password")
+    print(username)
     cur = mysql.get_db().cursor()
     try:
-        cur.execute("SELECT Username, Password FROM USER WHERE Username = %s AND Password = %s", (username,password))
-        print('exists')
-
-        #not sure what to do with this
-        return render_template('index.html')
-
+        cur.execute("SELECT Username FROM USER WHERE Username = %s", username)
+        if not cur.fetchone():
+            print('not in db')
+            cur.execute("INSERT INTO USER Username VALUES (%s)", username)
+            cur.execute("INSERT INTO USER Password VALUES (%s)", password)
+            return render_template('index.html')
+        else:
+            #not sure what to do with this
+            print('in DB')
+            return render_template('index.html')
     except:
-        print('doesnt exist \n')
-        cur.execute("INSERT INTO USER Username VALUES (%s)", username)
-        cur.execute("INSERT INTO USER Password VALUES (%s)", password)
-
-        #just return to index
-        return render_template('index.html')
+        print('error')
+        return render_template('register.html')
 
     #query to make sure username doesn't already exist
     #if username does not already exist, place new username and pass into database, redirect to index
