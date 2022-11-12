@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, flash
 from flaskext.mysql import MySQL
 
 app = Flask(__name__, static_folder='styles')
@@ -56,7 +56,8 @@ def checklogin():
 
             if not cur.fetchone():
                 print('error')
-                return render_template('login.html')
+                error_message = "Invalid credentials. Try again or register to proceed."
+                return render_template('login.html', message = error_message)
             else:
                 # not sure what to do with this
                 return render_template('index.html')
@@ -64,7 +65,7 @@ def checklogin():
         except:
             print('doesnt exist \n')
             # return render_template('index.html')
-    return render_template('/')
+    return render_template('index.html')
 
 @app.route('/register', methods=['GET', 'POST'])
 @app.route('/templates/register.html', methods=['GET', 'POST'])
@@ -72,30 +73,37 @@ def register():
     return render_template('register.html')
 
 @app.route('/registeruser', methods=['GET', 'POST'])
-def register_user():
-    username = request.args.get('username')
-    password = request.args.get("password")
+def registeruser():
+    # getting input from name tag HTML form
+    username = request.form.get("name")
+    password = request.form.get("password")
     cur = mysql.get_db().cursor()
     try:
         cur.execute("SELECT Username FROM USER WHERE Username = %s", username)
+
         if not cur.fetchone():
+            #username is unique
             print('not in db')
             cur.execute("INSERT INTO USER Username VALUES (%s)", username)
             cur.execute("INSERT INTO USER Password VALUES (%s)", password)
             mysql.get_db().commit()
 
-            return render_template('index.html')
+            account_created_message = "Account has been saved. "
+            return render_template('/', message = account_created_message)
         else:
-            #not sure what to do with this
+            #username is already in database
             print('in DB')
-            return render_template('index.html')
+            failed_to_register = "Username already exists in databse. Enter new username or log in"
+            return render_template('register.html', message = failed_to_register)
     except:
         print('error')
-        return render_template('register.html')
+        error_message = "Error"
+        return render_template('register.html', message = error_message)
 
     #query to make sure username doesn't already exist
     #if username does not already exist, place new username and pass into database, redirect to index
     #if it does exist,
+    return render_template('index.html')
 
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/templates/index.html', methods=['GET', 'POST'])

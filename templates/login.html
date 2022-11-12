@@ -18,6 +18,7 @@
 				<img src="../styles/images/login/man.svg">
 				<h2 class="title">Welcome</h2>
 				<h3 class="title">Log In</h3>
+				<h5>{{ message }}</h5>
 				<form action='{{ url_for("checklogin") }}' method="post">
 					<div class="input-div one">
 					   <div class="i">
@@ -35,7 +36,7 @@
 							<input class="input" type="password" id="pass" name="password" placeholder="Password">
 					   </div>
 					</div>
-            	<a href="#">Forgot Password?</a>
+<!--            	<a href="#">Forgot Password?</a>-->
 <!--				<div onclick="window.location.href='/checklogin?username={{ username }}';">-->
 				<input type="submit" class="btn" value="Login">
 <!--				</div>-->
