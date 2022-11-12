@@ -40,10 +40,61 @@ def data():
 def login():
     return render_template('login.html')
 
+@app.route('/checklogin', methods=['GET', 'POST'])
+def checklogin():
+    #query for username and password from USERS
+    #if credentials pass, render index
+    #else if username doesn't exist
+
+    if request.method == "POST":
+        # getting input from name tag HTML form
+        username = request.form.get("name")
+        password = request.form.get("password")
+        cur = mysql.get_db().cursor()
+        try:
+            cur.execute("SELECT Username, Password FROM USER WHERE Username = %s AND Password = %s", (username, password))
+
+            if not cur.fetchone():
+                print('error')
+                return render_template('login.html')
+            else:
+                # not sure what to do with this
+                return render_template('index.html')
+
+        except:
+            print('doesnt exist \n')
+            # return render_template('index.html')
+    return render_template('/')
+
 @app.route('/register', methods=['GET', 'POST'])
 @app.route('/templates/register.html', methods=['GET', 'POST'])
 def register():
     return render_template('register.html')
+
+@app.route('/registeruser', methods=['GET', 'POST'])
+def register_user():
+    username = request.args.get('username')
+    password = request.args.get("password")
+    print(username)
+    cur = mysql.get_db().cursor()
+    try:
+        cur.execute("SELECT Username FROM USER WHERE Username = %s", username)
+        if not cur.fetchone():
+            print('not in db')
+            cur.execute("INSERT INTO USER Username VALUES (%s)", username)
+            cur.execute("INSERT INTO USER Password VALUES (%s)", password)
+            return render_template('index.html')
+        else:
+            #not sure what to do with this
+            print('in DB')
+            return render_template('index.html')
+    except:
+        print('error')
+        return render_template('register.html')
+
+    #query to make sure username doesn't already exist
+    #if username does not already exist, place new username and pass into database, redirect to index
+    #if it does exist,
 
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/templates/index.html', methods=['GET', 'POST'])
