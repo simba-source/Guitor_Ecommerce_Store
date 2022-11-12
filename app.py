@@ -44,7 +44,7 @@ def login():
 def checklogin():
     #query for username and password from USERS
     #if credentials pass, render index
-    #else if username doesn't exist,
+    #else if username doesn't exist
 
     if request.method == "POST":
         # getting input from name tag HTML form
