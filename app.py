@@ -50,6 +50,17 @@ def checklogin():
         # getting input from name tag HTML form
         username = request.form.get("name")
         password = request.form.get("password")
+        cur = mysql.get_db().cursor()
+        try:
+            cur.execute("SELECT Username, Password FROM USER WHERE Username = %s AND Password = %s", (username, password))
+            print('exists')
+
+            # not sure what to do with this
+            return render_template('index.html')
+
+        except:
+            print('doesnt exist \n')
+            # return render_template('index.html')
 
     print(username)
     print(password)
@@ -69,12 +80,16 @@ def register_user():
     try:
         cur.execute("SELECT Username, Password FROM USER WHERE Username = %s AND Password = %s", (username,password))
         print('exists')
+
+        #not sure what to do with this
         return render_template('index.html')
 
     except:
         print('doesnt exist \n')
         cur.execute("INSERT INTO USER Username VALUES (%s)", username)
         cur.execute("INSERT INTO USER Password VALUES (%s)", password)
+
+        #just return to index
         return render_template('index.html')
 
     #query to make sure username doesn't already exist
