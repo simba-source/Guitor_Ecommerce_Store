@@ -145,6 +145,7 @@ body {
     background-image: url("images/hero4.png");
     height: 90vh;
     width: 100%;
+    position:relative;
     background-size: cover;
     background-position: top 25% right 0;
     padding: 0 80px;
