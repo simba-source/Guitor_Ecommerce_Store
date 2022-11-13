@@ -162,20 +162,40 @@ def load_product_page():
 def product():
     return render_template('product.html')
 
-@app.route('/templates/contact.html', methods=['GET', 'POST'])
-def contact():
-    return render_template('contact.html')
-
-
+@app.route('/cart', methods=['GET', 'POST'])
 @app.route('/templates/cart.html', methods=['GET', 'POST'])
 def cart():
-    # cur = mysql.connect.cursor()
-    # cur.execute("SELECT * FROM PURCHASE")
-    # data = cur.fetchall()
-    return render_template('cart.html') #, variable = data
+    cur = mysql.get_db().cursor()
+
+    cur.execute("SELECT ID, Name, Price, Picture FROM GUITAR")
+    items = cur.fetchall()
+
+    # nested dictionary. Outer for each product, inner for products' keys and values
+    cart_items_dictionary = {}
+    item_index = 1
+    i = 0
+    for item in items:
+        cart_items_dictionary.update({
+            item_index: {'id': items[i][0], 'title': items[i][1], 'price': items[i][2],
+                         'image': items[i][3]}
+        })
+        item_index += 1
+        i += 1
+
+    # print(cart_items_dictionary)
+    return render_template('cart.html', items=cart_items_dictionary)#return item details in items, and total price for subtotal
+
+@app.route('/addtocart', methods=['GET', 'POST'])
+def add_to_cart():
+    return render_template('/')
+
+@app.route('/removefromcart', methods=['GET', 'POST'])
+def remove_from_cart():
+    return render_template('/')
 
 
 @app.route('/templates/about.html', methods=['GET', 'POST'])
+@app.route('/about', methods=['GET', 'POST'])
 def about():
     return render_template('about.html')
 

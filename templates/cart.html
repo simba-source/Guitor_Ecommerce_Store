@@ -32,8 +32,8 @@
     </section>
 
     <section id="page-header" class="cart-header">
-        <h2>#cart</h2>
-        <p>Add your coupon code & SAVE upto 50%!</p>
+        <h2>My Cart</h2>
+<!--        <p></p>-->
     </section>
 
     <section id="cart" class="section-p1">
@@ -49,42 +49,47 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>
-                        <a href="#"><i class="far fa-times-circle"></i></a>
-                    </td>
-                    <td>
-                        <img src="../styles/images/products/n1.png" alt="product" />
-                    </td>
-                    <td>Guitar 1</td>
-                    <td>$1198.00</td>
-                    <td><input type="number" value="1" /></td>
-                    <td>$1198.00</td>
-                </tr>
-                <tr>
-                    <td>
-                        <a href="#"><i class="far fa-times-circle"></i></a>
-                    </td>
-                    <td>
-                        <img src="../styles/images/products/n2.png" alt="product" />
-                    </td>
-                    <td>Guitar 2</td>
-                    <td>$1198.00</td>
-                    <td><input type="number" value="1" /></td>
-                    <td>$1198.00</td>
-                </tr>
-                <tr>
-                    <td>
-                        <a href="#"><i class="far fa-times-circle"></i></a>
-                    </td>
-                    <td>
-                        <img src="../styles/images/products/n3.png" alt="product" />
-                    </td>
-                    <td>Guitar 3</td>
-                    <td>$1198.00</td>
-                    <td><input type="number" value="1" /></td>
-                    <td>$1198.00</td>
-                </tr>
+                {% for i in items %}
+
+                    <tr>
+                        <td>
+                            <a href="#"><i class="far fa-times-circle"></i></a>
+                        </td>
+                        <td>
+                            <img src="{{ items[i]['image'] }}" alt="product" />
+                        </td>
+                        <td>{{ items[i]['title'] }}</td>
+                        <td>{{ items[i]['price'] }}</td>
+                        <td><input type="number" value="1" /></td>
+                        <td>$1198.00</td>
+                    </tr>
+
+                {% endfor %}
+
+<!--                <tr>-->
+<!--                    <td>-->
+<!--                        <a href="#"><i class="far fa-times-circle"></i></a>-->
+<!--                    </td>-->
+<!--                    <td>-->
+<!--                        <img src="../styles/images/products/n2.png" alt="product" />-->
+<!--                    </td>-->
+<!--                    <td>Guitar 2</td>-->
+<!--                    <td>$1198.00</td>-->
+<!--                    <td><input type="number" value="1" /></td>-->
+<!--                    <td>$1198.00</td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <td>-->
+<!--                        <a href="#"><i class="far fa-times-circle"></i></a>-->
+<!--                    </td>-->
+<!--                    <td>-->
+<!--                        <img src="../styles/images/products/n3.png" alt="product" />-->
+<!--                    </td>-->
+<!--                    <td>Guitar 3</td>-->
+<!--                    <td>$1198.00</td>-->
+<!--                    <td><input type="number" value="1" /></td>-->
+<!--                    <td>$1198.00</td>-->
+<!--                </tr>-->
             </tbody>
         </table>
     </section>
