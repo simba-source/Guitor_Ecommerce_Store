@@ -45,7 +45,7 @@ WHERE ID = /* the user's 10-digit ID */;
 
 -- change an account's username or password
 UPDATE USER
-SET Username = /* the new password */
+SET Password = /* the new password */
 WHERE ID = /* the user's 10-digit ID */;
 
 -- view a user's purchases (could be done in a specific view)
@@ -59,3 +59,30 @@ INSERT INTO GUITAR VALUES (
 	/* an entered name */,
 	/* an entered price */,
 	/* the company's 5-digit ID */);
+
+-- create a cart for a user (should be done upon account creation maybe)
+INSERT INTO CART VALUES (
+/* a generated ID (9-digits) */,
+/* the user's ID */,
+GETDATE()
+);
+
+-- add an item to the cart
+INSERT INTO CART_ITEM VALUES (
+/* a generated ID (8-digits) */,
+/* the guitar's ID */,
+/* the quantity */,
+GETDATE(),
+/* the cart's ID */
+);
+
+-- delete an item from the cart
+DELETE FROM CART_ITEM
+WHERE ID = /* the item's ID (NOT THE GUITAR'S) */;
+
+-- view the cart (fetches quantity, name, and price of item)
+SELECT i.Quantity, g.Name, g.Price
+FROM CART_ITEM i, GUITAR g, CART c
+WHERE i.Cart_ID = c.ID
+AND i.Item_ID = g.ID
+AND c.User_ID = /* the user's ID */;
