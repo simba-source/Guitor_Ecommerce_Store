@@ -90,32 +90,32 @@ def registeruser():
         password = request.form.get("password")
         cur = mysql.get_db().cursor()
 
-        # try:
-            #get the last userid
-        cur.execute("SELECT ID FROM USER")
-        last_id = cur.fetchall()
-        for i in last_id:
-            final_id = int(i[-1]) + 1
-        #see if new username is in the db already
-        cur.execute("SELECT Username FROM USER WHERE Username = %s", username)
-        if not cur.fetchone():
-            #username is unique
-            print('not in db')
-            cur.execute("INSERT INTO USER (Username,Password, ID) VALUES (%s, %s, %s)", (username, password, final_id))
-            mysql.get_db().commit()
+        try:
+                #get the last userid
+            cur.execute("SELECT ID FROM USER")
+            last_id = cur.fetchall()
+            for i in last_id:
+                final_id = int(i[-1]) + 1
+            #see if new username is in the db already
+            cur.execute("SELECT Username FROM USER WHERE Username = %s", username)
+            if not cur.fetchone():
+                #username is unique
+                print('not in db')
+                cur.execute("INSERT INTO USER (Username,Password, ID) VALUES (%s, %s, %s)", (username, password, final_id))
+                mysql.get_db().commit()
 
-            user_logged_in = True
-            account_created_message = "Account has been saved. "
-            return render_template('index.html', message = account_created_message)
-        else:
-            #username is already in database
-            print('in DB')
-            failed_to_register = "Username already exists in databse. Enter new username or log in"
-            return render_template('register.html', message = failed_to_register)
-        # except Exception:
-        #     print('error')
-        #     error_message = "Error"
-        #     return render_template('register.html', message = error_message)
+                user_logged_in = True
+                account_created_message = "Account has been saved. "
+                return render_template('index.html', message = account_created_message)
+            else:
+                #username is already in database
+                print('in DB')
+                failed_to_register = "Username already exists in databse. Enter new username or log in"
+                return render_template('register.html', message = failed_to_register)
+        except Exception:
+            print('error')
+            error_message = "Error"
+            return render_template('register.html', message = error_message)
 
     #query to make sure username doesn't already exist
     #if username does not already exist, place new username and pass into database, redirect to index
