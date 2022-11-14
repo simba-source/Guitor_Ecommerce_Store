@@ -1,24 +1,55 @@
-<br><br><br>
+<!DOCTYPE html>
+<html lang="en">
 
-{% extends "style.html" %}
-{% block content %}
-<div class="container">
-<ul class="inline font-weight-bold">
-  <span class="left">
-     <li><a href=" {{url_for('main.home')}} ">Smart Shop</a></li>
-   </span>
-   <span class="right">
-      <i class="fa fa-lock grey" style="font-size:24px"></i> <small> 100%  SECURE</small>
-    </span>
-   <div class="center">
-    <li><a href="{{url_for('users.cart')}}">Bag</a></li>
-    <li>........</li>
-    <li><a href="{{url_for('users.checkout')}}">Delivery</a></li>
-    <li>........</li>
-    <li class="underline orange"><a href="#">Payment</a></li>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guitar Store</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+    <link rel="stylesheet" href="../styles/style.css" />
+</head>
+</head>
+<body>  
+    <!-- HEADER -->
+    <section id="header">
+        <a href="../templates/index.html"><img src="../styles/images/logo.gif" alt="logo" class="logo" /></a>
+
+        <div>
+            <ul id="navbar">
+                <li><a class="active" href="../templates/index.html">Home</a></li>
+                <li><a href="../templates/shop.html">Shop</a></li>
+                <li><a href="../templates/about.html">About</a></li>
+                <li><a href="../templates/login.html">Log In</a></li>
+                <li id="lg-bag"><a href="../templates/cart.html"><i class="fa-solid fa-bag-shopping"></i></a></li>
+                <a href="#" id="close"><i class="fa-solid fa-xmark"></i></a>
+            </ul>
+        </div>
+        <div id="mobile">
+            <a href="../templates/cart.html"><i class="fa-solid fa-bag-shopping"></i></a>
+            <i id="bar" class="fas fa-outdent"></i>
+        </div>
+    </section>
+
+    <!-- OREDER PLACED -->
+    <div id="orderContainer">
+        <div id="check"><i class="fas fa-check-circle"></i></div>
+        
+        <div id="aboutCheck">
+            <h1> Order Placed Successfully! </h1>
+            <p> We've sent you an email with the Order details. </p>
+        </div>
     </div>
+        <!-- FOOTER -->
+        <footer class="section-p1">
+        <div class="copyright">
+            <p>© 2022, UVM CS205 Team-7</p>
+        </div>
+    </footer>
 
-</ul>
-<hr>
- <span class="center"><h3 class="font-weight-bold">Congratulations! Your order has been placed.</h3></span>
-{% endblock content %}
+    <script src="../scripts/script.js"></script>
+    <script src="/orderPlaced.js"></script>
+
+</body>
+<script src="/orderPlaced.js"></script>
+</html>
