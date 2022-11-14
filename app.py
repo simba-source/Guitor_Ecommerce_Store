@@ -81,31 +81,32 @@ def register():
 
 @app.route('/registeruser', methods=['GET', 'POST'])
 def registeruser():
-    # getting input from name tag HTML form
-    username = request.form.get("name")
-    password = request.form.get("password")
-    cur = mysql.get_db().cursor()
-    try:
-        cur.execute("SELECT Username FROM USER WHERE Username = %s", username)
+    if request.method == "POST":
+        # getting input from name tag HTML form
+        username = request.form.get("name")
+        password = request.form.get("password")
+        cur = mysql.get_db().cursor()
+        try:
+            cur.execute("SELECT Username FROM USER WHERE Username = %s", username)
 
-        if not cur.fetchone():
-            #username is unique
-            print('not in db')
-            cur.execute("INSERT INTO USER Username VALUES (%s)", username)
-            cur.execute("INSERT INTO USER Password VALUES (%s)", password)
-            mysql.get_db().commit()
+            if not cur.fetchone():
+                #username is unique
+                print('not in db')
+                cur.execute("INSERT INTO USER Username VALUES (%s)", username)
+                cur.execute("INSERT INTO USER Password VALUES (%s)", password)
+                mysql.get_db().commit()
 
-            account_created_message = "Account has been saved. "
-            return render_template('/', message = account_created_message)
-        else:
-            #username is already in database
-            print('in DB')
-            failed_to_register = "Username already exists in databse. Enter new username or log in"
-            return render_template('register.html', message = failed_to_register)
-    except:
-        print('error')
-        error_message = "Error"
-        return render_template('register.html', message = error_message)
+                account_created_message = "Account has been saved. "
+                return render_template('/', message = account_created_message)
+            else:
+                #username is already in database
+                print('in DB')
+                failed_to_register = "Username already exists in databse. Enter new username or log in"
+                return render_template('register.html', message = failed_to_register)
+        except:
+            print('error')
+            error_message = "Error"
+            return render_template('register.html', message = error_message)
 
     #query to make sure username doesn't already exist
     #if username does not already exist, place new username and pass into database, redirect to index
