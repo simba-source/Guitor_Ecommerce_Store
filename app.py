@@ -10,6 +10,8 @@ app.config['MYSQL_DATABASE_DB'] = 'mktdata'
 mysql = MySQL(app)
 mysql.init_app(app)
 
+user_logged_in = False
+
 def data():
     cur = mysql.get_db().cursor()
     cur.execute("DROP TABLE CART_ITEM")
@@ -66,7 +68,8 @@ def checklogin():
                 error_message = "Invalid credentials. Try again or register to proceed."
                 return render_template('login.html', message = error_message)
             else:
-                # not sure what to do with this
+                # successful login
+                user_logged_in = True
                 return render_template('index.html')
 
         except:
@@ -95,6 +98,7 @@ def registeruser():
                 cur.execute("INSERT INTO USER (Username,Password) VALUES (%s,%s)", (username,password))
                 mysql.get_db().commit()
 
+                user_logged_in = True
                 account_created_message = "Account has been saved. "
                 return render_template('index.html', message = account_created_message)
             else:
