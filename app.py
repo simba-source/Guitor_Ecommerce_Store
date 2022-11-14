@@ -119,7 +119,7 @@ def registeruser():
 
     #query to make sure username doesn't already exist
     #if username does not already exist, place new username and pass into database, redirect to index
-    #if it does exist,
+    #if it does exist
     return render_template('index.html')
 
 @app.route('/', methods=['GET', 'POST'])
