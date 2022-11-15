@@ -10,7 +10,12 @@ app.config['MYSQL_DATABASE_DB'] = 'mktdata'
 mysql = MySQL(app)
 mysql.init_app(app)
 
-user_logged_in = False
+#User class to store information about active user
+class User:
+    def __init__(self, is_logged_in, id):
+        self.is_logged_in = is_logged_in
+        self.id = id
+
 
 def data():
     cur = mysql.get_db().cursor()
@@ -68,14 +73,19 @@ def checklogin():
                 error_message = "Invalid credentials. Try again or register to proceed."
                 return render_template('login.html', message = error_message)
             else:
-                # successful login
-                user_logged_in = True
+                # successful login - get id and create instance of User
+                cur.execute("SELECT ID FROM USER WHERE Username = %s", (username))
+                id_for_active_user = cur.fetchall()
+                print("id for active user follows: ")
+                print(id_for_active_user[0][0])
+                global active_user
+                active_user = User(True, id_for_active_user)
                 return render_template('index.html')
 
         except:
             print('doesnt exist \n')
             # return render_template('index.html')
-    return render_template('index.html')
+    return render_template('login.html')
 
 @app.route('/register', methods=['GET', 'POST'])
 @app.route('/templates/register.html', methods=['GET', 'POST'])
@@ -99,12 +109,14 @@ def registeruser():
             #see if new username is in the db already
             cur.execute("SELECT Username FROM USER WHERE Username = %s", username)
             if not cur.fetchone():
-                #username is unique
+                #username is unique - create account
                 print('not in db')
                 cur.execute("INSERT INTO USER (Username,Password, ID) VALUES (%s, %s, %s)", (username, password, final_id))
                 mysql.get_db().commit()
 
-                user_logged_in = True
+                #create instance of User
+                global active_user
+                active_user = User(True, final_id)
                 account_created_message = "Account has been saved. "
                 return render_template('index.html', message = account_created_message)
             else:
@@ -178,7 +190,7 @@ def cart():
     cur = mysql.get_db().cursor()
 
     #query for all the items
-    cur.execute("SELECT * FROM CART_ITEM WHERE CART_ITEM(Cart_ID) = CART(ID) AND CART(User_ID) = %s", (user_id))
+    cur.execute("SELECT * FROM CART_ITEM WHERE CART_ITEM(Cart_ID) = CART(ID) AND CART(User_ID) = %s", (active_user.id))
     items = cur.fetchall()
     print(items)
     # nested dictionary. Outer for each product, inner for products' keys and values
