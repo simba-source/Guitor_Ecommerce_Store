@@ -196,17 +196,18 @@ def cart():
     cur = mysql.get_db().cursor()
 
     #check if user is logged in
-    if active_user.is_logged_in == False:
+    if not active_user.is_logged_in:
         #user is not logged in, redirect to previous page
         error_message = "You need to be logged in to have a cart. Please log in or create an account. "
         print(error_message)
         return redirect(request.referrer)
 
 
-    #query for all the items
+    #query for all the items in cart
     cur.execute("SELECT * FROM CART_ITEM WHERE CART_ITEM(Cart_ID) = CART(ID) AND CART(User_ID) = %s", (active_user.id))
     items = cur.fetchall()
     print(items)
+
     # nested dictionary. Outer for each product, inner for products' keys and values
     cart_items_dictionary = {}
     item_index = 1
@@ -224,6 +225,13 @@ def cart():
 
 @app.route('/addtocart', methods=['GET', 'POST'])
 def add_to_cart():
+    # check if user is logged in
+    if not active_user.is_logged_in:
+        # user is not logged in, redirect to previous page
+        error_message = "You need to be logged in to add to cart. Please log in or create an account. "
+        print(error_message)
+        return redirect(request.referrer)
+
     return render_template('/')
 
 @app.route('/removefromcart', methods=['GET', 'POST'])
