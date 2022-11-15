@@ -86,3 +86,9 @@ FROM CART_ITEM i, GUITAR g, CART c
 WHERE i.Cart_ID = c.ID
 AND i.Item_ID = g.ID
 AND c.User_ID = /* the user's ID */;
+
+-- everything from cart_item
+SELECT i.ID, i.Item_ID, i.Quantity, i.Date_mad, i.Cart_ID
+FROM CART_ITEM i, CART c
+WHERE i.Cart_ID = c.ID
+AND c.User_ID = /* the user's ID */;
