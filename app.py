@@ -177,7 +177,8 @@ def product():
 def cart():
     cur = mysql.get_db().cursor()
 
-    cur.execute("SELECT ID, Name, Price, Picture FROM GUITAR")
+    #query for all the items
+    cur.execute("SELECT ID, Item_ID, Quantity, Date_made, Cart_ID FROM CART_ITEM WHERE Cart_ID = ID AND User_ID = %s", (user_id))
     items = cur.fetchall()
 
     # nested dictionary. Outer for each product, inner for products' keys and values
