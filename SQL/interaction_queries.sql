@@ -91,4 +91,4 @@ AND c.User_ID = /* the user's ID */;
 SELECT i.ID, i.Item_ID, i.Quantity, i.Date_made, i.Cart_ID
 FROM CART_ITEM AS i, CART AS c
 WHERE i.Cart_ID = c.ID
-AND c.User_ID = 0123456789;
+AND c.User_ID = /* the user's ID */;
