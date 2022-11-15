@@ -88,7 +88,7 @@ AND i.Item_ID = g.ID
 AND c.User_ID = /* the user's ID */;
 
 -- everything from cart_item
-SELECT i.ID, i.Item_ID, i.Quantity, i.Date_mad, i.Cart_ID
-FROM CART_ITEM i, CART c
+SELECT i.ID, i.Item_ID, i.Quantity, i.Date_made, i.Cart_ID
+FROM CART_ITEM AS i, CART AS c
 WHERE i.Cart_ID = c.ID
-AND c.User_ID = /* the user's ID */;
+AND c.User_ID = 0123456789;
