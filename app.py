@@ -16,6 +16,8 @@ class User:
         self.is_logged_in = is_logged_in
         self.id = id
 
+#create global instance of class for client
+active_user = User(False, None)
 
 def data():
     cur = mysql.get_db().cursor()
@@ -73,13 +75,15 @@ def checklogin():
                 error_message = "Invalid credentials. Try again or register to proceed."
                 return render_template('login.html', message = error_message)
             else:
-                # successful login - get id and create instance of User
+                # successful login - get id and update active_user
                 cur.execute("SELECT ID FROM USER WHERE Username = %s", (username))
                 id_for_active_user = cur.fetchall()
                 print("id for active user follows: ")
                 print(id_for_active_user[0][0])
-                global active_user
-                active_user = User(True, id_for_active_user)
+
+                active_user.is_logged_in = True
+                active_user.id = id_for_active_user
+
                 return render_template('index.html')
 
         except:
@@ -114,9 +118,10 @@ def registeruser():
                 cur.execute("INSERT INTO USER (Username,Password, ID) VALUES (%s, %s, %s)", (username, password, final_id))
                 mysql.get_db().commit()
 
-                #create instance of User
-                global active_user
-                active_user = User(True, final_id)
+                #update active_user
+                active_user.is_logged_in = True
+                active_user.id = final_id
+
                 account_created_message = "Account has been saved. "
                 return render_template('index.html', message = account_created_message)
             else:
@@ -187,7 +192,16 @@ def product():
 @app.route('/cart', methods=['GET', 'POST'])
 @app.route('/templates/cart.html', methods=['GET', 'POST'])
 def cart():
+    #initialize mysql cursor
     cur = mysql.get_db().cursor()
+
+    #check if user is logged in
+    if active_user.is_logged_in == False:
+        #user is not logged in, redirect to previous page
+        error_message = "You need to be logged in to have a cart. Please log in or create an account. "
+        print(error_message)
+        return redirect(request.referrer)
+
 
     #query for all the items
     cur.execute("SELECT * FROM CART_ITEM WHERE CART_ITEM(Cart_ID) = CART(ID) AND CART(User_ID) = %s", (active_user.id))
