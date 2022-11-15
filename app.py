@@ -103,19 +103,22 @@ def registeruser():
         username = request.form.get("name")
         password = request.form.get("password")
         cur = mysql.get_db().cursor()
-
+        cur.execute("SELECT * FROM CART")
+        print(cur.fetchall())
         try:
                 #get the last userid
             cur.execute("SELECT ID FROM USER")
             last_id = cur.fetchall()
             for i in last_id:
                 final_id = int(i[-1]) + 1
-            #see if new username is in the db already
+
+                #see if new username is in the db already
             cur.execute("SELECT Username FROM USER WHERE Username = %s", username)
             if not cur.fetchone():
                 #username is unique - create account
                 print('not in db')
                 cur.execute("INSERT INTO USER (Username,Password, ID) VALUES (%s, %s, %s)", (username, password, final_id))
+                cur.execute("INSERT INTO CART (ID,User_ID) VALUES (%s, %s)", (final_id,final_id))
                 mysql.get_db().commit()
 
                 #update active_user
