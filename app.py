@@ -232,7 +232,21 @@ def add_to_cart():
         print(error_message)
         return redirect(request.referrer)
 
-    return render_template('/')
+    # user is logged in
+    # initialize mysql cursor
+    cur = mysql.get_db().cursor()
+
+    # check if user has cart
+    #cur.execute()
+    #user_cart = cur.fetchall()
+    #if user does not have cart:
+        #create cart for user
+
+    # cart exists - add item to cart
+    #cur.execute("INSERT INTO CART_ITEM ...)
+
+    added_to_cart_message = "Item has been added to cart. "
+    return render_template('/', message = added_to_cart_message)
 
 @app.route('/removefromcart', methods=['GET', 'POST'])
 def remove_from_cart():
