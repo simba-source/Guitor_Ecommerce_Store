@@ -228,6 +228,7 @@ def cart():
 
 @app.route('/addtocart', methods=['GET', 'POST'])
 def add_to_cart():
+    print("add to cart function running ... ")
     # check if user is logged in
     if not active_user.is_logged_in:
         # user is not logged in, redirect to previous page

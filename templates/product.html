@@ -33,20 +33,20 @@
         <div class="single-pro-image">
             <img src="{{ product['image'] }}" width="100%" id="MainImage" alt="product" />
 
-            <div class="small-img-group">
-                <div class="small-img-col">
-                    <img onclick="click1()" src="../styles/images/products/f1.png" alt="product" width="100%" class="small-img focus" />
-                </div>
-                <div class="small-img-col">
-                    <img onclick="click2()" src="../styles/images/products/f2.png" alt="product" width="100%" class="small-img" />
-                </div>
-                <div class="small-img-col">
-                    <img onclick="click3()" src="../styles/images/products/f3.png" alt="product" width="100%" class="small-img" />
-                </div>
-                <div class="small-img-col">
-                    <img onclick="click4()" src="../styles/images/products/n1.png" alt="product" width="100%" class="small-img" />
-                </div>
-            </div>
+<!--            <div class="small-img-group">-->
+<!--                <div class="small-img-col">-->
+<!--                    <img onclick="click1()" src="../styles/images/products/f1.png" alt="product" width="100%" class="small-img focus" />-->
+<!--                </div>-->
+<!--                <div class="small-img-col">-->
+<!--                    <img onclick="click2()" src="../styles/images/products/f2.png" alt="product" width="100%" class="small-img" />-->
+<!--                </div>-->
+<!--                <div class="small-img-col">-->
+<!--                    <img onclick="click3()" src="../styles/images/products/f3.png" alt="product" width="100%" class="small-img" />-->
+<!--                </div>-->
+<!--                <div class="small-img-col">-->
+<!--                    <img onclick="click4()" src="../styles/images/products/n1.png" alt="product" width="100%" class="small-img" />-->
+<!--                </div>-->
+<!--            </div>-->
         </div>
 
         <div class="single-pro-details">
@@ -61,7 +61,9 @@
           <option>Orange</option>
         </select> -->
             <input type="number" value="1" />
-            <button id="add-to-cart" class="normal">Add To Cart</button>
+            <a href="addtocart">
+                <button id="add-to-cart" class="normal">Add To Cart</button>
+            </a>
             <h4>Product Details</h4>
             <span>
                 {{ product['desc'] }}
@@ -69,60 +71,60 @@
         </div>
     </section>
 
-    <section id="product1" class="section-p1">
-        <h2>Featured Products</h2>
-        <p>2022 Collections, New Modern Designs</p>
-        <div class="pro-container">
-            <div class="pro" onclick="window.location.href='product.html';">
-                <img src="https://images.unsplash.com/photo-1586188463084-733582b26240?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="product" />
-                <div class="des">
-                    <span>UVM</span>
-                    <h5>Guitar</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>$840</h4>
-                </div>
-                <a href="#"><i class="fa-solid fa-cart-shopping cart"></i></a>
-            </div>
-            <div class="pro" onclick="window.location.href='product.html';">
-                <img src="https://images.unsplash.com/photo-1601956349578-c31521587860?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="product" />
-                <div class="des">
-                    <span>UVM</span>
-                    <h5>Guitar</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>$840</h4>
-                </div>
-                <a href="#"><i class="fa-solid fa-cart-shopping cart"></i></a>
-            </div>
-            <div class="pro" onclick="window.location.href='product.html';">
-                <img src="https://images.unsplash.com/photo-1540281772389-9c107ba8c7c9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=677&q=80" alt="product" />
-                <div class="des">
-                    <span>UVM</span>
-                    <h5>Guitar</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>$840</h4>
-                </div>
-                <a href="#"><i class="fa-solid fa-cart-shopping cart"></i></a>
-            </div>
-        </div>
-    </section>
+<!--    <section id="product1" class="section-p1">-->
+<!--        <h2>Featured Products</h2>-->
+<!--        <p>2022 Collections, New Modern Designs</p>-->
+<!--        <div class="pro-container">-->
+<!--            <div class="pro" onclick="window.location.href='product.html';">-->
+<!--                <img src="https://images.unsplash.com/photo-1586188463084-733582b26240?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="product" />-->
+<!--                <div class="des">-->
+<!--                    <span>UVM</span>-->
+<!--                    <h5>Guitar</h5>-->
+<!--                    <div class="star">-->
+<!--                        <i class="fas fa-star"></i>-->
+<!--                        <i class="fas fa-star"></i>-->
+<!--                        <i class="fas fa-star"></i>-->
+<!--                        <i class="fas fa-star"></i>-->
+<!--                        <i class="fas fa-star"></i>-->
+<!--                    </div>-->
+<!--                    <h4>$840</h4>-->
+<!--                </div>-->
+<!--                <a href="#"><i class="fa-solid fa-cart-shopping cart"></i></a>-->
+<!--            </div>-->
+<!--            <div class="pro" onclick="window.location.href='product.html';">-->
+<!--                <img src="https://images.unsplash.com/photo-1601956349578-c31521587860?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="product" />-->
+<!--                <div class="des">-->
+<!--                    <span>UVM</span>-->
+<!--                    <h5>Guitar</h5>-->
+<!--                    <div class="star">-->
+<!--                        <i class="fas fa-star"></i>-->
+<!--                        <i class="fas fa-star"></i>-->
+<!--                        <i class="fas fa-star"></i>-->
+<!--                        <i class="fas fa-star"></i>-->
+<!--                        <i class="fas fa-star"></i>-->
+<!--                    </div>-->
+<!--                    <h4>$840</h4>-->
+<!--                </div>-->
+<!--                <a href="#"><i class="fa-solid fa-cart-shopping cart"></i></a>-->
+<!--            </div>-->
+<!--            <div class="pro" onclick="window.location.href='product.html';">-->
+<!--                <img src="https://images.unsplash.com/photo-1540281772389-9c107ba8c7c9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=677&q=80" alt="product" />-->
+<!--                <div class="des">-->
+<!--                    <span>UVM</span>-->
+<!--                    <h5>Guitar</h5>-->
+<!--                    <div class="star">-->
+<!--                        <i class="fas fa-star"></i>-->
+<!--                        <i class="fas fa-star"></i>-->
+<!--                        <i class="fas fa-star"></i>-->
+<!--                        <i class="fas fa-star"></i>-->
+<!--                        <i class="fas fa-star"></i>-->
+<!--                    </div>-->
+<!--                    <h4>$840</h4>-->
+<!--                </div>-->
+<!--                <a href="#"><i class="fa-solid fa-cart-shopping cart"></i></a>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </section>-->
 
     <footer class="section-p1">
         <div class="copyright">
