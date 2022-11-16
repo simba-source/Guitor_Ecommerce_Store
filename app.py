@@ -269,7 +269,6 @@ def add_to_cart():
 def remove_from_cart():
     return render_template('/')
 
-
 @app.route('/templates/about.html', methods=['GET', 'POST'])
 @app.route('/about', methods=['GET', 'POST'])
 def about():
