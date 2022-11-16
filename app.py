@@ -210,6 +210,9 @@ def cart():
     #query for all the items in cart
     cur.execute("SELECT * FROM CART_ITEM JOIN CART ON CART.ID = CART_ID WHERE CART.User_ID = %s", (active_user.id))
 
+    # need to extract item_id and quantity from above query and
+    # guitar title, price, image from new query to select from guitars where guitar id is item_id
+
     items = cur.fetchall()
     print(items)
 
@@ -217,10 +220,12 @@ def cart():
     cart_items_dictionary = {}
     item_index = 1
     i = 0
+
+    #cart item query for reference
+    #cur.execute("CREATE TABLE CART_ITEM(ID INT NOT NULL, Item_ID INT, Quantity INT, Date_made DATE, Cart_ID INT, PRIMARY KEY (ID), FOREIGN KEY (Item_ID) REFERENCES GUITAR(ID), FOREIGN KEY (Cart_ID) REFERENCES CART(ID))")
     for item in items:
         cart_items_dictionary.update({
-            item_index: {'id': items[i][0], 'title': items[i][1], 'price': items[i][2],
-                         'image': items[i][3]}
+            item_index: {'id': items[i][0], 'item_id': items[i][1], 'quanitity': items[i][2], 'date': items[i][3]}
         })
         item_index += 1
         i += 1
