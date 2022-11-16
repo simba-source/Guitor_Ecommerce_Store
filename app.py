@@ -198,6 +198,7 @@ def cart():
     #initialize mysql cursor
     cur = mysql.get_db().cursor()
 
+
     #check if user is logged in
     if not active_user.is_logged_in:
         #user is not logged in, redirect to previous page
@@ -207,7 +208,8 @@ def cart():
 
 
     #query for all the items in cart
-    cur.execute("SELECT * FROM CART_ITEM WHERE CART_ITEM(Cart_ID) = CART(ID) AND CART(User_ID) = %s", (active_user.id))
+    cur.execute("SELECT * FROM CART_ITEM JOIN CART ON CART.ID = CART_ID WHERE CART.User_ID = %s", (active_user.id))
+
     items = cur.fetchall()
     print(items)
 
