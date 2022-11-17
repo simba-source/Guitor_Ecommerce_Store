@@ -32,8 +32,6 @@ def data():
     cur.execute("CREATE TABLE CART(ID INT NOT NULL, User_ID INT, Date_made DATE, PRIMARY KEY (ID), FOREIGN KEY (User_ID) REFERENCES USER(ID))")
     cur.execute("CREATE TABLE CART_ITEM(ID INT NOT NULL, Item_ID INT, Quantity INT, Date_made DATE, Cart_ID INT, PRIMARY KEY (ID), FOREIGN KEY (Item_ID) REFERENCES GUITAR(ID), FOREIGN KEY (Cart_ID) REFERENCES CART(ID))")
 
-
-
     # cur.execute("CREATE TABLE PURCHASE(ID INT, User_ID INT, User_balance DECIMAL(7,2), Item_ID INT, PRIMARY KEY (ID))")
 
     fd = open('SQL/start_data.sql', 'r')
@@ -170,7 +168,6 @@ def shop():
        item_index += 1
        i += 1
 
-    #print(products_dictionary)
     return render_template('shop.html', products = products_dictionary)
 
 @app.route('/loadproduct', methods=['GET', 'POST'])
@@ -181,8 +178,6 @@ def load_product_page():
     cur.execute('SELECT ID, Name, Price, Picture, Description FROM GUITAR WHERE ID = "{}"'.format(product_id))
     product = cur.fetchall()
 
-    #i'm a bit confused with the indexing here. will look into later
-    #i would think 'product[0]' would return id, but it holds the whole dict
     product_dictionary = {'id': product[0][0], 'title': product[0][1], 'price': product[0][2],
                          'image': product[0][3], 'desc': product[0][4]}
 
@@ -207,14 +202,11 @@ def cart():
         print(error_message)
         return redirect(request.referrer)
 
-
     #query for all the items in cart - only need Item_ID
     cur.execute("SELECT Item_ID FROM CART_ITEM JOIN CART ON CART.ID = CART_ID WHERE CART.User_ID = %s", (active_user.id))
 
-    # need to extract item_id and quantity from above query and
-    # guitar title, price, image from new query to select from guitars where guitar id is item_id
-
     items = cur.fetchall()
+    print("printing all items: ")
     print(items)
 
     # nested dictionary. Outer for each product, inner for products' keys and values
@@ -222,17 +214,13 @@ def cart():
     item_index = 1
     i = 0
 
-    #cart item query for reference
-    #cur.execute("CREATE TABLE CART_ITEM(ID INT NOT NULL, Item_ID INT, Quantity INT, Date_made DATE, Cart_ID INT, PRIMARY KEY (ID), FOREIGN KEY (Item_ID) REFERENCES GUITAR(ID), FOREIGN KEY (Cart_ID) REFERENCES CART(ID))")
     for item in items:
-        print(item)
-
         #query for guitar using item_id
-        cur.execute("SELECT * FROM GUITAR WHERE ID  = (%s)", (item))
+        cur.execute("SELECT * FROM GUITAR WHERE ID  = (%s)", (item[0]))
         guitar = cur.fetchall()
 
         cart_items_dictionary.update({
-            item_index: {'id': items[i][0], 'item_id': items[i][1], 'quanitity': items[i][2], 'date': items[i][3]}
+            item_index: {'id': guitar[0][0], 'title': guitar[0][1], 'image': guitar[0][2], 'price': guitar[0][4]}
         })
         item_index += 1
         i += 1
@@ -256,7 +244,6 @@ def add_to_cart():
     # user is logged in
     # initialize mysql cursor
     cur = mysql.get_db().cursor()
-
 
     #generate new id
     cur.execute("SELECT ID FROM USER")
