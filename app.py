@@ -298,10 +298,10 @@ def about():
     return render_template('about.html')
 
 
-@app.route('/templates/purchased.html', methods=['GET', 'POST'])
+@app.route('/templates/order_placed.html', methods=['GET', 'POST'])
 def purchase():
     #query to check if any items are in user's cart before rendering purchased page
-    return render_template('purchased.html')
+    return render_template('order_placed.html')
 
 @app.route('/product.html', methods=['GET', 'POST'])
 def product2():
