@@ -203,7 +203,7 @@ def cart():
         return redirect(request.referrer)
 
     #query for all the items in cart - only need Item_ID
-    cur.execute("SELECT Item_ID FROM CART_ITEM JOIN CART ON CART.ID = CART_ID WHERE CART.User_ID = %s", (active_user.id))
+    cur.execute("SELECT Item_ID, CART_ITEM.ID FROM CART_ITEM JOIN CART ON CART.ID = CART_ID WHERE CART.User_ID = %s", (active_user.id))
 
     items = cur.fetchall()
 
@@ -213,18 +213,21 @@ def cart():
     i = 0
 
     for item in items:
+        print("current cart id follows")
+        print(items[i][1])
+
         #query for guitar using item_id
         cur.execute("SELECT * FROM GUITAR WHERE ID  = (%s)", (item[0]))
         guitar = cur.fetchall()
 
         cart_items_dictionary.update({
-            item_index: {'id': guitar[0][0], 'title': guitar[0][1], 'image': guitar[0][2], 'price': guitar[0][4]}
+            item_index: {'id': guitar[0][0], 'title': guitar[0][1], 'image': guitar[0][2], 'price': guitar[0][4], 'cart_item_id': items[i][1]}
         })
         item_index += 1
         i += 1
 
     # print(cart_items_dictionary)
-    return render_template('cart.html', items=cart_items_dictionary)#return item details in items, and total price for subtotal
+    return render_template('cart.html', items=cart_items_dictionary)
 
 @app.route('/addtocart', methods=['GET', 'POST'])
 def add_to_cart():
@@ -281,16 +284,20 @@ def add_to_cart():
 @app.route('/removefromcart', methods=['GET', 'POST'])
 def remove_from_cart():
     #get product id from url param
-    product_id = request.args.get('product_id')
-    print(product_id)
+    cart_item_id = request.args.get('cart_item_id')
+    print("cart id follows (from removefromcart)")
+    print(cart_item_id)
 
     # initialize mysql cursor
     cur = mysql.get_db().cursor()
 
     #remove cart_item from user's cart
-    #cur.execute(DELETE FROM CART_ITEM WHERE )
+    cur.execute('DELETE FROM CART_ITEM WHERE ID = (%s)', (cart_item_id))
 
-    return render_template('index.html')
+    removed_successfully_message = "Item has been removed from cart. "
+    print(removed_successfully_message)
+
+    return render_template('index.html', message = removed_successfully_message)
 
 @app.route('/templates/about.html', methods=['GET', 'POST'])
 @app.route('/about', methods=['GET', 'POST'])
