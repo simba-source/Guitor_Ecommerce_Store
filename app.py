@@ -255,7 +255,6 @@ def add_to_cart():
     last_id = cur.fetchall()
     for i in last_id:
         final_id = int(i[-1])
-    print(final_id)
     # check if user has cart
     #user_cart = cur.fetchall()
     #if user does not have cart:
@@ -267,7 +266,13 @@ def add_to_cart():
     # cart exists - add item to cart
     # cur.execute("INSERT INTO CART_ITEM ...)
     else:
-        cur.execute("INSERT INTO CART_ITEM (ID, Item_ID, Quantity, Cart_ID) VALUES (%s, %s, %s, %s)", (final_id,product_id,1,final_id))
+        # generate new id
+        cur.execute("SELECT ID FROM CART_ITEM")
+        last_id2 = cur.fetchall()
+        for a in last_id2:
+            final_id2 = int(a[-1]) + 2
+        print(final_id2)
+        cur.execute("INSERT INTO CART_ITEM (ID, Item_ID, Quantity, Cart_ID) VALUES (%s, %s, %s, %s)", (final_id2,product_id,1,final_id))
     mysql.get_db().commit()
     added_to_cart_message = "Item has been added to cart. "
     return render_template('index.html', message = added_to_cart_message)
