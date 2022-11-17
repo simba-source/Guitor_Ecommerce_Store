@@ -43,8 +43,8 @@
                     <td>IMAGE</td>
                     <td>PRODUCT</td>
                     <td>PRICE</td>
-                    <td>QUANTITY</td>
-                    <td>SUBTOTAL</td>
+<!--                    <td>QUANTITY</td>-->
+<!--                    <td>SUBTOTAL</td>-->
                 </tr>
             </thead>
             <tbody>
@@ -60,35 +60,10 @@
                         </td>
                         <td>{{ items[i]['title'] }}</td>
                         <td>{{ items[i]['price'] }}</td>
-                        <td><input type="number" value="1" /></td>
-                        <td>price * quantity here</td>
+<!--                        <td><input type="number" value="1" /></td>-->
+<!--                        <td>price * quantity here</td>-->
                     </tr>
                 {% endfor %}
-
-<!--                <tr>-->
-<!--                    <td>-->
-<!--                        <a href="#"><i class="far fa-times-circle"></i></a>-->
-<!--                    </td>-->
-<!--                    <td>-->
-<!--                        <img src="../styles/images/products/n2.png" alt="product" />-->
-<!--                    </td>-->
-<!--                    <td>Guitar 2</td>-->
-<!--                    <td>$1198.00</td>-->
-<!--                    <td><input type="number" value="1" /></td>-->
-<!--                    <td>$1198.00</td>-->
-<!--                </tr>-->
-<!--                <tr>-->
-<!--                    <td>-->
-<!--                        <a href="#"><i class="far fa-times-circle"></i></a>-->
-<!--                    </td>-->
-<!--                    <td>-->
-<!--                        <img src="../styles/images/products/n3.png" alt="product" />-->
-<!--                    </td>-->
-<!--                    <td>Guitar 3</td>-->
-<!--                    <td>$1198.00</td>-->
-<!--                    <td><input type="number" value="1" /></td>-->
-<!--                    <td>$1198.00</td>-->
-<!--                </tr>-->
             </tbody>
         </table>
     </section>
@@ -99,7 +74,7 @@
             <table>
                 <tr>
                     <td>Cart Subtotal</td>
-                    <td>$ 3594</td>
+                    <td>{{ subtotal }}</td>
                 </tr>
                 <tr>
                     <td>Shipping</td>
@@ -110,7 +85,7 @@
                         <strong>Total</strong>
                     </td>
                     <td>
-                        <strong>$ 3594</strong>
+                        <strong>{{ subtotal }}</strong>
                     </td>
                 </tr>
             </table>

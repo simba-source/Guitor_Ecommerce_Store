@@ -215,9 +215,6 @@ def cart():
     i = 0
 
     for item in items:
-        print("current cart id follows")
-        print(items[i][1])
-
         #query for guitar using item_id
         cur.execute("SELECT * FROM GUITAR WHERE ID  = (%s)", (item[0]))
         guitar = cur.fetchall()
@@ -228,8 +225,14 @@ def cart():
         item_index += 1
         i += 1
 
-    # print(cart_items_dictionary)
-    return render_template('cart.html', items=cart_items_dictionary)
+    #get total cart price
+    total_price = 0
+    i = 1
+    while i <= len(cart_items_dictionary):
+        total_price = total_price + cart_items_dictionary[i]['price']
+        i += 1
+
+    return render_template('cart.html', items=cart_items_dictionary, subtotal=total_price)
 
 @app.route('/addtocart', methods=['GET', 'POST'])
 def add_to_cart():
