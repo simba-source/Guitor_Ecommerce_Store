@@ -118,6 +118,8 @@ def registeruser():
                 print('not in db')
                 cur.execute("INSERT INTO USER (Username,Password, ID) VALUES (%s, %s, %s)", (username, password, final_id))
                 cur.execute("INSERT INTO CART (ID,User_ID) VALUES (%s, %s)", (final_id,final_id))
+
+                #commit change to database
                 mysql.get_db().commit()
 
                 #update active_user
@@ -259,9 +261,9 @@ def add_to_cart():
             print('user has no cart')
             cur.execute("INSERT INTO CART (ID,User_ID) VALUES (%s, %s)", (final_id, active_user.id))
 
-    # cart exists - add item to cart
+    #cart exists - add item to cart
     else:
-        # generate new id
+        #generate new id
         rand_list = []
         final_id2 = random.randint(0, 100000000)
         if final_id2 in rand_list:
@@ -269,7 +271,7 @@ def add_to_cart():
         else:
             rand_list.append(final_id2)
 
-        # #check to make sure it isn't in table
+        #check to make sure it isn't in table
         cur.execute('SELECT * FROM CART_ITEM WHERE ID = (%s)', (final_id2))
         if not cur.fetchone():
             cur.execute("INSERT INTO CART_ITEM (ID, Item_ID, Quantity, Cart_ID) VALUES (%s, %s, %s, %s)", (final_id2,product_id,1,active_user.id))
@@ -288,11 +290,14 @@ def remove_from_cart():
     print("cart id follows (from removefromcart)")
     print(cart_item_id)
 
-    # initialize mysql cursor
+    #initialize mysql cursor
     cur = mysql.get_db().cursor()
 
     #remove cart_item from user's cart
-    cur.execute('DELETE FROM CART_ITEM WHERE ID = (%s)', (cart_item_id))
+    cur.execute('DELETE FROM CART_ITEM WHERE CART_ITEM.ID = (%s)', (cart_item_id))
+
+    #commit change to database
+    mysql.get_db().commit()
 
     removed_successfully_message = "Item has been removed from cart. "
     print(removed_successfully_message)
