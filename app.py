@@ -111,6 +111,7 @@ def registeruser():
             last_id = cur.fetchall()
             for i in last_id:
                 final_id = int(i[-1]) + 1
+            print(final_id)
 
                 #see if new username is in the db already
             cur.execute("SELECT Username FROM USER WHERE Username = %s", username)
@@ -245,18 +246,22 @@ def add_to_cart():
     # initialize mysql cursor
     cur = mysql.get_db().cursor()
 
+
     #generate new id
     cur.execute("SELECT ID FROM USER")
     last_id = cur.fetchall()
     for i in last_id:
         final_id = int(i[-1])
+    print(final_id)
     # check if user has cart
     #user_cart = cur.fetchall()
     #if user does not have cart:
         #create cart for user
     cur.execute('SELECT * FROM CART WHERE User_ID = (%s)', (active_user.id))
     if not cur.fetchone():
-        cur.execute("INSERT INTO CART (ID,User_ID) VALUES (%s, %s)", (final_id, final_id))
+        cur.execute('SELECT ID FROM CART WHERE ID = (%s)', (final_id))
+        if not cur.fetchone():
+            cur.execute("INSERT INTO CART (ID,User_ID) VALUES (%s, %s)", (final_id, final_id))
 
     # cart exists - add item to cart
     # cur.execute("INSERT INTO CART_ITEM ...)
@@ -265,9 +270,17 @@ def add_to_cart():
         cur.execute("SELECT ID FROM CART_ITEM")
         last_id2 = cur.fetchall()
         for a in last_id2:
-            final_id2 = int(a[-1]) + 2
+            final_id2 = int(a[-1]) + 1
         print(final_id2)
-        cur.execute("INSERT INTO CART_ITEM (ID, Item_ID, Quantity, Cart_ID) VALUES (%s, %s, %s, %s)", (final_id2,product_id,1,final_id))
+
+        # #check to make sure it isn't in table
+        cur.execute('SELECT * FROM CART_ITEM WHERE ID = (%s)', (final_id2))
+        if not cur.fetchone():
+            cur.execute("INSERT INTO CART_ITEM (ID, Item_ID, Quantity, Cart_ID) VALUES (%s, %s, %s, %s)", (final_id2,product_id,1,final_id))
+
+        else:
+            print('already in table')
+
     mysql.get_db().commit()
     added_to_cart_message = "Item has been added to cart. "
     return render_template('index.html', message = added_to_cart_message)
@@ -300,8 +313,11 @@ def query():
     # Price = cur.fetchone()
     # cur.execute("SELECT Description FROM GUITAR")
     # Desc = cur.fetchall()
-    cur.execute("SELECT * FROM CART_ITEM")
+    # cur.execute("SELECT * FROM CART_ITEM JOIN CART ON CART.ID = CART_ID WHERE CART.User_ID = %s", (123456791))
+    cur.execute("SELECT * FROM CART")
     print(cur.fetchall())
+    # cur.execute("SELECT * FROM CART_ITEM")
+    # print(cur.fetchall())
     # for i in Price:
     #     print(i)
     return render_template('querytest.html')#, random_quote=Desc)
