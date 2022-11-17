@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, flash
 from flaskext.mysql import MySQL
-
+import random
 app = Flask(__name__, static_folder='styles')
 
 app.config['MYSQL_DATABASE_HOST'] = 'final-db-205.cwokmtfympzg.us-east-1.rds.amazonaws.com'
@@ -259,24 +259,27 @@ def add_to_cart():
         #create cart for user
     cur.execute('SELECT * FROM CART WHERE User_ID = (%s)', (active_user.id))
     if not cur.fetchone():
-        cur.execute('SELECT ID FROM CART WHERE ID = (%s)', (final_id))
+        cur.execute('SELECT * FROM CART WHERE ID = (%s)', final_id)
         if not cur.fetchone():
-            cur.execute("INSERT INTO CART (ID,User_ID) VALUES (%s, %s)", (final_id, final_id))
+            print('user has no cart')
+            cur.execute("INSERT INTO CART (ID,User_ID) VALUES (%s, %s)", (final_id, active_user.id))
 
     # cart exists - add item to cart
     # cur.execute("INSERT INTO CART_ITEM ...)
     else:
+        print('user has a cart')
         # generate new id
-        cur.execute("SELECT ID FROM CART_ITEM")
-        last_id2 = cur.fetchall()
-        for a in last_id2:
-            final_id2 = int(a[-1]) + 1
-        print(final_id2)
+        rand_list = []
+        final_id2 = random.randint(0, 100000000)
+        if final_id2 in rand_list:
+            final_id2 = random.randint(0, 100000000)
+        else:
+            rand_list.append(final_id2)
 
         # #check to make sure it isn't in table
         cur.execute('SELECT * FROM CART_ITEM WHERE ID = (%s)', (final_id2))
         if not cur.fetchone():
-            cur.execute("INSERT INTO CART_ITEM (ID, Item_ID, Quantity, Cart_ID) VALUES (%s, %s, %s, %s)", (final_id2,product_id,1,final_id))
+            cur.execute("INSERT INTO CART_ITEM (ID, Item_ID, Quantity, Cart_ID) VALUES (%s, %s, %s, %s)", (final_id2,product_id,1,active_user.id))
 
         else:
             print('already in table')
@@ -313,8 +316,25 @@ def query():
     # Price = cur.fetchone()
     # cur.execute("SELECT Description FROM GUITAR")
     # Desc = cur.fetchall()
-    # cur.execute("SELECT * FROM CART_ITEM JOIN CART ON CART.ID = CART_ID WHERE CART.User_ID = %s", (123456791))
+    # cur.execute("SELECT * FROM CART_ITEM JOIN CART ON CART.ID = CART_ID WHERE CART.User_ID = %s", (123456809))
+    cur.execute("SELECT * FROM CART_ITEM")
+    print(cur.fetchall())
     cur.execute("SELECT * FROM CART")
+    print(cur.fetchall())
+
+    # cur.execute("SELECT ID FROM USER")
+    # last_id = cur.fetchall()
+    # for i in last_id:
+    #     final_id = int(i[-1]) + 1
+    # print(final_id)
+
+    # generate new id
+    # cur.execute("SELECT ID FROM USER")
+    # last_id = cur.fetchall()
+    # for i in last_id:
+    #     final_id = int(i[-1])
+    # print(final_id)
+
     print(cur.fetchall())
     # cur.execute("SELECT * FROM CART_ITEM")
     # print(cur.fetchall())
