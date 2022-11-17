@@ -32,8 +32,6 @@ def data():
     cur.execute("CREATE TABLE CART(ID INT NOT NULL, User_ID INT, Date_made DATE, PRIMARY KEY (ID), FOREIGN KEY (User_ID) REFERENCES USER(ID))")
     cur.execute("CREATE TABLE CART_ITEM(ID INT NOT NULL, Item_ID INT, Quantity INT, Date_made DATE, Cart_ID INT, PRIMARY KEY (ID), FOREIGN KEY (Item_ID) REFERENCES GUITAR(ID), FOREIGN KEY (Cart_ID) REFERENCES CART(ID))")
 
-
-
     # cur.execute("CREATE TABLE PURCHASE(ID INT, User_ID INT, User_balance DECIMAL(7,2), Item_ID INT, PRIMARY KEY (ID))")
 
     fd = open('SQL/start_data.sql', 'r')
@@ -78,8 +76,8 @@ def checklogin():
                 # successful login - get id and update active_user
                 cur.execute("SELECT ID FROM USER WHERE Username = %s", (username))
                 id_for_active_user = cur.fetchall()
-                print("id for active user follows: ")
-                print(id_for_active_user[0][0])
+                # print("id for active user follows: ")
+                # print(id_for_active_user[0][0])
 
                 active_user.is_logged_in = True
                 active_user.id = id_for_active_user
@@ -170,7 +168,6 @@ def shop():
        item_index += 1
        i += 1
 
-    #print(products_dictionary)
     return render_template('shop.html', products = products_dictionary)
 
 @app.route('/loadproduct', methods=['GET', 'POST'])
@@ -181,8 +178,6 @@ def load_product_page():
     cur.execute('SELECT ID, Name, Price, Picture, Description FROM GUITAR WHERE ID = "{}"'.format(product_id))
     product = cur.fetchall()
 
-    #i'm a bit confused with the indexing here. will look into later
-    #i would think 'product[0]' would return id, but it holds the whole dict
     product_dictionary = {'id': product[0][0], 'title': product[0][1], 'price': product[0][2],
                          'image': product[0][3], 'desc': product[0][4]}
 
@@ -207,21 +202,23 @@ def cart():
         print(error_message)
         return redirect(request.referrer)
 
-
-    #query for all the items in cart
-    cur.execute("SELECT * FROM CART_ITEM JOIN CART ON CART.ID = CART_ID WHERE CART.User_ID = %s", (active_user.id))
+    #query for all the items in cart - only need Item_ID
+    cur.execute("SELECT Item_ID FROM CART_ITEM JOIN CART ON CART.ID = CART_ID WHERE CART.User_ID = %s", (active_user.id))
 
     items = cur.fetchall()
-    print(items)
 
     # nested dictionary. Outer for each product, inner for products' keys and values
     cart_items_dictionary = {}
     item_index = 1
     i = 0
+
     for item in items:
+        #query for guitar using item_id
+        cur.execute("SELECT * FROM GUITAR WHERE ID  = (%s)", (item[0]))
+        guitar = cur.fetchall()
+
         cart_items_dictionary.update({
-            item_index: {'id': items[i][0], 'title': items[i][1], 'price': items[i][2],
-                         'image': items[i][3]}
+            item_index: {'id': guitar[0][0], 'title': guitar[0][1], 'image': guitar[0][2], 'price': guitar[0][4]}
         })
         item_index += 1
         i += 1
@@ -231,9 +228,7 @@ def cart():
 
 @app.route('/addtocart', methods=['GET', 'POST'])
 def add_to_cart():
-    print("add to cart function running ... ")
     product_id = request.args.get('product_id')
-    print(product_id)
 
     # check if user is logged in
     if not active_user.is_logged_in:
@@ -246,28 +241,23 @@ def add_to_cart():
     # initialize mysql cursor
     cur = mysql.get_db().cursor()
 
-
     #generate new id
     cur.execute("SELECT ID FROM USER")
     last_id = cur.fetchall()
     for i in last_id:
         final_id = int(i[-1])
-    print(final_id)
+
     # check if user has cart
-    #user_cart = cur.fetchall()
-    #if user does not have cart:
-        #create cart for user
     cur.execute('SELECT * FROM CART WHERE User_ID = (%s)', (active_user.id))
     if not cur.fetchone():
+        #user does not have cart. create cart for user
         cur.execute('SELECT * FROM CART WHERE ID = (%s)', final_id)
         if not cur.fetchone():
             print('user has no cart')
             cur.execute("INSERT INTO CART (ID,User_ID) VALUES (%s, %s)", (final_id, active_user.id))
 
     # cart exists - add item to cart
-    # cur.execute("INSERT INTO CART_ITEM ...)
     else:
-        print('user has a cart')
         # generate new id
         rand_list = []
         final_id2 = random.randint(0, 100000000)
@@ -290,7 +280,17 @@ def add_to_cart():
 
 @app.route('/removefromcart', methods=['GET', 'POST'])
 def remove_from_cart():
-    return render_template('/')
+    #get product id from url param
+    product_id = request.args.get('product_id')
+    print(product_id)
+
+    # initialize mysql cursor
+    cur = mysql.get_db().cursor()
+
+    #remove cart_item from user's cart
+    #cur.execute(DELETE FROM CART_ITEM WHERE )
+
+    return render_template('index.html')
 
 @app.route('/templates/about.html', methods=['GET', 'POST'])
 @app.route('/about', methods=['GET', 'POST'])

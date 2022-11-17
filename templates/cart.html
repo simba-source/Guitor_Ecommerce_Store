@@ -49,10 +49,11 @@
             </thead>
             <tbody>
                 {% for i in items %}
-
                     <tr>
                         <td>
-                            <a href="#"><i class="far fa-times-circle"></i></a>
+                            <a href="/removefromcart?product_id={{ items[i]['id'] }}">
+                                <i class="far fa-times-circle"></i>
+                            </a>
                         </td>
                         <td>
                             <img src="{{ items[i]['image'] }}" alt="product" />
@@ -60,9 +61,8 @@
                         <td>{{ items[i]['title'] }}</td>
                         <td>{{ items[i]['price'] }}</td>
                         <td><input type="number" value="1" /></td>
-                        <td>$1198.00</td>
+                        <td>price * quantity here</td>
                     </tr>
-
                 {% endfor %}
 
 <!--                <tr>-->
