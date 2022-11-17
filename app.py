@@ -76,8 +76,8 @@ def checklogin():
                 # successful login - get id and update active_user
                 cur.execute("SELECT ID FROM USER WHERE Username = %s", (username))
                 id_for_active_user = cur.fetchall()
-                print("id for active user follows: ")
-                print(id_for_active_user[0][0])
+                # print("id for active user follows: ")
+                # print(id_for_active_user[0][0])
 
                 active_user.is_logged_in = True
                 active_user.id = id_for_active_user
@@ -206,8 +206,6 @@ def cart():
     cur.execute("SELECT Item_ID FROM CART_ITEM JOIN CART ON CART.ID = CART_ID WHERE CART.User_ID = %s", (active_user.id))
 
     items = cur.fetchall()
-    print("printing all items: ")
-    print(items)
 
     # nested dictionary. Outer for each product, inner for products' keys and values
     cart_items_dictionary = {}
@@ -230,9 +228,7 @@ def cart():
 
 @app.route('/addtocart', methods=['GET', 'POST'])
 def add_to_cart():
-    print("add to cart function running ... ")
     product_id = request.args.get('product_id')
-    print(product_id)
 
     # check if user is logged in
     if not active_user.is_logged_in:
@@ -250,22 +246,18 @@ def add_to_cart():
     last_id = cur.fetchall()
     for i in last_id:
         final_id = int(i[-1])
-    print(final_id)
+
     # check if user has cart
-    #user_cart = cur.fetchall()
-    #if user does not have cart:
-        #create cart for user
     cur.execute('SELECT * FROM CART WHERE User_ID = (%s)', (active_user.id))
     if not cur.fetchone():
+        #user does not have cart. create cart for user
         cur.execute('SELECT * FROM CART WHERE ID = (%s)', final_id)
         if not cur.fetchone():
             print('user has no cart')
             cur.execute("INSERT INTO CART (ID,User_ID) VALUES (%s, %s)", (final_id, active_user.id))
 
     # cart exists - add item to cart
-    # cur.execute("INSERT INTO CART_ITEM ...)
     else:
-        print('user has a cart')
         # generate new id
         rand_list = []
         final_id2 = random.randint(0, 100000000)
@@ -288,7 +280,17 @@ def add_to_cart():
 
 @app.route('/removefromcart', methods=['GET', 'POST'])
 def remove_from_cart():
-    return render_template('/')
+    #get product id from url param
+    product_id = request.args.get('product_id')
+    print(product_id)
+
+    # initialize mysql cursor
+    cur = mysql.get_db().cursor()
+
+    #remove cart_item from user's cart
+    #cur.execute(DELETE FROM CART_ITEM WHERE )
+
+    return render_template('index.html')
 
 @app.route('/templates/about.html', methods=['GET', 'POST'])
 @app.route('/about', methods=['GET', 'POST'])

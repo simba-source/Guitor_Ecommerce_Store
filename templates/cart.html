@@ -51,7 +51,9 @@
                 {% for i in items %}
                     <tr>
                         <td>
-                            <a href="#"><i class="far fa-times-circle"></i></a>
+                            <a href="/removefromcart?product_id={{ items[i]['id'] }}">
+                                <i class="far fa-times-circle"></i>
+                            </a>
                         </td>
                         <td>
                             <img src="{{ items[i]['image'] }}" alt="product" />
