@@ -342,6 +342,10 @@ def query():
     #     print(i)
     return render_template('querytest.html')#, random_quote=Desc)
 
+# routing for 404 error page
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template("404.html", title="Not Found")
 
 if __name__ == '__main__':
     # runs the simple app
