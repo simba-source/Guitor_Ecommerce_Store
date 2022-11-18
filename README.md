@@ -1,11 +1,35 @@
+## Website
+https://retro-guitars.herokuapp.com/
+
 # CS205 Final Project Group 7
 Authors: Christian, Max, Aidan, Nikhil
 
 ## About
-This is a Marketplace Building Project.
+This is a Guitar Marketplace Building Project.
 
 ## Getting started 
 clone the gitlab repository to your local machine nikhil
+
+
+## How to start?
+```
+1. Clone the repository
+      git clone https://gitlab.uvm.edu/Nikhilsai-Reddy.Choppa/cs205-final-project-group-7.git
+      cd  cs205
+
+2. Create and activate a virtual environment
+      virtualenv env 
+      source env/bin/activate
+   
+3. Install requirements:-
+      pip install -r requirements.txt
+    
+4. Run the application
+      python app.py
+      
+5. Open http://127.0.0.1.5000./
+
+```
 
 ## Sprint 1 tasks
 
