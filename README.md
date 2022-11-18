@@ -7,10 +7,6 @@ Authors: Christian, Max, Aidan, Nikhil
 ## About
 This is a Guitar Marketplace Building Project.
 
-## Getting started 
-clone the gitlab repository to your local machine nikhil
-
-
 ## How to start?
 ```
 1. Clone the repository
