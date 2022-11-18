@@ -82,7 +82,7 @@ WHERE ID = /* the item's ID (NOT THE GUITAR'S) */;
 
 -- view the cart (fetches quantity, name, and price of item)
 SELECT i.Quantity, g.Name, g.Price
-FROM CART_ITEM i, GUITAR g, CART c
+FROM CART_ITEM AS i, GUITAR AS g, CART AS c
 WHERE i.Cart_ID = c.ID
 AND i.Item_ID = g.ID
 AND c.User_ID = /* the user's ID */;
