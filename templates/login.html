@@ -8,6 +8,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+
+	<div class="message-parent">
+		{% if message %}
+			<h5 class="message">{{ message }}</h5>
+		{% endif %}
+	</div>
+
 	<img class="bg" src="../styles/images/login/bg.png">
 	<div class="container">
 		<div class="img">
@@ -18,7 +25,7 @@
 				<img src="../styles/images/login/man.svg">
 				<h2 class="title">Welcome</h2>
 				<h3 class="title">Log In</h3>
-				<h5>{{ message }}</h5>
+
 				<form action='{{ url_for("checklogin") }}' method="post">
 					<div class="input-div one">
 					   <div class="i">

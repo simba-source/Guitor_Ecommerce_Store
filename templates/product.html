@@ -29,6 +29,12 @@
         </div>
     </section>
 
+    <div class="message-parent">
+		{% if message %}
+			<h5 class="message">{{ message }}</h5>
+		{% endif %}
+	</div>
+
     <section id="pro-details" class="section-p1">
         <div class="single-pro-image">
             <img src="{{ product['image'] }}" width="100%" id="MainImage" alt="product" />

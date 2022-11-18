@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, flash
+from flask import Flask, render_template, request, redirect
 from flaskext.mysql import MySQL
 import random
 app = Flask(__name__, static_folder='styles')
@@ -69,7 +69,7 @@ def checklogin():
             cur.execute("SELECT Username, Password FROM USER WHERE Username = %s AND Password = %s", (username, password))
 
             if not cur.fetchone():
-                print('error')
+                #invalid login - notify user
                 error_message = "Invalid credentials. Try again or register to proceed."
                 return render_template('login.html', message = error_message)
             else:
@@ -85,8 +85,8 @@ def checklogin():
                 return render_template('index.html')
 
         except:
-            print('doesnt exist \n')
-            # return render_template('index.html')
+            print('doesnt exist')
+
     return render_template('login.html')
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -200,9 +200,10 @@ def cart():
     #check if user is logged in
     if not active_user.is_logged_in:
         #user is not logged in, redirect to previous page
-        error_message = "You need to be logged in to have a cart. Please log in or create an account. "
+        error_message = "Please log in to view your cart"
         print(error_message)
-        return redirect(request.referrer)
+        #return redirect(request.referrer)
+        return render_template('index.html', message=error_message)
 
     #query for all the items in cart - only need Item_ID
     cur.execute("SELECT Item_ID, CART_ITEM.ID FROM CART_ITEM JOIN CART ON CART.ID = CART_ID WHERE CART.User_ID = %s", (active_user.id))

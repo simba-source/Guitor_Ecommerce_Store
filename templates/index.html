@@ -31,7 +31,11 @@
     </section>
 
     <!--update the user with any messages-->
-    <h3>{{ message }}</h3>
+    <div class="message-parent">
+		{% if message %}
+			<h5 class="message">{{ message }}</h5>
+		{% endif %}
+	</div>
 
     <section id="hero">
         <h1>Guitar Store</h1>
