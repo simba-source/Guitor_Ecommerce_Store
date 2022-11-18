@@ -30,6 +30,13 @@
         </div>
     </section>
 
+    <!--update the user with any messages-->
+    {% if message %}
+        <div class="message-parent">
+			<h5 class="message">{{ message }}</h5>
+	    </div>
+    {% endif %}
+
     <section id="page-header" class="cart-header">
         <h2>My Cart</h2>
 <!--        <p></p>-->

@@ -31,11 +31,11 @@
     </section>
 
     <!--update the user with any messages-->
-    <div class="message-parent">
-		{% if message %}
+    {% if message %}
+        <div class="message-parent">
 			<h5 class="message">{{ message }}</h5>
-		{% endif %}
-	</div>
+	    </div>
+    {% endif %}
 
     <section id="hero">
         <h1>Guitar Store</h1>

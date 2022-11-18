@@ -196,16 +196,14 @@ def cart():
     #initialize mysql cursor
     cur = mysql.get_db().cursor()
 
-
     #check if user is logged in
     if not active_user.is_logged_in:
         #user is not logged in, redirect to previous page
         error_message = "Please log in to view your cart"
-        print(error_message)
         #return redirect(request.referrer)
         return render_template('index.html', message=error_message)
 
-    #query for all the items in cart - only need Item_ID
+    #query for all the items in cart
     cur.execute("SELECT Item_ID, CART_ITEM.ID FROM CART_ITEM JOIN CART ON CART.ID = CART_ID WHERE CART.User_ID = %s", (active_user.id))
 
     items = cur.fetchall()
@@ -242,9 +240,9 @@ def add_to_cart():
     # check if user is logged in
     if not active_user.is_logged_in:
         # user is not logged in, redirect to previous page
-        error_message = "You need to be logged in to add to cart. Please log in or create an account. "
-        print(error_message)
-        return redirect(request.referrer)
+        error_message = "You need to be logged in to add to cart"
+        #return redirect(request.referrer)
+        return render_template('index.html', message=error_message)
 
     # user is logged in
     # initialize mysql cursor
@@ -306,7 +304,7 @@ def remove_from_cart():
     removed_successfully_message = "Item has been removed from cart. "
     print(removed_successfully_message)
 
-    return render_template('index.html', message = removed_successfully_message)
+    return render_template('cart.html', message = removed_successfully_message)
 
 @app.route('/templates/about.html', methods=['GET', 'POST'])
 @app.route('/about', methods=['GET', 'POST'])
@@ -316,8 +314,23 @@ def about():
 
 @app.route('/templates/order_placed.html', methods=['GET', 'POST'])
 def purchase():
+    #initialize mysql cursor
+    cur = mysql.get_db().cursor()
+
     #query to check if any items are in user's cart before rendering purchased page
-    return render_template('order_placed.html')
+    cur.execute("SELECT Item_ID, CART_ITEM.ID FROM CART_ITEM JOIN CART ON CART.ID = CART_ID WHERE CART.User_ID = %s",
+                (active_user.id))
+
+    has_cart_item = cur.fetchone()
+
+    if has_cart_item:
+        # at least one item in cart
+        return render_template('order_placed.html')
+
+    else:
+        #no items in cart
+        error_message = "No Items in Cart"
+        return render_template('cart.html', message=error_message)
 
 @app.route('/product.html', methods=['GET', 'POST'])
 def product2():
