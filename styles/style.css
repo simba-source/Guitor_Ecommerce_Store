@@ -546,85 +546,6 @@ footer .copyright {
 }
 
 
-/*--------------------- Blog Page ---------------------*/
-
-#page-header.blog-header {
-    background-image: url("images/banner/b19.jpg");
-}
-
-#blog {
-    padding: 150px 150px 0 100px;
-}
-
-#blog .blog-box {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    position: relative;
-    padding-bottom: 100px;
-}
-
-#blog .blog-img {
-    width: 50%;
-    margin-right: 40px;
-}
-
-#blog img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-}
-
-#blog .blog-details {
-    width: 50%;
-}
-
-#blog .blog-details h4 {
-    font-size: 24px;
-}
-
-#blog .blog-details p {
-    line-height: 1.4rem;
-}
-
-#blog .blog-details a {
-    text-decoration: none;
-    font-size: 13px;
-    color: #000;
-    font-weight: 600;
-    position: relative;
-    transition: .3s;
-}
-
-#blog .blog-details a::after {
-    content: "";
-    width: 60px;
-    height: 1px;
-    background-color: #000;
-    position: absolute;
-    top: 4px;
-    right: -70px;
-}
-
-#blog .blog-details a:hover {
-    color: #088178;
-}
-
-#blog .blog-details a:hover::after {
-    background-color: #088178;
-}
-
-#blog .blog-box h1 {
-    position: absolute;
-    top: -40px;
-    left: 0;
-    font-size: 80px;
-    font-weight: 700;
-    color: #c9cbce;
-    z-index: -9;
-}
-
-
 /*--------------------- About Page ---------------------*/
 
 #page-header.about-header {
@@ -949,10 +870,9 @@ footer .copyright {
     font-size: 15px;
 }
 
+/*--------------------- Media Query (max-width:800px) ---------------------*/
 
-/*--------------------- Media Query (max-width:799px) ---------------------*/
-
-@media (max-width:799px) {
+@media (max-width:800px) {
     .section-p1 {
         padding: 40px 40px;
     }
@@ -1014,22 +934,6 @@ footer .copyright {
     }
     #product1 .pro {
         margin: 15px;
-    }
-    #banner {
-        height: 20vh;
-    }
-    #sm-banner .banner-box {
-        min-width: 100%;
-        height: 30vh;
-    }
-    #banner3 {
-        padding: 0 40px;
-    }
-    #banner3 .banner-box {
-        width: 28%;
-    }
-    #newsletter .form {
-        width: 70%;
     }
     /* Contact-Page */
     #form-details {
