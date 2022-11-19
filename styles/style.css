@@ -140,6 +140,22 @@ body {
 
 
 /*----------------------- Home Page -----------------------*/
+.search {
+  display: flex;
+  align-items: center;
+  background-color: #2ea39b;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+.searchInput {
+  border: none;
+  background-color: transparent;
+}
+
+.searchInput::placeholder {
+  color: white;
+}
 
 .message-parent {
 	display: flex;
@@ -324,181 +340,6 @@ body {
     bottom: 20px;
     right: 10px;
 }
-
-#banner {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background-image: url("images/banner/b2.jpg");
-    width: 100%;
-    height: 40vh;
-    background-size: cover;
-    background-position: center;
-}
-
-#banner h4 {
-    color: #fff;
-    font-size: 16px;
-}
-
-#banner h2 {
-    color: #fff;
-    font-size: 30px;
-    padding: 10px 0;
-}
-
-#banner h2 span {
-    color: #ef3636;
-}
-
-#banner button:hover {
-    background: #088178;
-    color: #fff;
-}
-
-#sm-banner {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-#sm-banner .banner-box {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    background-image: url("https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80");
-    min-width: 580px;
-    height: 50vh;
-    background-size: cover;
-    background-position: center;
-    padding: 30px;
-}
-
-#sm-banner .banner-box2 {
-    background-image: url("https://images.unsplash.com/photo-1607083206869-4c7672e72a8a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80");
-}
-
-#sm-banner .banner-box h4 {
-    color: #fff;
-    font-size: 22px;
-    font-weight: 300;
-}
-
-#sm-banner .banner-box h2 {
-    color: #fff;
-    font-size: 30px;
-    font-weight: 800;
-}
-
-#sm-banner .banner-box span {
-    color: #fff;
-    font-size: 16px;
-    font-weight: 500;
-    padding-bottom: 15px;
-}
-
-#sm-banner .banner-box:hover button {
-    background-color: #088178;
-    border: 1px solid #088178;
-}
-
-#banner3 {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    padding: 0 80px;
-}
-
-#banner3 .banner-box {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    background-image: url("https://images.unsplash.com/photo-1421217336522-861978fdf33a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80");
-    min-width: 30%;
-    height: 30vh;
-    background-size: cover;
-    background-position: center;
-    padding: 20px;
-    margin-bottom: 30px;
-}
-
-#banner3 .banner-box2 {
-    background-image: url("https://images.unsplash.com/photo-1508114405010-0dd785d2bd86?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80");
-}
-
-#banner3 .banner-box3 {
-    background-image: url("https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80");
-
-}
-
-#banner3 .banner-box h2 {
-    color: #fff;
-    font-weight: 900;
-    font-size: 23px;
-}
-
-#banner3 .banner-box h3 {
-    color: #ec544e;
-    font-weight: 800;
-    font-size: 16px;
-}
-
-#newsletter {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    align-items: center;
-    background-image: url("images/banner/b14.png");
-    background-repeat: no-repeat;
-    background-position: 20% 30%;
-    background-color: #041e42;
-}
-
-#newsletter h4 {
-    font-size: 23px;
-    font-weight: 700;
-    color: #fff;
-}
-
-#newsletter p {
-    font-size: 15px;
-    font-weight: 600;
-    color: #818ea0;
-}
-
-#newsletter p span {
-    color: #ffbd27;
-}
-
-#newsletter .form {
-    display: flex;
-    width: 40%;
-}
-
-#newsletter input {
-    height: 3.125rem;
-    padding: 0 1.25em;
-    font-size: 14px;
-    width: 100%;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    outline: none;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-}
-
-#newsletter button {
-    background-color: #088178;
-    color: #fff;
-    white-space: nowrap;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-}
-
 
 /*----------------------- Footer Section -----------------------*/
 
