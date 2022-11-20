@@ -338,9 +338,6 @@ def about():
     return render_template('about.html')
 
 
-
-
-
 @app.route('/templates/order_placed.html', methods=['GET', 'POST'])
 def purchase():
     # initialize mysql cursor
