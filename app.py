@@ -220,21 +220,19 @@ def search_product():
                 return render_template('index.html', message=error_message)
             else:
                 # search found at least one guitar - display relevant product(s)
-                # cur.execute("SELECT ID, Name, Price, Picture FROM GUITAR WHERE Name = %s", (found_search_query))
-                # products = cur.fetchall()
-                # print(products)
 
                 # nested dictionary. Outer for each product, inner for products' keys and values
                 products_dictionary = {}
                 item_index = 1
-                i = 0
-                for elem in products:
+                for guitar_name in guitar_names_list_found:
+                    cur.execute("SELECT ID, Name, Price, Picture FROM GUITAR WHERE Name = %s", (guitar_name))
+                    current_guitar_info = cur.fetchall()
+
                     products_dictionary.update({
-                        item_index: {'id': products[i][0], 'title': products[i][1], 'price': products[i][2],
-                                     'image': products[i][3]}
+                        item_index: {'id': current_guitar_info[0][0], 'title': current_guitar_info[0][1], 'price': current_guitar_info[0][2],
+                                     'image': current_guitar_info[0][3]}
                     })
                     item_index += 1
-                    i += 1
 
                 return render_template('shop.html', products=products_dictionary)
 
