@@ -13,17 +13,15 @@ Users on this site are able to:
 
 - Create a new account with username and password
 - View our selected sample of guitars
-- Create, add to, and remove from a cart
+- Add to and remove from a cart
+- Search for specific products
 
 The site is able to:
 
 - Make users log in before purchasing anything or creating a cart
+- Create a checkout page with a total and subtotal
 
 ## Prerequisites
-- Python 3.10
-- Flask
-- MySQL
-- Flask & MySQL extension
 - Internet Connection
 
 ## Utilizes
@@ -34,6 +32,7 @@ The site is able to:
 - CSS
 - Amazon Web Services
 - Gitlab
+- Github
 - Heroku
 
 ## Citations
