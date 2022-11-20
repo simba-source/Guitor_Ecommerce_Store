@@ -19,11 +19,6 @@
 
         <div>
             <ul id="navbar">
-                <li>
-                <form class="search">
-                    <input id="searchBox" type="text" placeholder="Search Here" name="searchQuery" class="searchInput">
-                    <input id="searchButton" type="submit" value="Search">
-                </form></li>
                 <li><a class="active" href="../templates/index.html">Home</a></li>
                 <li><a href="../templates/shop.html">Shop</a></li>
                 <li><a href="../templates/about.html">About</a></li>
@@ -38,9 +33,9 @@
         </div>
     </section>
     <section class="bg-title-page p-t-40 p-b-50 flex-col-c-m">
-		<h2 class="l-text2 t-center">
-			Checkout
-		</h2>
+		<div style="text-align:center">
+			<h2>Checkout</h2>
+		</div>
 	</section>
 <form action="/createOrder?total={{totalsum}}" method="POST" onsubmit="return validate()">
 <div class="form-group">
@@ -58,58 +53,33 @@
             <input type="text" id="fname" name="FullName" placeholder="John M. Doe" required>
             <label for="email"><i class="fa fa-envelope"></i> Email</label>
             <input type="email" id="email" name="email" placeholder="john@example.com" required>
-            <label ><i class="fa "></i> Mobile Operator</label>
-            <div class="icon-container">
-
-            <input type="radio"  name="provider" value="Tmobile" required><i class="fa "></i> TMobile
-            <input type="radio"  name="provider" value="ATT" required><i class="fa "></i> AT&T
-            </div>
             <label for="phone"><i class="fa "></i> Phone</label>
             <input type="text" id="phone" name="phone" placeholder="000-000-0000" required>
 
             <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
             <input type="text" id="adr" name="address" placeholder="542 W. 15th Street" required>
-
-            <!--<input type="text" id="city" name="city" placeholder="New York" required>-->
-            <select id="countySel" name="country" size="1" required>
-              <option value="" selected="selected">-- Select Country --</option>
-            </select>
+            <label for="cntry"><i class="fa fa-country-card-o"></i> Country</label>
+            <input type="text" id="cntry" name="country" placeholder="USA" required>
             <div class="row">
               <div class="col-50">
-                <label >State</label>
-                <select select id="stateSel" name="state" size="1" required>
-                 <option value="" selected="selected">-- Select State--</option>
-                  </select>
+                <label for="state"><i class="fa fa-state-card-o"></i> State</label>
+                <input type="text" id="state" name="state" placeholder="Vermont" required>
               </div>
               <div class="col-50">
-                <label for="citySel"><i class="fa fa-institution"></i> City</label>
+                <label for="city"><i class="fa fa-institution"></i> City</label>
 
-             <select id="citySel" name="city" size="1" required>
-                <option value="" selected="selected">-- Select City--</option>
-             </select>
+                <input type="text" id="city" name="city" placeholder="Burlington" required>
                 </div>
 
             </div>
-              <label for="zipSel">Zip</label>
-                <select id="zipSel" name="zipcode" size="1" required>
-                  <option value="" selected="selected">-- Select Zip--</option>
-                </select>
+              <label for="zip"><i class="fa fa-location"></i> Zip</label>
+
+              <input type="text" id="zip" name="city" placeholder="05401" required>
 
           </div>
 
           <div class="col-50">
             <h3>Payment</h3>
-            <label for="fname">Accepted Cards</label>
-            <div class="icon-container">
-                <input type="radio" name="cardtype" value="visa" required>
-              <i class="fa fa-cc-visa" style="color:navy;"></i>
-                <input type="radio" name="cardtype" value="amex" required>
-              <i class="fa fa-cc-amex" style="color:blue;"></i>
-                <input type="radio" name="cardtype" value="mastercard" required>
-              <i class="fa fa-cc-mastercard" style="color:red;"></i>
-                <input type="radio" name="cardtype" value="discover" required>
-              <i class="fa fa-cc-discover" style="color:orange;"></i>
-            </div>
             <label for="cname">Name on Card</label>
             <input type="text" id="cname" name="cardname" placeholder="John More Doe" required>
             <label for="ccnum">Credit card number</label>
