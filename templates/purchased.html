@@ -37,7 +37,7 @@
 			<h2>Checkout</h2>
 		</div>
 	</section>
-<form action="/createOrder?total={{totalsum}}" method="POST" onsubmit="return validate()">
+<form action="/createOrder?total={{ subtotal }}" method="POST" onsubmit="return validate()">
 <div class="form-group">
 
 
@@ -127,26 +127,35 @@
         <label>
           <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
         </label>
-        <input type="submit" name="makepayment" value="Make Payment" class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4" onclick="window.location.href='../templates/order_placed.html';">
       </form>
     </div>
   </div>
 
-  <div class="col-25">
-    <div class="container">
-      <h4>Cart
-        <span class="price" style="color:black">
-          <i class="fa fa-shopping-cart"></i>
-          <b></b>
-        </span>
-      </h4>
-      {% for row in cartData %}
-        <p>{{row[2]}} <span style="padding-left: 25px;">  x {{row[4]}} </span><span class="price"> ${{row[6]}}</span></p>
-      {% endfor %}
-      <hr>
-      <p>Total <span class="price" style="color:black"><b> $ {{totalsum}}</b></span></p>
-    </div>
-  </div>
+  <section id="cart-add" class="section-p1">
+        <div id="subtotal">
+            <h3>Cart Total</h3>
+            <table>
+                <tr>
+                    <td>Cart Subtotal</td>
+                    <td>{{ subtotal }}</td>
+                </tr>
+                <tr>
+                    <td>Shipping</td>
+                    <td>Free</td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Total</strong>
+                    </td>
+                    <td>
+                        <strong>{{ subtotal }}</strong>
+                    </td>
+                </tr>
+            </table>
+            <button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4" onclick="window.location.href='../templates/order_placed.html';">Make Payment</button>
+
+        </div>
+    </section>
 </div>
 </div>
 </form>
