@@ -1,77 +1,171 @@
-<br><br><br>
+<!DOCTYPE html>
+<html lang="en">
 
-{% extends "style.html" %}
-{% block content %}
-<div class="container">
-<ul class="inline font-weight-bold">
-  <span class="left">
-    <li><a href=" {{url_for('main.home')}} ">Smart Shop</a></li>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guitar Store</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+    <link rel="stylesheet" href="../styles/style.css" />
+    <link rel="stylesheet" href="../styles/purchased.css" />
+    <script src="../scripts/script.js"></script>
+    <script src="../scripts/purchased.js"></script>
+</head>
 
-   </span>
-   <span class="right">
-      <i class="fa fa-lock grey" style="font-size:24px"></i> <small> 100%  SECURE</small>
-    </span>
-   <div class="center">
-    <li><a href="{{url_for('users.cart')}}">Bag</a></li>
-    <li>........</li>
-    <li class="underline orange"><a href="#">Delivery</a></li>
-    <li>........</li>
-    <li>Payment</li>
+<body>
+    <section id="header">
+        <a href="../templates/index.html"><img src="../styles/images/logo.gif" alt="logo" class="logo" /></a>
+
+        <div>
+            <ul id="navbar">
+                <li><a class="active" href="../templates/index.html">Home</a></li>
+                <li><a href="../templates/shop.html">Shop</a></li>
+                <li><a href="../templates/about.html">About</a></li>
+                <li><a href="../templates/login.html">Log In</a></li>
+                <li id="lg-bag"><a href="../templates/cart.html"><i class="fa-solid fa-bag-shopping"></i></a></li>
+                <a href="#" id="close"><i class="fa-solid fa-xmark"></i></a>
+            </ul>
+        </div>
+        <div id="mobile">
+            <a href="../templates/cart.html"><i class="fa-solid fa-bag-shopping"></i></a>
+            <i id="bar" class="fas fa-outdent"></i>
+        </div>
+    </section>
+    <section class="bg-title-page p-t-40 p-b-50 flex-col-c-m">
+		<div style="text-align:center">
+			<h2>Checkout</h2>
+		</div>
+	</section>
+<form action="/createOrder?total={{ subtotal }}" method="POST" onsubmit="return validate()">
+<div class="form-group">
+
+
+<div class="row">
+  <div class="col-75">
+    <div class="container">
+      <form>
+
+        <div class="row">
+          <div class="col-50">
+            <h3>Billing Address</h3>
+            <label for="fname"><i class="fa fa-user"></i> Full Name</label>
+            <input type="text" id="fname" name="FullName" placeholder="John M. Doe" required>
+            <label for="email"><i class="fa fa-envelope"></i> Email</label>
+            <input type="email" id="email" name="email" placeholder="john@example.com" required>
+            <label for="phone"><i class="fa "></i> Phone</label>
+            <input type="text" id="phone" name="phone" placeholder="000-000-0000" required>
+
+            <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
+            <input type="text" id="adr" name="address" placeholder="542 W. 15th Street" required>
+            <label for="cntry"><i class="fa fa-country-card-o"></i> Country</label>
+            <input type="text" id="cntry" name="country" placeholder="USA" required>
+            <div class="row">
+              <div class="col-50">
+                <label for="state"><i class="fa fa-state-card-o"></i> State</label>
+                <input type="text" id="state" name="state" placeholder="Vermont" required>
+              </div>
+              <div class="col-50">
+                <label for="city"><i class="fa fa-institution"></i> City</label>
+
+                <input type="text" id="city" name="city" placeholder="Burlington" required>
+                </div>
+
+            </div>
+              <label for="zip"><i class="fa fa-location"></i> Zip</label>
+
+              <input type="text" id="zip" name="city" placeholder="05401" required>
+
+          </div>
+
+          <div class="col-50">
+            <h3>Payment</h3>
+            <label for="cname">Name on Card</label>
+            <input type="text" id="cname" name="cardname" placeholder="John More Doe" required>
+            <label for="ccnum">Credit card number</label>
+            <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444" required>
+            <label for="expmonth">Exp Month</label>
+
+              <select id="expmonth" name="expmonth">
+                <option value="January">January</option>
+                <option value="Feburary">Feburary</option>
+                <option value="March">March</option>
+                <option value="April">April</option>
+                <option value="May">May</option>
+                <option value="June">June</option>
+                <option value="July">July</option>
+                <option value="August">August</option>
+                <option value="September">September</option>
+                <option value="October">October</option>
+                <option value="November">November</option>
+                <option value="December">December</option>
+                </select>
+
+            <div class="row">
+              <div class="col-50">
+                <label for="expyear">Exp Year</label>
+                <select id="expyear" name="expyear">
+                <option value="2018">2018</option>
+                <option value="2019">2019</option>
+                <option value="2020">2020</option>
+                <option value="2021">2021</option>
+                <option value="2022">2022</option>
+                <option value="2023">2023</option>
+                <option value="2021">2024</option>
+                <option value="2022">2025</option>
+                <option value="2023">2026</option>
+                </select>
+              </div>
+              <div class="col-50">
+                <label for="cvv">CVV</label>
+                <input type="text" id="cvv" name="cvv" placeholder="352" required>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <label>
+          <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
+        </label>
+      </form>
     </div>
-
-</ul>
-<hr>
-  <form name="a" action="{{ url_for('users.place_order') }}" method="post">
-  <div class="seventy">
-  <h5 class="font-weight-bold">Select Delivery Address</h5>
-  {% for address in list_address %}
-    <label class="equal-container" id="box-hover">
-          <input type="radio" value={{loop.index-1}} name="address_number" required><p> {{address["name"] }}</p>
-            <small class="text-muted" id="des">{{address["address"]}} <br> {{address['city']}}-{{address['pin-code']}}<br>{{address['state']}}<br><br>Mobile: <b> {{address['phone_number']}}</b></small>
-            <br>
-            <a class="btn btn-success btn-md" href="{{ url_for('users.remove_address', number=loop.index-1) }}">Remove</a>
-           <a class="btn btn-success btn-md" href="#">Edit</a>
-      </label>
-{% endfor %}
-    <div class="equal-container" id="box-hover">
-      <span class="center">
-        <h2><a class="btn btn-default btn-circle" href="{{ url_for('users.address') }}"><b>+</b></a> <a  href="{{ url_for('users.address') }}">Add new address</a></h2>
-      </span>
-      </div>
   </div>
 
-
-  <div class="twenty" style="margin-top:30px" >
-  <br>
-  <small class="text-muted">Estimated Delivery:{{delivery_date.day }} {{delivery_date.strftime("%B")}}  {{delivery_date.year}}</small>
-  <br>
-      <b>{{number}}
-      {% if number==1 %}
-        ITEM
-      {% else %}
-        ITEMS
-      {% endif %}
-      </b>
-      <hr>
-      <h5>Bag Total<span class="right">Rs.{{dict["bag_mrp"]}}</span></h5>
-      <h5>Bag Discount <span class="right">-Rs.{{dict["bag_discount"]}}</span></h5>
-      <h5>Estimated Tax<span class="right"> {{dict['tax']}}</span></h5>
-      {% if dict['delivery']==0 %}
-        <h5>Delivery Charges<span class="right">Free</span></h5>
-      {% else %}
-        <h5>Delivery Charges<span class="right">{{dict['delivery']}}</span></h5>
-      {% endif %}
-      {% if dict['bag_offer_discount']!=0 %}
-         <h5>Offer Discount <span class="right">-Rs.{{dict["bag_offer_discount"]}}</span></h5>
-      {% endif %}
-      <hr>
-      <h3><b>Total Payable</b><span class="right"><b>Rs.{{dict['order_total']}}</b></span></h3>
-        <input type=submit value="Place Your Order Now" class="btn btn-success btn-block btn-md" onclick="this.disabled=true;this.value='Sending, please wait...';this.form.submit();" >
-
-        <br>
-        <br>
-  </form>
-  </div>
+  <section id="cart-add" class="section-p1">
+        <div id="subtotal">
+            <h3>Cart Total</h3>
+            <table>
+                <tr>
+                    <td>Cart Subtotal</td>
+                    <td>{{ subtotal }}</td>
+                </tr>
+                <tr>
+                    <td>Shipping</td>
+                    <td>Free</td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Total</strong>
+                    </td>
+                    <td>
+                        <strong>{{ subtotal }}</strong>
+                    </td>
+                </tr>
+            </table>
+            <button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4" onclick="window.location.href='../templates/order_placed.html';">Make Payment</button>
+        </div>
+    </section>
 </div>
-{% endblock content %}
+</div>
+</form>
 
+   <footer class="section-p1">
+        <div class="copyright">
+            <p>© 2022, UVM CS205 Team-7</p>
+        </div>
+    </footer>
+
+    <script src="../scripts/script.js"></script>
+</body>
+
+</html>

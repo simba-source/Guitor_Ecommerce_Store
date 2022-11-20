@@ -19,9 +19,8 @@
                 <li><a href="../templates/index.html">Home</a></li>
                 <li><a href="../templates/shop.html">Shop</a></li>
                 <li><a href="../templates/about.html">About</a></li>
-                <li id="lg-bag">
-                    <a href="../templates/cart.html"><i class="fa-solid fa-bag-shopping"></i></a>
-                </li>
+                <li><a href="../templates/login.html">Log In</a></li>
+                <li id="lg-bag"><a class="active" href="../templates/cart.html"><i class="fa-solid fa-bag-shopping"></i></a></li>
                 <a href="#" id="close"><i class="fa-solid fa-xmark"></i></a>
             </ul>
         </div>
@@ -30,6 +29,13 @@
             <i id="bar" class="fas fa-outdent"></i>
         </div>
     </section>
+
+    <!--update the user with any messages-->
+    {% if message %}
+        <div class="message-parent">
+			<h5 class="message">{{ message }}</h5>
+	    </div>
+    {% endif %}
 
     <section id="page-header" class="cart-header">
         <h2>My Cart</h2>
@@ -44,52 +50,27 @@
                     <td>IMAGE</td>
                     <td>PRODUCT</td>
                     <td>PRICE</td>
-                    <td>QUANTITY</td>
-                    <td>SUBTOTAL</td>
+<!--                    <td>QUANTITY</td>-->
+<!--                    <td>SUBTOTAL</td>-->
                 </tr>
             </thead>
             <tbody>
                 {% for i in items %}
-
                     <tr>
                         <td>
-                            <a href="#"><i class="far fa-times-circle"></i></a>
+                            <a href="/removefromcart?cart_item_id={{ items[i]['cart_item_id'] }}">
+                                <i class="far fa-times-circle"></i>
+                            </a>
                         </td>
                         <td>
                             <img src="{{ items[i]['image'] }}" alt="product" />
                         </td>
                         <td>{{ items[i]['title'] }}</td>
                         <td>{{ items[i]['price'] }}</td>
-                        <td><input type="number" value="1" /></td>
-                        <td>$1198.00</td>
+<!--                        <td><input type="number" value="1" /></td>-->
+<!--                        <td>price * quantity here</td>-->
                     </tr>
-
                 {% endfor %}
-
-<!--                <tr>-->
-<!--                    <td>-->
-<!--                        <a href="#"><i class="far fa-times-circle"></i></a>-->
-<!--                    </td>-->
-<!--                    <td>-->
-<!--                        <img src="../styles/images/products/n2.png" alt="product" />-->
-<!--                    </td>-->
-<!--                    <td>Guitar 2</td>-->
-<!--                    <td>$1198.00</td>-->
-<!--                    <td><input type="number" value="1" /></td>-->
-<!--                    <td>$1198.00</td>-->
-<!--                </tr>-->
-<!--                <tr>-->
-<!--                    <td>-->
-<!--                        <a href="#"><i class="far fa-times-circle"></i></a>-->
-<!--                    </td>-->
-<!--                    <td>-->
-<!--                        <img src="../styles/images/products/n3.png" alt="product" />-->
-<!--                    </td>-->
-<!--                    <td>Guitar 3</td>-->
-<!--                    <td>$1198.00</td>-->
-<!--                    <td><input type="number" value="1" /></td>-->
-<!--                    <td>$1198.00</td>-->
-<!--                </tr>-->
             </tbody>
         </table>
     </section>
@@ -100,7 +81,7 @@
             <table>
                 <tr>
                     <td>Cart Subtotal</td>
-                    <td>$ 3594</td>
+                    <td>{{ subtotal }}</td>
                 </tr>
                 <tr>
                     <td>Shipping</td>
@@ -111,7 +92,7 @@
                         <strong>Total</strong>
                     </td>
                     <td>
-                        <strong>$ 3594</strong>
+                        <strong>{{ subtotal }}</strong>
                     </td>
                 </tr>
             </table>

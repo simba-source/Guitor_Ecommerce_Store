@@ -16,12 +16,17 @@
 
         <div>
             <ul id="navbar">
+                <li>
+                    <form class="search" action='{{ url_for("search_product") }}' method="post">
+                        <input id="searchBox" type="text" placeholder="Search Here" name="searchQuery" class="searchInput">
+                        <input id="searchButton" type="submit" value="Search">
+                    </form>
+                </li>
                 <li><a href="../templates/index.html">Home</a></li>
                 <li><a class="active" href="../templates/shop.html">Shop</a></li>
                 <li><a href="../templates/about.html">About</a></li>
-                <li id="lg-bag">
-                    <a href="../templates/cart.html"><i class="fa-solid fa-bag-shopping"></i></a>
-                </li>
+                <li><a href="../templates/login.html">Log In</a></li>
+                <li id="lg-bag"><a href="../templates/cart.html"><i class="fa-solid fa-bag-shopping"></i></a></li>
                 <a href="#" id="close"><i class="fa-solid fa-xmark"></i></a>
             </ul>
         </div>
@@ -36,36 +41,52 @@
         <p>New, Old, Electic, Acoustic, and more!</p>
     </section>
 
-    <section id="product1" class="section-p1">
-<!--        <h2>Featured Products</h2>-->
-<!--        <p> Collection Design</p>-->
-        <div class="pro-container">
+    <!--Display active search if any-->
+    {% if active_search %}
+        <div class="message-parent">
+            <div style="text-align:center">
+			    <h4 class="active_search">Searching for "{{ active_search }}"</h4>
+            </div>
+	    </div>
+    {% endif %}
+    {% if products %}
+        <section id="product1" class="section-p1">
+    <!--        <h2>Featured Products</h2>-->
+    <!--        <p> Collection Design</p>-->
+            <div class="pro-container">
 
-<!--            <h2>{{ products[1]['title'] }}</h2>-->
-<!--            <h2>{{ products[1]['price'] }}</h2>-->
-<!--            <h2>{{ products[1]['image'] }}</h2>-->
-            {% for i in products %}
-<!--                <div class="pro" onclick="window.location.href='../templates/product.html';">-->
-                <div class="pro" onclick="window.location.href='/loadproduct?id={{ products[i]['id'] }}';">
-                    <img src="{{ products[i]['image'] }}" alt="product" />
-                    <div class="des">
-                        <span>UVM</span>
-                        <h5>{{ products[i]['title'] }}</h5>
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
+    <!--            <h2>{{ products[1]['title'] }}</h2>-->
+    <!--            <h2>{{ products[1]['price'] }}</h2>-->
+    <!--            <h2>{{ products[1]['image'] }}</h2>-->
+                {% for i in products %}
+    <!--                <div class="pro" onclick="window.location.href='../templates/product.html';">-->
+                    <div class="pro" onclick="window.location.href='/loadproduct?id={{ products[i]['id'] }}';">
+                        <img src="{{ products[i]['image'] }}" alt="product" />
+                        <div class="des">
+                            <span>UVM</span>
+                            <h5>{{ products[i]['title'] }}</h5>
+                            <div class="star">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <h4>{{ products[i]['price'] }}</h4>
                         </div>
-                        <h4>{{ products[i]['price'] }}</h4>
+                        <a href="#"><i class="fa-solid fa-cart-shopping cart"></i></a>
                     </div>
-                    <a href="#"><i class="fa-solid fa-cart-shopping cart"></i></a>
-                </div>
-            {% endfor %}
+                {% endfor %}
 
+            </div>
+        </section>
+    {% endif %}
+
+    {% if no_result %}
+        <div style="text-align:center">
+            <h3>No Results for "{{ active_search }}"</h3>
         </div>
-    </section>
+    {% endif %}
 
 <!--    <section id="pagination" class="section-p1">-->
 <!--        <a href="#">1</a>-->

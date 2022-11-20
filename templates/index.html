@@ -8,6 +8,7 @@
     <title>Guitar Store</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
     <link rel="stylesheet" href="../styles/style.css" />
+    <script src="../scripts/script.js"></script>
 </head>
 
 <body>
@@ -19,9 +20,8 @@
                 <li><a class="active" href="../templates/index.html">Home</a></li>
                 <li><a href="../templates/shop.html">Shop</a></li>
                 <li><a href="../templates/about.html">About</a></li>
-                <li id="lg-bag">
-                    <a href="../templates/cart.html"><i class="fa-solid fa-bag-shopping"></i></a>
-                </li>
+                <li><a href="../templates/login.html">Log In</a></li>
+                <li id="lg-bag"><a href="../templates/cart.html"><i class="fa-solid fa-bag-shopping"></i></a></li>
                 <a href="#" id="close"><i class="fa-solid fa-xmark"></i></a>
             </ul>
         </div>
@@ -31,7 +31,14 @@
         </div>
     </section>
 
-    <h5>{{ message }}</h5>
+    <!--update the user with any messages-->
+    {% if message %}
+        <div class="message-parent">
+            <div style="text-align:center">
+			    <h4 class="message">{{ message }}</h4>
+            </div>
+	    </div>
+    {% endif %}
 
     <section id="hero">
         <h1>Guitar Store</h1>
@@ -56,157 +63,6 @@
 <!--            This is Guitar Marketplace where you can sell and buy guitars</marquee>-->
       </div>
     </section>
-
-<!--    <section id="product1" class="section-p1">-->
-<!--        <h2>Featured Guitars</h2>-->
-<!--        &lt;!&ndash; <p> Collection Design</p> &ndash;&gt;-->
-<!--        <div class="pro-container">-->
-<!--            <div class="pro" onclick="window.location.href='../templates/product.html';">-->
-<!--                <img src="../styles/images/products/f1.png" alt="product" />-->
-<!--                <div class="des">-->
-<!--                    <span>UVM</span>-->
-<!--                    <h5>Guitar</h5>-->
-<!--                    <div class="star">-->
-<!--                        <i class="fas fa-star"></i>-->
-<!--                        <i class="fas fa-star"></i>-->
-<!--                        <i class="fas fa-star"></i>-->
-<!--                        <i class="fas fa-star"></i>-->
-<!--                        <i class="fas fa-star"></i>-->
-<!--                    </div>-->
-<!--                    <h4>$840</h4>-->
-<!--                </div>-->
-<!--                <a href="#"><i class="fa-solid fa-cart-shopping cart"></i></a>-->
-<!--            </div>-->
-<!--            <div class="pro" onclick="window.location.href='product.html';">-->
-<!--                <img src="../styles/images/products/f2.png" alt="product" />-->
-<!--                <div class="des">-->
-<!--                    <span>UVM</span>-->
-<!--                    <h5>Guitar</h5>-->
-<!--                    <div class="star">-->
-<!--                        <i class="fas fa-star"></i>-->
-<!--                        <i class="fas fa-star"></i>-->
-<!--                        <i class="fas fa-star"></i>-->
-<!--                        <i class="fas fa-star"></i>-->
-<!--                        <i class="fas fa-star"></i>-->
-<!--                    </div>-->
-<!--                    <h4>$840</h4>-->
-<!--                </div>-->
-<!--                <a href="#"><i class="fa-solid fa-cart-shopping cart"></i></a>-->
-<!--            </div>-->
-<!--            <div class="pro" onclick="window.location.href='product.html';">-->
-<!--                <img src="../styles/images/products/f3.png" alt="product" />-->
-<!--                <div class="des">-->
-<!--                    <span>UVM</span>-->
-<!--                    <h5>Guitar</h5>-->
-<!--                    <div class="star">-->
-<!--                        <i class="fas fa-star"></i>-->
-<!--                        <i class="fas fa-star"></i>-->
-<!--                        <i class="fas fa-star"></i>-->
-<!--                        <i class="fas fa-star"></i>-->
-<!--                        <i class="fas fa-star"></i>-->
-<!--                    </div>-->
-<!--                    <h4>$840</h4>-->
-<!--                </div>-->
-<!--                <a href="#"><i class="fa-solid fa-cart-shopping cart"></i></a>-->
-<!--            </div>-->
-<!--            <div class="pro" onclick="window.location.href='product.html';">-->
-<!--                <img src="https://images.unsplash.com/photo-1601956349578-c31521587860?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGd1aXRhcnxlbnwwfDF8MHx8&auto=format&fit=crop&w=800&q=60" alt="product" />-->
-<!--                <div class="des">-->
-<!--                    <span>UVM</span>-->
-<!--                    <h5>Guitar</h5>-->
-<!--                    <div class="star">-->
-<!--                        <i class="fas fa-star"></i>-->
-<!--                        <i class="fas fa-star"></i>-->
-<!--                        <i class="fas fa-star"></i>-->
-<!--                        <i class="fas fa-star"></i>-->
-<!--                        <i class="fas fa-star"></i>-->
-<!--                    </div>-->
-<!--                    <h4>$840</h4>-->
-<!--                </div>-->
-<!--                <a href="#"><i class="fa-solid fa-cart-shopping cart"></i></a>-->
-<!--            </div>-->
-<!--            <div class="pro" onclick="window.location.href='product.html';">-->
-<!--                <img src="https://images.unsplash.com/photo-1574624136404-74cc2f967ba5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="product" />-->
-<!--                <div class="des">-->
-<!--                    <span>UVM</span>-->
-<!--                    <h5>Guitar</h5>-->
-<!--                    <div class="star">-->
-<!--                        <i class="fas fa-star"></i>-->
-<!--                        <i class="fas fa-star"></i>-->
-<!--                        <i class="fas fa-star"></i>-->
-<!--                        <i class="fas fa-star"></i>-->
-<!--                        <i class="fas fa-star"></i>-->
-<!--                    </div>-->
-<!--                    <h4>$84O</h4>-->
-<!--                </div>-->
-<!--                <a href="#"><i class="fa-solid fa-cart-shopping cart"></i></a>-->
-<!--            </div>-->
-<!--            <div class="pro" onclick="window.location.href='product.html';">-->
-<!--                <img src="https://images.unsplash.com/photo-1610557607773-51db1458e1c9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80" alt="product" />-->
-<!--                <div class="des">-->
-<!--                    <span>UVM</span>-->
-<!--                    <h5>Guitar</h5>-->
-<!--                    <div class="star">-->
-<!--                        <i class="fas fa-star"></i>-->
-<!--                        <i class="fas fa-star"></i>-->
-<!--                        <i class="fas fa-star"></i>-->
-<!--                        <i class="fas fa-star"></i>-->
-<!--                        <i class="fas fa-star"></i>-->
-<!--                    </div>-->
-<!--                    <h4>$840</h4>-->
-<!--                </div>-->
-<!--                <a href="#"><i class="fa-solid fa-cart-shopping cart"></i></a>-->
-<!--            </div>-->
-<!--            <div class="pro" onclick="window.location.href='product.html';">-->
-<!--                <img src="https://images.unsplash.com/photo-1586188463084-733582b26240?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="product" />-->
-<!--                <div class="des">-->
-<!--                    <span>UVM</span>-->
-<!--                    <h5>Guitar</h5>-->
-<!--                    <div class="star">-->
-<!--                        <i class="fas fa-star"></i>-->
-<!--                        <i class="fas fa-star"></i>-->
-<!--                        <i class="fas fa-star"></i>-->
-<!--                        <i class="fas fa-star"></i>-->
-<!--                        <i class="fas fa-star"></i>-->
-<!--                    </div>-->
-<!--                    <h4>$840</h4>-->
-<!--                </div>-->
-<!--                <a href="#"><i class="fa-solid fa-cart-shopping cart"></i></a>-->
-<!--            </div>-->
-<!--            <div class="pro" onclick="window.location.href='product.html';">-->
-<!--                <img src="https://images.unsplash.com/photo-1601956349578-c31521587860?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="product" />-->
-<!--                <div class="des">-->
-<!--                    <span>UVM</span>-->
-<!--                    <h5>Guitar</h5>-->
-<!--                    <div class="star">-->
-<!--                        <i class="fas fa-star"></i>-->
-<!--                        <i class="fas fa-star"></i>-->
-<!--                        <i class="fas fa-star"></i>-->
-<!--                        <i class="fas fa-star"></i>-->
-<!--                        <i class="fas fa-star"></i>-->
-<!--                    </div>-->
-<!--                    <h4>$840</h4>-->
-<!--                </div>-->
-<!--                <a href="#"><i class="fa-solid fa-cart-shopping cart"></i></a>-->
-<!--            </div>-->
-<!--            <div class="pro" onclick="window.location.href='product.html';">-->
-<!--                <img src="https://images.unsplash.com/photo-1540281772389-9c107ba8c7c9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=677&q=80" alt="product" />-->
-<!--                <div class="des">-->
-<!--                    <span>UVM</span>-->
-<!--                    <h5>Guitar</h5>-->
-<!--                    <div class="star">-->
-<!--                        <i class="fas fa-star"></i>-->
-<!--                        <i class="fas fa-star"></i>-->
-<!--                        <i class="fas fa-star"></i>-->
-<!--                        <i class="fas fa-star"></i>-->
-<!--                        <i class="fas fa-star"></i>-->
-<!--                    </div>-->
-<!--                    <h4>$840</h4>-->
-<!--                </div>-->
-<!--                <a href="#"><i class="fa-solid fa-cart-shopping cart"></i></a>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </section>-->
 
     <footer class="section-p1">
         <div class="copyright">
