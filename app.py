@@ -189,6 +189,61 @@ def shop():
 
     return render_template('shop.html', products=products_dictionary)
 
+@app.route('/search', methods=['GET', 'POST'])
+def search_product():
+    if request.method == "POST":
+        # getting input from name tag HTML form
+        search_query = request.form.get("searchQuery")
+
+        # initialize mysql cursor
+        cur = mysql.get_db().cursor()
+
+        try:
+            # query for all guitar names
+            cur.execute("SELECT Name FROM GUITAR")
+            product_names = cur.fetchall()
+
+            #save all product names to a list
+            guitar_names_list = []
+            for name in product_names:
+                guitar_names_list.append(name[0])
+
+            # use python find method to find all guitar names with substring of search_query
+            guitar_names_list_found = []
+            for name in guitar_names_list:
+                if name.find(search_query) != -1: #find() returns -1 if value is not found
+                    guitar_names_list_found.append(name)
+
+            if not guitar_names_list_found:
+                # no guitars match search
+                error_message = "There are no guitars that match your search."
+                return render_template('index.html', message=error_message)
+            else:
+                # search found at least one guitar - display relevant product(s)
+                # cur.execute("SELECT ID, Name, Price, Picture FROM GUITAR WHERE Name = %s", (found_search_query))
+                # products = cur.fetchall()
+                # print(products)
+
+                # nested dictionary. Outer for each product, inner for products' keys and values
+                products_dictionary = {}
+                item_index = 1
+                i = 0
+                for elem in products:
+                    products_dictionary.update({
+                        item_index: {'id': products[i][0], 'title': products[i][1], 'price': products[i][2],
+                                     'image': products[i][3]}
+                    })
+                    item_index += 1
+                    i += 1
+
+                return render_template('shop.html', products=products_dictionary)
+
+        except:
+            error_message = "Invalid Search. "
+            print(error_message)
+            return render_template('index.html', message=error_message)
+
+    return render_template('index.html')
 
 @app.route('/loadproduct', methods=['GET', 'POST'])
 def load_product_page():
