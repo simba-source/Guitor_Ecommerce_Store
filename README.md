@@ -1,5 +1,5 @@
 # Retro Guitars
-## Endpoint: [Retro Guitars](https://retro-guitars.herokuapp.com/)
+### Endpoint: [Retro Guitars](https://retro-guitars.herokuapp.com/)
 ## Authors: 
 #### Aidan Brown, Nikhil Choppa, Max Perrotto, Christian Rhodes
 
