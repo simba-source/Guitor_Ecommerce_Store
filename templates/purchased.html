@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guitar Store</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+    <link rel="stylesheet" href="../styles/style.css" />
+    <link rel="stylesheet" href="../styles/purchased.css" />
+    <script src="../scripts/script.js"></script>
+    <script src="../scripts/purchased.js"></script>
+</head>
+
+<body>
+    <section id="header">
+        <a href="../templates/index.html"><img src="../styles/images/logo.gif" alt="logo" class="logo" /></a>
+
+        <div>
+            <ul id="navbar">
+                <li>
+                <form class="search">
+                    <input id="searchBox" type="text" placeholder="Search Here" name="searchQuery" class="searchInput">
+                    <input id="searchButton" type="submit" value="Search">
+                </form></li>
+                <li><a class="active" href="../templates/index.html">Home</a></li>
+                <li><a href="../templates/shop.html">Shop</a></li>
+                <li><a href="../templates/about.html">About</a></li>
+                <li><a href="../templates/login.html">Log In</a></li>
+                <li id="lg-bag"><a href="../templates/cart.html"><i class="fa-solid fa-bag-shopping"></i></a></li>
+                <a href="#" id="close"><i class="fa-solid fa-xmark"></i></a>
+            </ul>
+        </div>
+        <div id="mobile">
+            <a href="../templates/cart.html"><i class="fa-solid fa-bag-shopping"></i></a>
+            <i id="bar" class="fas fa-outdent"></i>
+        </div>
+    </section>
+    <section class="bg-title-page p-t-40 p-b-50 flex-col-c-m">
+		<h2 class="l-text2 t-center">
+			Checkout
+		</h2>
+	</section>
+<form action="/createOrder?total={{totalsum}}" method="POST" onsubmit="return validate()">
+<div class="form-group">
+
+
+<div class="row">
+  <div class="col-75">
+    <div class="container">
+      <form action="/action_page.php">
+
+        <div class="row">
+          <div class="col-50">
+            <h3>Billing Address</h3>
+            <label for="fname"><i class="fa fa-user"></i> Full Name</label>
+            <input type="text" id="fname" name="FullName" placeholder="John M. Doe" required>
+            <label for="email"><i class="fa fa-envelope"></i> Email</label>
+            <input type="email" id="email" name="email" placeholder="john@example.com" required>
+            <label ><i class="fa "></i> Mobile Operator</label>
+            <div class="icon-container">
+
+            <input type="radio"  name="provider" value="Tmobile" required><i class="fa "></i> TMobile
+            <input type="radio"  name="provider" value="ATT" required><i class="fa "></i> AT&T
+            </div>
+            <label for="phone"><i class="fa "></i> Phone</label>
+            <input type="text" id="phone" name="phone" placeholder="000-000-0000" required>
+
+            <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
+            <input type="text" id="adr" name="address" placeholder="542 W. 15th Street" required>
+
+            <!--<input type="text" id="city" name="city" placeholder="New York" required>-->
+            <select id="countySel" name="country" size="1" required>
+              <option value="" selected="selected">-- Select Country --</option>
+            </select>
+            <div class="row">
+              <div class="col-50">
+                <label >State</label>
+                <select select id="stateSel" name="state" size="1" required>
+                 <option value="" selected="selected">-- Select State--</option>
+                  </select>
+              </div>
+              <div class="col-50">
+                <label for="citySel"><i class="fa fa-institution"></i> City</label>
+
+             <select id="citySel" name="city" size="1" required>
+                <option value="" selected="selected">-- Select City--</option>
+             </select>
+                </div>
+
+            </div>
+              <label for="zipSel">Zip</label>
+                <select id="zipSel" name="zipcode" size="1" required>
+                  <option value="" selected="selected">-- Select Zip--</option>
+                </select>
+
+          </div>
+
+          <div class="col-50">
+            <h3>Payment</h3>
+            <label for="fname">Accepted Cards</label>
+            <div class="icon-container">
+                <input type="radio" name="cardtype" value="visa" required>
+              <i class="fa fa-cc-visa" style="color:navy;"></i>
+                <input type="radio" name="cardtype" value="amex" required>
+              <i class="fa fa-cc-amex" style="color:blue;"></i>
+                <input type="radio" name="cardtype" value="mastercard" required>
+              <i class="fa fa-cc-mastercard" style="color:red;"></i>
+                <input type="radio" name="cardtype" value="discover" required>
+              <i class="fa fa-cc-discover" style="color:orange;"></i>
+            </div>
+            <label for="cname">Name on Card</label>
+            <input type="text" id="cname" name="cardname" placeholder="John More Doe" required>
+            <label for="ccnum">Credit card number</label>
+            <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444" required>
+            <label for="expmonth">Exp Month</label>
+
+              <select id="expmonth" name="expmonth">
+                <option value="January">January</option>
+                <option value="Feburary">Feburary</option>
+                <option value="March">March</option>
+                <option value="April">April</option>
+                <option value="May">May</option>
+                <option value="June">June</option>
+                <option value="July">July</option>
+                <option value="August">August</option>
+                <option value="September">September</option>
+                <option value="October">October</option>
+                <option value="November">November</option>
+                <option value="December">December</option>
+                </select>
+
+            <div class="row">
+              <div class="col-50">
+                <label for="expyear">Exp Year</label>
+                <select id="expyear" name="expyear">
+                <option value="2018">2018</option>
+                <option value="2019">2019</option>
+                <option value="2020">2020</option>
+                <option value="2021">2021</option>
+                <option value="2022">2022</option>
+                <option value="2023">2023</option>
+                <option value="2021">2024</option>
+                <option value="2022">2025</option>
+                <option value="2023">2026</option>
+                </select>
+              </div>
+              <div class="col-50">
+                <label for="cvv">CVV</label>
+                <input type="text" id="cvv" name="cvv" placeholder="352" required>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <label>
+          <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
+        </label>
+        <input type="submit" name="makepayment" value="Make Payment" class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4" onclick="window.location.href='../templates/order_placed.html';">
+      </form>
+    </div>
+  </div>
+
+  <div class="col-25">
+    <div class="container">
+      <h4>Cart
+        <span class="price" style="color:black">
+          <i class="fa fa-shopping-cart"></i>
+          <b></b>
+        </span>
+      </h4>
+      {% for row in cartData %}
+        <p>{{row[2]}} <span style="padding-left: 25px;">  x {{row[4]}} </span><span class="price"> ${{row[6]}}</span></p>
+      {% endfor %}
+      <hr>
+      <p>Total <span class="price" style="color:black"><b> $ {{totalsum}}</b></span></p>
+    </div>
+  </div>
+</div>
+</div>
+</form>
+
+   <footer class="section-p1">
+        <div class="copyright">
+            <p>© 2022, UVM CS205 Team-7</p>
+        </div>
+    </footer>
+
+    <script src="../scripts/script.js"></script>
+</body>
+
+</html>
