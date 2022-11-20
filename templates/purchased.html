@@ -34,7 +34,7 @@
     </section>
     <section class="bg-title-page p-t-40 p-b-50 flex-col-c-m">
 		<div style="text-align:center">
-			<h2>Checkout</h2>
+			<h2 style="margin-top: 1rem">Checkout</h2>
 		</div>
 	</section>
 <form action="/createOrder?total={{ subtotal }}" method="POST" onsubmit="return validate()">
@@ -130,6 +130,7 @@
       </form>
     </div>
   </div>
+</div>
 
   <section id="cart-add" class="section-p1">
         <div id="subtotal">
@@ -137,7 +138,7 @@
             <table>
                 <tr>
                     <td>Cart Subtotal</td>
-                    <td>{{ subtotal }}</td>
+                    <td>{{ price }}</td>
                 </tr>
                 <tr>
                     <td>Shipping</td>
@@ -148,14 +149,13 @@
                         <strong>Total</strong>
                     </td>
                     <td>
-                        <strong>{{ subtotal }}</strong>
+                        <strong>{{ price }}</strong>
                     </td>
                 </tr>
             </table>
             <button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4" onclick="window.location.href='../templates/order_placed.html';">Make Payment</button>
         </div>
     </section>
-</div>
 </div>
 </form>
 
