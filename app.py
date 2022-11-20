@@ -214,31 +214,30 @@ def search_product():
                 if name.find(search_query) != -1: #find() returns -1 if value is not found
                     guitar_names_list_found.append(name)
 
+            # nested dictionary. Outer for each product, inner for products' keys and values
+            products_dictionary = {}
+            item_index = 1
+
             if not guitar_names_list_found:
                 # no guitars match search
-                error_message = "There are no guitars that match your search."
-                return render_template('index.html', message=error_message)
+                empty_result = "No results found for your search. Please try again or browse all products. "
+                return render_template('shop.html', products=products_dictionary, active_search=search_query, no_result=empty_result)
             else:
                 # search found at least one guitar - display relevant product(s)
-
-                # nested dictionary. Outer for each product, inner for products' keys and values
-                products_dictionary = {}
-                item_index = 1
                 for guitar_name in guitar_names_list_found:
                     cur.execute("SELECT ID, Name, Price, Picture FROM GUITAR WHERE Name = %s", (guitar_name))
                     current_guitar_info = cur.fetchall()
 
                     products_dictionary.update({
-                        item_index: {'id': current_guitar_info[0][0], 'title': current_guitar_info[0][1], 'price': current_guitar_info[0][2],
-                                     'image': current_guitar_info[0][3]}
+                        item_index: {'id': current_guitar_info[0][0], 'title': current_guitar_info[0][1],
+                                     'price': current_guitar_info[0][2], 'image': current_guitar_info[0][3]}
                     })
                     item_index += 1
 
-                return render_template('shop.html', products=products_dictionary)
+                return render_template('shop.html', products=products_dictionary, active_search=search_query)
 
         except:
             error_message = "Invalid Search. "
-            print(error_message)
             return render_template('index.html', message=error_message)
 
     return render_template('index.html')

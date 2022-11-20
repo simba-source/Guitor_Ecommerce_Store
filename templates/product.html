@@ -15,6 +15,12 @@
 
         <div>
             <ul id="navbar">
+                <li>
+                    <form class="search" action='{{ url_for("search_product") }}' method="post">
+                        <input id="searchBox" type="text" placeholder="Search Here" name="searchQuery" class="searchInput">
+                        <input id="searchButton" type="submit" value="Search">
+                    </form>
+                </li>
                 <li><a href="../templates/index.html">Home</a></li>
                 <li><a class="active" href="../templates/shop.html">Shop</a></li>
                 <li><a href="../templates/about.html">About</a></li>
