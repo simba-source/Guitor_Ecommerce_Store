@@ -418,26 +418,6 @@ def final_purchase():
 @app.route('/purchased', methods=['GET', 'POST'])
 def purchased():
     price = request.args.get('price')
-    print(price)
-
-    # # initialize mysql cursor
-    # cur = mysql.get_db().cursor()
-    #
-    # # query to check if any items are in user's cart before rendering purchased page
-    # cur.execute("SELECT Item_ID, CART_ITEM.ID FROM CART_ITEM JOIN CART ON CART.ID = CART_ID WHERE CART.User_ID = %s",
-    #             (active_user.id))
-    #
-    # has_cart_item = cur.fetchone()
-    #
-    # if has_cart_item:
-    #     # at least one item in cart
-    #     return render_template('order_placed.html')
-    #
-    # else:
-    #     # no items in cart
-    #     error_message = "No Items in Cart"
-    #     return render_template('cart.html', message=error_message)
-
 
     return render_template('purchased.html', price=price)
 
