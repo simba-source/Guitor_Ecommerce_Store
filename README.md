@@ -35,5 +35,25 @@ The site is able to:
 - Github
 - Heroku
 
+## How to start in your LocalHost?
+```
+1. Clone the repository
+      git clone https://gitlab.uvm.edu/Nikhilsai-Reddy.Choppa/cs205-final-project-group-7.git
+      cd  cs205-final-project-group-7
+
+2. Create and activate a virtual environment
+      virtualenv env 
+      source env/bin/activate
+   
+3. Install requirements:-
+      pip install -r requirements.txt
+    
+4. Run the application
+      python app.py
+      
+5. Open http://127.0.0.1.5000./
+
+```
+
 ## Citations
 - [Guitar Center](https://www.guitarcenter.com/) for product descriptions and images
