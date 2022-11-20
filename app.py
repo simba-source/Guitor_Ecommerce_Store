@@ -11,6 +11,7 @@ app.config['MYSQL_DATABASE_DB'] = 'mktdata'
 mysql = MySQL(app)
 mysql.init_app(app)
 
+rand_list = []   #for id generation
 
 # User class to store information about active user
 class User:
@@ -22,7 +23,7 @@ class User:
 # create global instance of class for client
 active_user = User(False, None)
 
-
+#initialize data in DB
 def data():
     cur = mysql.get_db().cursor()
     cur.execute("DROP TABLE CART_ITEM")
@@ -57,13 +58,13 @@ def data():
     mysql.get_db().commit()
     cur.close()
 
-
+#login page
 @app.route('/login', methods=['GET', 'POST'])
 @app.route('/templates/login.html', methods=['GET', 'POST'])
 def login():
     return render_template('login.html')
 
-
+#check login function
 @app.route('/checklogin', methods=['GET', 'POST'])
 def checklogin():
     # query for username and password from USERS
@@ -100,13 +101,13 @@ def checklogin():
 
     return render_template('login.html')
 
-
+#register page
 @app.route('/register', methods=['GET', 'POST'])
 @app.route('/templates/register.html', methods=['GET', 'POST'])
 def register():
     return render_template('register.html')
 
-
+#register user
 @app.route('/registeruser', methods=['GET', 'POST'])
 def registeruser():
     if request.method == "POST":
@@ -157,7 +158,7 @@ def registeruser():
     # if it does exist
     return render_template('index.html')
 
-
+#origin page
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/templates/index.html', methods=['GET', 'POST'])
 def origin():
@@ -189,6 +190,7 @@ def shop():
 
     return render_template('shop.html', products=products_dictionary)
 
+#search for product
 @app.route('/search', methods=['GET', 'POST'])
 def search_product():
     if request.method == "POST":
@@ -242,6 +244,7 @@ def search_product():
 
     return render_template('index.html')
 
+#load product page
 @app.route('/loadproduct', methods=['GET', 'POST'])
 def load_product_page():
     product_id = request.args.get('id')
@@ -255,13 +258,13 @@ def load_product_page():
 
     return render_template('product.html', product=product_dictionary)
 
-
+#product page
 @app.route('/product', methods=['GET', 'POST'])
 @app.route('/templates/product.html', methods=['GET', 'POST'])
 def product():
     return render_template('product.html')
 
-
+#cart functionality
 @app.route('/cart', methods=['GET', 'POST'])
 @app.route('/templates/cart.html', methods=['GET', 'POST'])
 def cart():
@@ -307,7 +310,7 @@ def cart():
 
     return render_template('cart.html', items=cart_items_dictionary, subtotal=total_price)
 
-
+#add item to cart
 @app.route('/addtocart', methods=['GET', 'POST'])
 def add_to_cart():
     product_id = request.args.get('product_id')
@@ -340,8 +343,7 @@ def add_to_cart():
 
     # cart exists - add item to cart
     else:
-        # generate new id
-        rand_list = []
+
         final_id2 = random.randint(0, 100000000)
         if final_id2 in rand_list:
             final_id2 = random.randint(0, 100000000)
@@ -361,7 +363,7 @@ def add_to_cart():
     added_to_cart_message = "Item has been added to cart. "
     return render_template('index.html', message=added_to_cart_message)
 
-
+#remove item from cart function
 @app.route('/removefromcart', methods=['GET', 'POST'])
 def remove_from_cart():
     # get product id from url param
@@ -383,13 +385,13 @@ def remove_from_cart():
 
     return render_template('cart.html', message=removed_successfully_message)
 
-
+#about page
 @app.route('/templates/about.html', methods=['GET', 'POST'])
 @app.route('/about', methods=['GET', 'POST'])
 def about():
     return render_template('about.html')
 
-
+#purchase page
 @app.route('/templates/order_placed.html', methods=['GET', 'POST'])
 def purchase():
     # initialize mysql cursor
@@ -410,12 +412,12 @@ def purchase():
         error_message = "No Items in Cart"
         return render_template('cart.html', message=error_message)
 
-
+#purchased page
 @app.route('/product.html', methods=['GET', 'POST'])
 def product2():
     return render_template('purchased.html')
 
-
+#for testing
 @app.route('/query', methods=['GET', 'POST'])
 def query():
     cur = mysql.get_db().cursor()
