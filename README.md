@@ -13,17 +13,15 @@ Users on this site are able to:
 
 - Create a new account with username and password
 - View our selected sample of guitars
-- Create, add to, and remove from a cart
+- Add to and remove from a cart
+- Search for specific products
 
 The site is able to:
 
 - Make users log in before purchasing anything or creating a cart
+- Create a checkout page with a total and subtotal
 
 ## Prerequisites
-- Python 3.10
-- Flask
-- MySQL
-- Flask & MySQL extension
 - Internet Connection
 
 ## Utilizes
@@ -34,7 +32,28 @@ The site is able to:
 - CSS
 - Amazon Web Services
 - Gitlab
+- Github
 - Heroku
+
+## How to start in your LocalHost?
+```
+1. Clone the repository
+      git clone https://gitlab.uvm.edu/Nikhilsai-Reddy.Choppa/cs205-final-project-group-7.git
+      cd  cs205-final-project-group-7
+
+2. Create and activate a virtual environment
+      virtualenv env 
+      source env/bin/activate
+   
+3. Install requirements:-
+      pip install -r requirements.txt
+    
+4. Run the application
+      python app.py
+      
+5. Open http://127.0.0.1.5000./
+
+```
 
 ## Citations
 - [Guitar Center](https://www.guitarcenter.com/) for product descriptions and images
