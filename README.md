@@ -24,6 +24,9 @@ The site is able to:
 ## Prerequisites
 - Internet Connection
 
+## Running Locally
+Refer to [Requirements](requirements.txt)
+
 ## Utilizes
 - Python
 - Flask
