@@ -45,7 +45,8 @@ Refer to [Requirements](requirements.txt)
       cd  cs205-final-project-group-7
 
 2. Create and activate a virtual environment
-      virtualenv env 
+      pip install virtualenv
+      python -m venv env
       source env/bin/activate
    
 3. Install requirements:-
