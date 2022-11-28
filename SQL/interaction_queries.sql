@@ -31,13 +31,6 @@ UPDATE USER
 SET Balance = Balance - (SELECT Price FROM GUITAR WHERE ID = /* the guitar's 7-digit ID */)
 WHERE ID = /* the user's 10-digit ID */;
 
-INSERT INTO PURCHASE VALUES (
-/* a generated 15-digit id */, 
-/* the user's 10-digit id */, 
-/* the user's updated balance (current - price of guitar),
-/* the guitar's 7-digit id */, 
-GETDATE());
-
 -- change an account's username or password
 UPDATE USER
 SET Username = /* the new username */
@@ -47,11 +40,6 @@ WHERE ID = /* the user's 10-digit ID */;
 UPDATE USER
 SET Password = /* the new password */
 WHERE ID = /* the user's 10-digit ID */;
-
--- view a user's purchases (could be done in a specific view)
-SELECT p.ID, p.Buy_date, g.Name, g.Price, p.User_balance
-FROM PURCHASE p, GUITAR g 
-WHERE p.User_ID = /* the user's id */;
 
 -- add a product as a vendor
 INSERT INTO GUITAR VALUES (
