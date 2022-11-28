@@ -368,8 +368,6 @@ def add_to_cart():
 def remove_from_cart():
     # get product id from url param
     cart_item_id = request.args.get('cart_item_id')
-    print("cart id follows (from removefromcart)")
-    print(cart_item_id)
 
     # initialize mysql cursor
     cur = mysql.get_db().cursor()
@@ -381,9 +379,11 @@ def remove_from_cart():
     mysql.get_db().commit()
 
     removed_successfully_message = "Item has been removed from cart. "
-    print(removed_successfully_message)
+    #print(removed_successfully_message)
 
-    return render_template('cart.html', message=removed_successfully_message)
+    #because this is a POST, we want to use redirect
+    return redirect('cart')
+    #return render_template('cart.html', message=removed_successfully_message)
 
 #about page
 @app.route('/templates/about.html', methods=['GET', 'POST'])
