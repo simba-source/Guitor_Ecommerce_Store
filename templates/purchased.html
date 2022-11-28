@@ -37,7 +37,7 @@
 			<h2 style="margin-top: 1rem">Checkout</h2>
 		</div>
 	</section>
-<form action="/createOrder?total={{ subtotal }}" method="POST" onsubmit="return validate()">
+<form action='../templates/order_placed.html' method="POST" onsubmit="return validate()">
 <div class="form-group">
 
 
@@ -105,15 +105,14 @@
               <div class="col-50">
                 <label for="expyear">Exp Year</label>
                 <select id="expyear" name="expyear">
-                <option value="2018">2018</option>
-                <option value="2019">2019</option>
-                <option value="2020">2020</option>
-                <option value="2021">2021</option>
-                <option value="2022">2022</option>
                 <option value="2023">2023</option>
                 <option value="2021">2024</option>
                 <option value="2022">2025</option>
                 <option value="2023">2026</option>
+                <option value="2023">2027</option>
+                <option value="2023">2028</option>
+                <option value="2023">2029</option>
+                <option value="2023">2030</option>
                 </select>
               </div>
               <div class="col-50">
@@ -127,6 +126,7 @@
         <label>
           <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
         </label>
+          <input type="submit" name="makepayment" value="Make Payment" class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4" href='../templates/order_placed.html'>
       </form>
     </div>
   </div>
@@ -153,7 +153,6 @@
                     </td>
                 </tr>
             </table>
-            <button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4" onclick="window.location.href='../templates/order_placed.html';">Make Payment</button>
         </div>
     </section>
 </div>
