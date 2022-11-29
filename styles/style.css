@@ -415,6 +415,28 @@ footer .copyright {
     text-align: center;
 }
 
+.row h3 {
+    padding: 1rem 0 1rem 0;
+}
+
+.section-checkout {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.checkout-column {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;
+}
+
+.checkout-column p {
+    margin: 2rem;
+}
+
 
 /*----------------------- Shop Page ----------------------- */
 
@@ -843,6 +865,15 @@ footer .copyright {
     padding: 8.5px 18px;
 }
 
+.subtotal-form .subtotal-button {
+    background-color: #088178;
+    color: #fff;
+    border: 2px solid transparent;
+    transition: .3s;
+    padding: 8.5px 18px;
+    margin-top: 1rem;
+}
+
 #coupon button:hover,
 #subtotal button:hover {
     background-color: #fff;
@@ -1118,7 +1149,7 @@ footer .copyright {
     #form-details .people div:first-of-type {
         padding-top: 30px;
     }
-    /* Kart-Page */
+    /* Cart-Page */
     #cart-add {
         flex-direction: column;
     }

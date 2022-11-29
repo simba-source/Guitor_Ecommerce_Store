@@ -37,13 +37,42 @@
 			<h2 style="margin-top: 1rem">Checkout</h2>
 		</div>
 	</section>
+
+    <section id="cart-add-1" class="section-checkout">
+        <div id="checkout-info" class="checkout-column">
+            <p>All Fields must be filled in. Please do not enter real information. No inputs will be saved. </p>
+        </div>
+        <div id="subtotal" class="checkout-column">
+            <h3>Cart Total</h3>
+            <table>
+                <tr>
+                    <td>Cart Subtotal</td>
+                    <td>{{ price }}</td>
+                </tr>
+                <tr>
+                    <td>Shipping</td>
+                    <td>Free</td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Total</strong>
+                    </td>
+                    <td>
+                        <strong>{{ price }}</strong>
+                    </td>
+                </tr>
+            </table>
+<!--            <button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4" onclick="window.location.href='../templates/order_placed.html';">Simulate Payment</button>-->
+        </div>
+    </section>
+
 <form action='../templates/order_placed.html' method="POST" onsubmit="return validate()">
 <div class="form-group">
 
 
 <div class="row">
   <div class="col-75">
-    <div class="container">
+    <div class="container subtotal-form">
       <form>
 
         <div class="row">
@@ -88,7 +117,7 @@
 
               <select id="expmonth" name="expmonth">
                 <option value="January">January</option>
-                <option value="Feburary">Feburary</option>
+                <option value="February">February</option>
                 <option value="March">March</option>
                 <option value="April">April</option>
                 <option value="May">May</option>
@@ -126,35 +155,13 @@
         <label>
           <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
         </label>
-          <input type="submit" name="makepayment" value="Make Payment" class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4" href='../templates/order_placed.html'>
+          <input type="submit" name="makepayment" value="Simulate Payment" class="subtotal-button" href='../templates/order_placed.html'>
       </form>
     </div>
   </div>
 </div>
 
-  <section id="cart-add" class="section-p1">
-        <div id="subtotal">
-            <h3>Cart Total</h3>
-            <table>
-                <tr>
-                    <td>Cart Subtotal</td>
-                    <td>{{ price }}</td>
-                </tr>
-                <tr>
-                    <td>Shipping</td>
-                    <td>Free</td>
-                </tr>
-                <tr>
-                    <td>
-                        <strong>Total</strong>
-                    </td>
-                    <td>
-                        <strong>{{ price }}</strong>
-                    </td>
-                </tr>
-            </table>
-        </div>
-    </section>
+
 </div>
 </form>
 
